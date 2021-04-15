@@ -8,7 +8,10 @@ import net.serenitybdd.core.steps.Instrumented;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
+import net.serenitybdd.screenplay.actions.Enter;
+import net.serenitybdd.screenplay.actions.EnterValue;
 import net.serenitybdd.screenplay.actions.SendKeys;
+import net.serenitybdd.screenplay.actions.type.TypeValue;
 import net.serenitybdd.screenplay.conditions.Check;
 import org.openqa.selenium.Keys;
 
@@ -24,17 +27,15 @@ public class RegisterAsAFrequentFlyer {
                 Navigate.toTheRegistrationPage(),
 
                 // Complete the registration form
-                SendKeys.of(memberDetails.getEmail()).into(EMAIL),
-                SendKeys.of(memberDetails.getPassword()).into(PASSWORD),
-                SendKeys.of(memberDetails.getFirstName()).into(FIRSTNAME),
-                SendKeys.of(memberDetails.getLastName()).into(LASTNAME),
-                SendKeys.of(memberDetails.getAddress()).into(ADDRESS),
-                SendKeys.of(memberDetails.getCountry()).into(COUNTRY).thenHit(Keys.TAB),
+                Enter.theValue(memberDetails.getEmail()).into(EMAIL),
+                Enter.theValue(memberDetails.getPassword()).into(PASSWORD),
+                Enter.theValue(memberDetails.getFirstName()).into(FIRSTNAME),
+                Enter.theValue(memberDetails.getLastName()).into(LASTNAME),
+                Enter.theValue(memberDetails.getAddress()).into(ADDRESS),
+                Enter.theValue(memberDetails.getCountry()).into(COUNTRY).thenHit(Keys.TAB),
                 SelectFromDropdown.locatedBy(TITLE).selectingOption(memberDetails.getTitle()),
                 Click.on(SEAT_PREFERENCE.of(memberDetails.getSeatPreference())),
-                Check.whether(memberDetails.agreesToTermsAndConditions()).andIfSo(
-                        Click.on(TERMS_AND_CONDITIONS)
-                ),
+                UpdateTermsAndConditions.basedOn(memberDetails.agreesToTermsAndConditions()),
 
                 // Submit the registration
                 Click.on(REGISTER)

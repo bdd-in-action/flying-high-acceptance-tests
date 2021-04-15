@@ -1,4 +1,3 @@
-@current
 Business Need: Authentication
 
   Registered Frequent Flyer members can access their account using their email and password

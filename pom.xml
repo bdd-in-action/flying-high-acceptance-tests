@@ -10,9 +10,9 @@
 
     <properties>
         <java.version>12</java.version>
-        <serenity.version>2.4.2</serenity.version>
-        <serenity.maven.version>2.4.2</serenity.maven.version>
-        <serenity.cucumber.version>2.4.1</serenity.cucumber.version>
+        <serenity.version>2.4.4-SNAPSHOT</serenity.version>
+        <serenity.maven.version>2.4.4-SNAPSHOT</serenity.maven.version>
+        <serenity.cucumber.version>2.4.2</serenity.cucumber.version>
         <encoding>UTF-8</encoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -141,5 +141,27 @@
             </plugin>
         </plugins>
     </build>
-
+<profiles>
+    <!--
+    Use the reports profile to generate a Serenity report with comprehensive screenshots for each step.
+    -->
+    <profile>
+        <id>reports</id>
+        <build>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-failsafe-plugin</artifactId>
+                    <version>3.0.0-M5</version>
+                    <configuration>
+                        <systemPropertyVariables>
+                            <serenity.logging>quiet</serenity.logging>
+                            <serenity.take.screenshots>BEFORE_AND_AFTER_EACH_STEP</serenity.take.screenshots>
+                        </systemPropertyVariables>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </build>
+    </profile>
+</profiles>
 </project>

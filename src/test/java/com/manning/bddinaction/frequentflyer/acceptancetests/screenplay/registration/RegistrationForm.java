@@ -4,7 +4,7 @@ import net.serenitybdd.screenplay.Question;
 import net.serenitybdd.screenplay.questions.Text;
 import net.serenitybdd.screenplay.targets.Target;
 
-import java.util.List;
+import java.util.Collection;
 
 public class RegistrationForm {
     public static final Target EMAIL = Target.the("Email field").locatedBy("#email");
@@ -19,9 +19,9 @@ public class RegistrationForm {
     public static final Target REGISTER = Target.the("Register button").locatedBy("//button[.='Register']");
     public static final Target FORM_ERROR_MESSAGES = Target.the("Error messages").locatedBy("css:mat-error");
 
-    public static Question<List<String>> errorMessages() {
+    public static Question<Collection<String>> errorMessages() {
         return Question.about("error messages")
-                       .answeredBy(Text.of(FORM_ERROR_MESSAGES).asAList());
+                       .answeredBy(Text.of(FORM_ERROR_MESSAGES).asACollection());
     }
 
     public static final Target ERROR_NOTIFICATION_MESSAGE = Target.the("Error message").locatedBy(".toast-error");

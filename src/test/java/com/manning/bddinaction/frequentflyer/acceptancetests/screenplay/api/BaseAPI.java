@@ -10,6 +10,4 @@ public class BaseAPI {
         String apiBaseUrl = EnvironmentSpecificConfiguration.from(environmentVariables).getProperty("api.base.url");
         return apiBaseUrl + path;
     }
-
-
 }

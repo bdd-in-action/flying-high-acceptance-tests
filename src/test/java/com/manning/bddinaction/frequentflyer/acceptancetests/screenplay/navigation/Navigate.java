@@ -5,6 +5,9 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Open;
 
+/**
+ * Navigate to different parts of the application via the main navigation bar
+ */
 public class Navigate {
     public static Performable toTheLoginPage() {
         return Task.where("{0} goes to the login page",
@@ -15,7 +18,8 @@ public class Navigate {
 
     public static Performable toTheRegistrationPage() {
         return Task.where("{0} goes to the login page",
-                Open.browserOn().thePageNamed("pages.registration")
+                Open.browserOn().thePageNamed("pages.home"),
+                Click.on(MenuBar.REGISTER)
         );
     }
 
