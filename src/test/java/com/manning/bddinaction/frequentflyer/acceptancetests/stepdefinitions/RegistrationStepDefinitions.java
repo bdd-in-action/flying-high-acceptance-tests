@@ -7,22 +7,24 @@ import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.myaccoun
 import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.navigation.Navigate;
 import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.registration.RegisterAsAFrequentFlyer;
 import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.registration.RegistrationForm;
+import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.ux.Acknowledge;
+import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.ux.Notification;
 import io.cucumber.java.ParameterType;
 import io.cucumber.java.en.But;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import net.serenitybdd.screenplay.*;
+import net.serenitybdd.screenplay.Actor;
+import net.serenitybdd.screenplay.Iterate;
 import net.serenitybdd.screenplay.actions.Clear;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.type.Type;
+import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.ensure.Ensure;
 import net.serenitybdd.screenplay.waits.WaitUntil;
-import org.hamcrest.Matcher;
 
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
@@ -50,11 +52,6 @@ public class RegistrationStepDefinitions {
         theActorCalled(traveller.getFirstName()).describedAs("A new Frequent Flyer");
     }
 
-    @Given("{traveller} is a Frequent Flyer member with the following details:")
-    public void existingFrequentFlyer(Traveller traveller, Map<String, String> frequentFlyerDetails) {
-
-    }
-
     @When("{actor} registers as a Frequent Flyer member")
     public void registersAsAFrequentFlyerMember(Actor traveller) {
         traveller.attemptsTo(
@@ -62,12 +59,16 @@ public class RegistrationStepDefinitions {
         );
     }
 
+    @Given("{traveller} is a Frequent Flyer member with the following details:")
+    public void existingFrequentFlyer(Traveller traveller, Map<String, String> frequentFlyerDetails) {
+
+    }
+
     @Then("{actor} should be able to log on to the Frequent Flyer application")
     public void shouldBeAbleToLoginAs(Actor member) {
         member.attemptsTo(
                 Login.as(newMember),
-                WaitUntil.the(Login.SUCCESS_MESSAGE, isVisible()),
-                Ensure.that(Login.SUCCESS_MESSAGE).hasTextContent("Logged in as " + newMember.getEmail())
+                Acknowledge.successMessageOf("Logged in as " + newMember.getEmail())
         );
     }
 
@@ -76,9 +77,7 @@ public class RegistrationStepDefinitions {
     public void loginAs(Actor actor) {
         actor.attemptsTo(
                 Login.as(newMember),
-                WaitUntil.the(Login.SUCCESS_MESSAGE, isVisible()),
-                Click.on(Login.SUCCESS_MESSAGE),
-                WaitUntil.the(Login.SUCCESS_MESSAGE, isNotVisible())
+                Acknowledge.success()
         );
     }
 
@@ -112,7 +111,7 @@ public class RegistrationStepDefinitions {
                                         Type.theValue(row.get("Email")).into(RegistrationForm.EMAIL),
                                         Click.on(RegistrationForm.REGISTER),
                                         WaitUntil.the(RegistrationForm.FORM_ERROR_MESSAGES, isVisible()),
-                                        Ensure.thatTheAnswersTo(RegistrationForm.errorMessages()).contains(row.get("Message"))
+                                        Ensure.that(RegistrationForm.FORM_ERROR_MESSAGES).textValues().contains(row.get("Message"))
                                 )
                 )
         );
@@ -121,13 +120,17 @@ public class RegistrationStepDefinitions {
 
     @Then("the following information should be mandatory to register:")
     public void mandatoryFields(List<Map<String, String>> mandatoryFields) {
+
         Ensure.enableSoftAssertions();
         theActorInTheSpotlight().attemptsTo(
                 Iterate.over(mandatoryFields).forEach(
                         (actor, row) -> actor.attemptsTo(
-                                RegisterAsAFrequentFlyer.withMemberDetailsFrom(newMember.withEmptyValueFor(row.get("Field"))),
+                                RegisterAsAFrequentFlyer.withMemberDetailsFrom(
+                                        newMember.withEmptyValueFor(row.get("Field"))
+                                ),
                                 WaitUntil.the(RegistrationForm.FORM_ERROR_MESSAGES, isVisible()),
-                                Ensure.thatTheAnswersTo(RegistrationForm.errorMessages()).contains(row.get("Error Message If Missing"))
+                                Ensure.that(RegistrationForm.FORM_ERROR_MESSAGES).textValues()
+                                        .contains(row.get("Error Message If Missing"))
                         )
                 )
         );
@@ -163,8 +166,8 @@ public class RegistrationStepDefinitions {
 
     @Then("{actor} should be told {string}")
     public void shouldBeTold(Actor actor, String errorMessage) {
-        actor.should(
-                seeThat(RegistrationForm.errorMessages(), hasItem(errorMessage))
+        actor.attemptsTo(
+                Ensure.that(RegistrationForm.FORM_ERROR_MESSAGES).textValues().contains(errorMessage)
         );
     }
 
@@ -187,11 +190,10 @@ public class RegistrationStepDefinitions {
 
     @But("she doesn't provide a value for {word}")
     public void sheDoesnTProvideAValueForField(String field) {
-            theActorInTheSpotlight().attemptsTo(
-                    RegisterAsAFrequentFlyer.withMemberDetailsFrom(
-                            newMember.withEmptyValueFor(field)
-                    )
-            );
-
+        theActorInTheSpotlight().attemptsTo(
+                RegisterAsAFrequentFlyer.withMemberDetailsFrom(
+                        newMember.withEmptyValueFor(field)
+                )
+        );
     }
 }

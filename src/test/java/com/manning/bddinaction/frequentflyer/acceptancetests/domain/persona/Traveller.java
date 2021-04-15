@@ -79,12 +79,11 @@ public class Traveller {
         return new Traveller(email, password, title, firstName, lastName, address, country, seatPreference, newsletterSub, false);
     }
 
-    public Traveller withEmptyValueFor(String field) {
+    public Traveller withEmptyValueFor(String fieldName) {
         Traveller travellerWithMissingField = new Traveller(email, password, title, firstName, lastName, address, country, seatPreference, newsletterSub, agreesToTermsAndConditions);
-        ;
 
         try {
-            Field emptyField = Traveller.class.getDeclaredField(field);
+            Field emptyField = Traveller.class.getDeclaredField(fieldName);
             emptyField.set(travellerWithMissingField, "");
         } catch (NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();

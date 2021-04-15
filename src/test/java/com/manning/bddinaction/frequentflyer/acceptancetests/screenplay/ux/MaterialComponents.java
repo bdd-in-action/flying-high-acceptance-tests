@@ -1,4 +1,4 @@
-package com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.material;
+package com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.ux;
 
 import net.serenitybdd.screenplay.targets.Target;
 

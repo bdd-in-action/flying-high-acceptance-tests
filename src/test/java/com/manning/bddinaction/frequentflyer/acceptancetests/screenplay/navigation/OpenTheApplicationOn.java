@@ -14,19 +14,19 @@ public class OpenTheApplicationOn {
         );
     }
 
-    public static Performable toMyAccount() {
+    public static Performable theMyAccountPage() {
         return Task.where("{0} goes to the My Accounts page",
                 Open.browserOn().thePageNamed("pages.my.accounts")
         );
     }
 
-    public static Performable toMyBookings() {
+    public static Performable theMyBookingsPage() {
         return Task.where("{0} goes to the My Bookings page",
                 Open.browserOn().thePageNamed("pages.my.bookings")
         );
     }
 
-    public static Performable toBookFlights() {
+    public static Performable theBookFlightsPage() {
         return Task.where("{0} goes to the Book Flights page",
                 Open.browserOn().thePageNamed("pages.search")
         );

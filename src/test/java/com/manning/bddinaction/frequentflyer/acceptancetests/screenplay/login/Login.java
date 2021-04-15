@@ -17,6 +17,4 @@ public class Login {
                 Click.on(LoginForm.LOGIN_BUTTON)
         );
     }
-
-    public static final Target SUCCESS_MESSAGE = Target.the("Success message").locatedBy(".toast-success");
 }

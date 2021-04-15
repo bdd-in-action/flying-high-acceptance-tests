@@ -40,26 +40,8 @@ Business Need: Registering as a new Frequent Flyer
         |              | Please enter your email  | Cannot be empty    |
 
   Rule: New members need to complete all the mandatory fields and approve the terms & conditions
-    Scenario Outline: : Candy fails to enter to enter a mandatory field
-      Given Candy does not have a Frequent Flyer account
-      When Candy wants to register a new Frequent Flyer account
-      But she doesn't provide a value for <Field>
-      Then she should be told "<Error Message If Missing>"
-      Examples:
-        | Field     | Error Message If Missing     |
-        | email     | Please enter your email      |
-        | password  | Please enter your password   |
-        | firstName | Please enter your first name |
-        | lastName  | Please enter your last name  |
-        | address   | Please enter your address    |
-        | country   | Please enter a valid country |
-
-    Example: Candy forgets to agree to the Terms and Conditions
-      Given Candy does not have a Frequent Flyer account
-      When Candy tries to register without approving the terms and conditions
-      Then she should be told "Please confirm the terms and conditions to continue"
-
-    Example: Candy forgets to enter a mandatory field
+    @current
+    Scenario: Candy fails to enter to enter a mandatory field
       Given Candy does not have a Frequent Flyer account
       When Candy wants to register a new Frequent Flyer account
       Then the following information should be mandatory to register:
@@ -70,4 +52,21 @@ Business Need: Registering as a new Frequent Flyer
         | lastName  | Please enter your last name  |
         | address   | Please enter your address    |
         | country   | Please enter a valid country |
+
+
+
+
+
+
+
+
+
+
+
+
+    Example: Candy forgets to agree to the Terms and Conditions
+      Given Candy does not have a Frequent Flyer account
+      When Candy tries to register without approving the terms and conditions
+      Then she should be told "Please confirm the terms and conditions to continue"
+
 

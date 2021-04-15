@@ -2,17 +2,13 @@ package com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.registr
 
 
 import com.manning.bddinaction.frequentflyer.acceptancetests.domain.persona.Traveller;
-import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.material.SelectFromDropdown;
-import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.navigation.Navigate;
+import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.ux.SelectFromDropdown;
+import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.navigation.OpenTheApplicationOn;
 import net.serenitybdd.core.steps.Instrumented;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
-import net.serenitybdd.screenplay.actions.EnterValue;
-import net.serenitybdd.screenplay.actions.SendKeys;
-import net.serenitybdd.screenplay.actions.type.TypeValue;
-import net.serenitybdd.screenplay.conditions.Check;
 import org.openqa.selenium.Keys;
 
 import static com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.registration.RegistrationForm.*;
@@ -24,7 +20,7 @@ public class RegisterAsAFrequentFlyer {
     public static Performable withMemberDetailsFrom(Traveller memberDetails) {
         return Task.where("{0} registers for a new Frequent Flyer account with email " + memberDetails.getEmail(),
                 // Open the registraton page
-                Navigate.toTheRegistrationPage(),
+                OpenTheApplicationOn.theRegistrationPage(),
 
                 // Complete the registration form
                 Enter.theValue(memberDetails.getEmail()).into(EMAIL),
