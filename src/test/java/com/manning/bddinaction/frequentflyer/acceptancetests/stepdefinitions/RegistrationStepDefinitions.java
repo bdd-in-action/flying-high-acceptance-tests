@@ -8,7 +8,6 @@ import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.navigati
 import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.registration.RegisterAsAFrequentFlyer;
 import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.registration.RegistrationForm;
 import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.ux.Acknowledge;
-import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.ux.Notification;
 import io.cucumber.java.ParameterType;
 import io.cucumber.java.en.But;
 import io.cucumber.java.en.Given;
@@ -19,19 +18,15 @@ import net.serenitybdd.screenplay.Iterate;
 import net.serenitybdd.screenplay.actions.Clear;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.type.Type;
-import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.ensure.Ensure;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
 import java.util.List;
 import java.util.Map;
 
-import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
-import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isNotVisible;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
-import static org.hamcrest.Matchers.hasItem;
 
 public class RegistrationStepDefinitions {
 
@@ -87,7 +82,9 @@ public class RegistrationStepDefinitions {
         String expectedStatusLevel = expectedStatus.get("Status Level");
         actor.attemptsTo(
                 Navigate.toMyAccount(),
-                Ensure.that(MyAccount.POINT_BALANCE).text().isEqualTo(expectedPoints),
+                Ensure.that(MyAccount.POINT_BALANCE).text().isEqualTo(expectedPoints)
+        );
+        actor.attemptsTo(
                 Ensure.that(MyAccount.STATUS_LEVEL).text().isEqualTo(expectedStatusLevel)
         );
     }
