@@ -82,9 +82,7 @@ public class RegistrationStepDefinitions {
         String expectedStatusLevel = expectedStatus.get("Status Level");
         actor.attemptsTo(
                 Navigate.toMyAccount(),
-                Ensure.that(MyAccount.POINT_BALANCE).text().isEqualTo(expectedPoints)
-        );
-        actor.attemptsTo(
+                Ensure.that(MyAccount.POINT_BALANCE).text().isEqualTo(expectedPoints),
                 Ensure.that(MyAccount.STATUS_LEVEL).text().isEqualTo(expectedStatusLevel)
         );
     }
