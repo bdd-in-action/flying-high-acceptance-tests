@@ -8,7 +8,6 @@ import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.navigati
 import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.registration.RegisterAsAFrequentFlyer;
 import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.registration.RegistrationForm;
 import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.ux.Acknowledge;
-import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.ux.Notification;
 import io.cucumber.java.ParameterType;
 import io.cucumber.java.en.But;
 import io.cucumber.java.en.Given;
@@ -196,4 +195,5 @@ public class RegistrationStepDefinitions {
                 )
         );
     }
+
 }

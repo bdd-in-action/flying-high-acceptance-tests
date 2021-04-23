@@ -53,17 +53,6 @@ Business Need: Registering as a new Frequent Flyer
         | address   | Please enter your address    |
         | country   | Please enter a valid country |
 
-
-
-
-
-
-
-
-
-
-
-
     Example: Candy forgets to agree to the Terms and Conditions
       Given Candy does not have a Frequent Flyer account
       When Candy tries to register without approving the terms and conditions
