@@ -7,7 +7,6 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
         features = "classpath:features",
-//        tags="@current"
         tags="not @pending"
 )
 public class AcceptanceTestSuite {}
