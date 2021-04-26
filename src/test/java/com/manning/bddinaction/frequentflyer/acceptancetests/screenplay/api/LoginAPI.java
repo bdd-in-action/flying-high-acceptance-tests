@@ -2,8 +2,12 @@ package com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.api;
 
 import com.google.common.collect.ImmutableMap;
 import io.restassured.RestAssured;
+import net.serenitybdd.core.environment.EnvironmentSpecificConfiguration;
+import net.thucydides.core.util.EnvironmentVariables;
 
-public class LoginAPI extends BaseAPI {
+public class LoginAPI {
+
+    protected EnvironmentVariables environmentVariables;
 
     private String adminUser = "admin@flyinghigh.com";
     private String adminPassword = "admin";
@@ -20,4 +24,10 @@ public class LoginAPI extends BaseAPI {
 
         return authToken;
     }
+
+    protected String endpointUrlFor(String path) {
+        String apiBaseUrl = EnvironmentSpecificConfiguration.from(environmentVariables).getProperty("api.base.url");
+        return apiBaseUrl + path;
+    }
+
 }

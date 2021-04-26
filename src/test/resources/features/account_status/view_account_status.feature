@@ -4,9 +4,10 @@ Business Need: View account status
   in the My Accounts section of the site
 
   Rule: Frequent Flyer members can view their status in the My Accounts section
+@current
     Example: Trevor has just joined the program
       Given Trevor has registered as a Frequent Flyer member
       When he logs on to the Frequent Flyer application
-      Then he should have a Frequent Flyer account with:
-        | Status Level | STANDARD |
-        | Points       | 0        |
+      Then his account status should have:
+        | Point Balance | Status Level |
+        | 0             | STANDARD     |

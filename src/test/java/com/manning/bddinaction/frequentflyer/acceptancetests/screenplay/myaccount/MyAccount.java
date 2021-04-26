@@ -1,8 +1,36 @@
 package com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.myaccount;
 
-import net.serenitybdd.screenplay.targets.Target;
+import com.manning.bddinaction.frequentflyer.acceptancetests.domain.FlightBooking;
+import com.manning.bddinaction.frequentflyer.acceptancetests.domain.UserLevel;
+import net.serenitybdd.screenplay.Question;
+import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
+import net.serenitybdd.screenplay.questions.Text;
+
+import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class MyAccount {
-    public static final Target POINT_BALANCE = Target.the("Point balance").locatedBy("[test-dataid='point-balance']");
-    public static final Target STATUS_LEVEL = Target.the("Status level").locatedBy("[test-dataid='status-level']");
+
+    public static Question<UserLevel> statusLevel() {
+        return Text.of(StatusPanel.STATUS_LEVEL).asEnum(UserLevel.class);
+    }
+
+    public static Question<Integer> pointBalance() {
+        return Text.of(StatusPanel.POINT_BALANCE).asInteger();
+    }
+
+    public static Question<List<FlightBooking>> flightHistory() {
+        return Question.about("the flight history").answeredBy(
+                actor -> BrowseTheWeb.as(actor).findAll(FlightHistoryPanel.BOOKINGS).stream()
+                        .map(
+                                row -> new FlightBooking(
+                                        row.find(FlightHistoryPanel.DEPARTURE).getText(),
+                                        row.find(FlightHistoryPanel.DESTINATION).getText(),
+                                        Integer.parseInt(row.find(FlightHistoryPanel.POINTS_EARNED).getText())
+                                )
+                        ).collect(Collectors.toList())
+        );
+    }
+
 }

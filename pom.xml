@@ -6,16 +6,16 @@
     <artifactId>flying-high</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>flying-high</name>
-    <description>BDD In Action Chapter 7 - sample application</description>
+    <description>Flying High Frequent Flyer</description>
 
     <properties>
-        <java.version>12</java.version>
-        <serenity.version>2.4.4</serenity.version>
-        <serenity.maven.version>2.4.4</serenity.maven.version>
+        <java.version>15</java.version>
+        <serenity.version>2.4.20</serenity.version>
+        <serenity.maven.version>2.4.20</serenity.maven.version>
         <serenity.cucumber.version>2.4.2</serenity.cucumber.version>
         <encoding>UTF-8</encoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>15</maven.compiler.source>
+        <maven.compiler.target>15</maven.compiler.target>
         <slf4j.version>1.7.30</slf4j.version>
     </properties>
 
@@ -94,11 +94,13 @@
                 <artifactId>maven-failsafe-plugin</artifactId>
                 <version>3.0.0-M5</version>
                 <configuration>
+                    <argLine>--enable-preview</argLine>
                     <includes>
                         <include>**/acceptancetests/*.java</include>
                     </includes>
                     <parallel>methods</parallel>
-                    <useUnlimitedThreads>true</useUnlimitedThreads>
+<threadCount>4</threadCount>
+<!--                    <useUnlimitedThreads>true</useUnlimitedThreads>-->
                 </configuration>
                 <executions>
                     <execution>
@@ -118,7 +120,7 @@
             <plugin>
                 <groupId>net.serenity-bdd.maven.plugins</groupId>
                 <artifactId>serenity-maven-plugin</artifactId>
-                <version>${serenity.maven.version}</version>
+                <version>${serenity.version}</version>
                 <configuration>
                     <reports>single-page-html</reports>
                 </configuration>
@@ -138,6 +140,17 @@
                         <version>${serenity.version}</version>
                     </dependency>
                 </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>15</source>
+                    <target>15</target>
+                    <compilerArgs>
+                        <arg>--enable-preview</arg>
+                    </compilerArgs>
+                </configuration>
             </plugin>
         </plugins>
     </build>

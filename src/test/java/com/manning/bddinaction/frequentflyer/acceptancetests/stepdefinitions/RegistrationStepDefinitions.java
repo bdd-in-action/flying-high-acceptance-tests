@@ -4,6 +4,7 @@ import com.manning.bddinaction.frequentflyer.acceptancetests.domain.persona.Trav
 import com.manning.bddinaction.frequentflyer.acceptancetests.domain.persona.TravellerPersona;
 import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.login.Login;
 import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.myaccount.MyAccount;
+import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.myaccount.StatusPanel;
 import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.navigation.Navigate;
 import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.registration.RegisterAsAFrequentFlyer;
 import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.registration.RegistrationForm;
@@ -77,17 +78,6 @@ public class RegistrationStepDefinitions {
         actor.attemptsTo(
                 Login.as(newMember),
                 Acknowledge.success()
-        );
-    }
-
-    @Then("{actor} should have a Frequent Flyer account with:")
-    public void aNewFrequentFlyerMemberAccountShouldBeCreatedWith(Actor actor, Map<String, String> expectedStatus) {
-        String expectedPoints = expectedStatus.get("Points");
-        String expectedStatusLevel = expectedStatus.get("Status Level");
-        actor.attemptsTo(
-                Navigate.toMyAccount(),
-                Ensure.that(MyAccount.POINT_BALANCE).text().isEqualTo(expectedPoints),
-                Ensure.that(MyAccount.STATUS_LEVEL).text().isEqualTo(expectedStatusLevel)
         );
     }
 

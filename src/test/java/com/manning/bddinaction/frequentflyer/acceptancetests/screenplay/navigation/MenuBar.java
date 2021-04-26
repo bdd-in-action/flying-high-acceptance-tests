@@ -8,4 +8,5 @@ class MenuBar {
     static final Target LOGIN_BUTTON = BUTTON.of("Login");
     static final Target MY_ACCOUNT = BUTTON.of("My Account");
     static final Target REGISTER = BUTTON.of("Register");
+    static final Target BOOK_FLIGHTS = BUTTON.of("Book Flights");
 }

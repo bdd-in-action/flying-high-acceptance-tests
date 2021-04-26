@@ -1,9 +1,12 @@
 package com.manning.bddinaction.frequentflyer.acceptancetests.domain.persona;
 
+import com.manning.bddinaction.frequentflyer.acceptancetests.domain.UserLevel;
+
 import java.lang.reflect.Field;
-import java.util.UUID;
+import java.util.Random;
 
 public class Traveller {
+    private String userId;
     private String email;
     private String password;
     private String title;
@@ -14,6 +17,8 @@ public class Traveller {
     private String seatPreference;
     private Boolean newsletterSub;
     private Boolean agreesToTermsAndConditions;
+    private Integer points;
+    private String userLevel;
 
     public Traveller(String email, String password, String title, String firstName, String lastName, String address, String country, String seatPreference, Boolean newsletterSub, Boolean agreesToTermsAndConditions) {
         this.email = email;
@@ -30,7 +35,7 @@ public class Traveller {
 
     public Traveller withAUniqueEmailAddress() {
         return new Traveller(
-                this.email.replace("@", "_" + UUID.randomUUID() + "@"),
+                this.email.replace("@", "" + new Random().nextInt() + "@"),
                 password, title, firstName, lastName, address, country, seatPreference, newsletterSub, agreesToTermsAndConditions
         );
     }
@@ -71,6 +76,18 @@ public class Traveller {
         return newsletterSub;
     }
 
+    public String getUserId() {
+        return userId;
+    }
+
+    public Integer getPoints() {
+        return points;
+    }
+
+    public UserLevel getUserLevel() {
+        return UserLevel.valueOf(userLevel.toUpperCase());
+    }
+
     public Traveller withEmail(String email) {
         return new Traveller(email, password, title, firstName, lastName, address, country, seatPreference, newsletterSub, agreesToTermsAndConditions);
     }
@@ -91,8 +108,25 @@ public class Traveller {
         return travellerWithMissingField;
     }
 
+    public Traveller withId(String userId) {
+        this.userId = userId;
+        return this;
+    }
+
+    public Traveller withPoints(int points) {
+        this.points = points;
+        return this;
+    }
+
+    public Traveller withLevel(UserLevel userLevel) {
+        this.userLevel = userLevel.name();
+        return this;
+    }
+
+
 
     public boolean agreesToTermsAndConditions() {
         return agreesToTermsAndConditions;
     }
+
 }
