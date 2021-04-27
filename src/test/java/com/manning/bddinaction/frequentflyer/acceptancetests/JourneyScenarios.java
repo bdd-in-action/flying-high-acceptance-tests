@@ -7,8 +7,6 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
         features = "classpath:features",
-        tags="not @pending"
-//tags="@journey-scenario"
-//        tags="@current"
+        tags="@journey-scenario"
 )
-public class AcceptanceTestSuite {}
+public class JourneyScenarios {}

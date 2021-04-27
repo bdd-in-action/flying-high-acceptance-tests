@@ -3,7 +3,6 @@ package com.manning.bddinaction.frequentflyer.acceptancetests.stepdefinitions;
 import com.manning.bddinaction.frequentflyer.acceptancetests.domain.persona.Traveller;
 import com.manning.bddinaction.frequentflyer.acceptancetests.domain.persona.TravellerPersona;
 import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.login.Login;
-import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.myaccount.MyAccount;
 import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.navigation.Navigate;
 import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.registration.RegisterAsAFrequentFlyer;
 import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.registration.RegistrationForm;
@@ -54,11 +53,6 @@ public class RegistrationStepDefinitions {
         );
     }
 
-    @Given("{traveller} is a Frequent Flyer member with the following details:")
-    public void existingFrequentFlyer(Traveller traveller, Map<String, String> frequentFlyerDetails) {
-
-    }
-
     @Then("{actor} should be able to log on to the Frequent Flyer application")
     public void shouldBeAbleToLoginAs(Actor member) {
         member.attemptsTo(
@@ -67,23 +61,11 @@ public class RegistrationStepDefinitions {
         );
     }
 
-
     @Then("{actor} logs on to the Frequent Flyer application")
     public void loginAs(Actor actor) {
         actor.attemptsTo(
                 Login.as(newMember),
                 Acknowledge.success()
-        );
-    }
-
-    @Then("{actor} should have a Frequent Flyer account with:")
-    public void aNewFrequentFlyerMemberAccountShouldBeCreatedWith(Actor actor, Map<String, String> expectedStatus) {
-        String expectedPoints = expectedStatus.get("Points");
-        String expectedStatusLevel = expectedStatus.get("Status Level");
-        actor.attemptsTo(
-                Navigate.toMyAccount(),
-                Ensure.that(MyAccount.POINT_BALANCE).text().isEqualTo(expectedPoints),
-                Ensure.that(MyAccount.STATUS_LEVEL).text().isEqualTo(expectedStatusLevel)
         );
     }
 
@@ -191,4 +173,5 @@ public class RegistrationStepDefinitions {
                 )
         );
     }
+
 }

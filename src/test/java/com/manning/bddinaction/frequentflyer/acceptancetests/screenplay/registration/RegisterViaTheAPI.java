@@ -1,7 +1,6 @@
 package com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.registration;
 
 import com.manning.bddinaction.frequentflyer.acceptancetests.domain.persona.Traveller;
-import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.api.LoginAPI;
 import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.api.UserAPI;
 import net.serenitybdd.markers.IsSilent;
 import net.serenitybdd.screenplay.Actor;
@@ -11,6 +10,7 @@ import net.thucydides.core.annotations.Steps;
 /**
  * Create a new user via the API.
  * We wrap a simple Rest Assured call in a Performable, as we are using the API to setup test data, not testing the API itself.
+ * The actor remembers the user details as CURRENT_USER
  */
 public class RegisterViaTheAPI implements Performable, IsSilent {
     private Traveller memberDetails;
@@ -20,18 +20,13 @@ public class RegisterViaTheAPI implements Performable, IsSilent {
         return this;
     }
 
-    /**
-     * This class provides methods to obtain the auth token needed to perform API operations
-     */
     @Steps
-    private LoginAPI loginAPI;
 
-    @Steps
     private UserAPI userAPI;
 
     @Override
     public <T extends Actor> void performAs(T actor) {
-        String authToken = loginAPI.getAuthToken();
-        userAPI.createNewUser(authToken, memberDetails);
+        String userId = userAPI.createNewUser(memberDetails);
+        actor.remember("CURRENT_USER",memberDetails.withId(userId));
     }
 }

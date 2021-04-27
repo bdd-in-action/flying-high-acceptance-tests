@@ -1,3 +1,4 @@
+@current
 Business Need: Registering as a new Frequent Flyer
 
   New Frequent Flyer members need to register to book a flight.
@@ -40,7 +41,6 @@ Business Need: Registering as a new Frequent Flyer
         |              | Please enter your email  | Cannot be empty    |
 
   Rule: New members need to complete all the mandatory fields and approve the terms & conditions
-    @current
     Scenario: Candy fails to enter to enter a mandatory field
       Given Candy does not have a Frequent Flyer account
       When Candy wants to register a new Frequent Flyer account
@@ -52,17 +52,6 @@ Business Need: Registering as a new Frequent Flyer
         | lastName  | Please enter your last name  |
         | address   | Please enter your address    |
         | country   | Please enter a valid country |
-
-
-
-
-
-
-
-
-
-
-
 
     Example: Candy forgets to agree to the Terms and Conditions
       Given Candy does not have a Frequent Flyer account

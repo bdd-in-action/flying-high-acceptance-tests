@@ -31,6 +31,12 @@ public class Navigate {
         );
     }
 
+    public static Performable toBookFlights() {
+        return Task.where("{0} goes to the Book FLights page",
+                Open.browserOn().thePageNamed("pages.home"),
+                Click.on(MenuBar.BOOK_FLIGHTS)
+        );
+    }
     public static Performable toMyAccount() {
         return Task.where("{0} goes to the My Accounts page",
                 Click.on(MenuBar.MY_ACCOUNT),
