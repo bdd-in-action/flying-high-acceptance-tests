@@ -52,16 +52,16 @@ public class EarningPointsStepDefinitions {
     @DataTableType
     public FlightSearch flightSearch(Map<String,String> flight) {
         return new FlightSearch(flight.get("From"),
-                flight.get("To"),
-                TravelClass.withLabel(flight.get("Travel Class")),
-                flight.get("Trip Type").equalsIgnoreCase("Return"));
+                                flight.get("To"),
+                                TravelClass.withLabel(flight.get("Travel Class")),
+                                flight.get("Trip Type").equalsIgnoreCase("Return"));
     }
 
     @DataTableType
     public FlightBooking flightBooking(Map<String,String> flight) {
         return new FlightBooking(flight.get("Departure"),
-                flight.get("Destination"),
-                Integer.parseInt(flight.get("Points Earned")));
+                                 flight.get("Destination"),
+                                 Integer.parseInt(flight.get("Points Earned")));
     }
 
     @Steps
@@ -134,7 +134,8 @@ public class EarningPointsStepDefinitions {
     public void hisBookingHistoryShouldContain(List<FlightBooking> flightHistory) {
         theActorInTheSpotlight().attemptsTo(
             Navigate.toMyAccount(),
-            Ensure.thatTheListOf(MyAccount.flightHistory()).containsExactlyElementsFrom(flightHistory)
+            Ensure.thatTheListOf(MyAccount.flightHistory())
+                  .containsExactlyElementsFrom(flightHistory)
         );
     }
 

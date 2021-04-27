@@ -99,8 +99,7 @@
                         <include>**/acceptancetests/*.java</include>
                     </includes>
                     <parallel>methods</parallel>
-<threadCount>4</threadCount>
-<!--                    <useUnlimitedThreads>true</useUnlimitedThreads>-->
+                    <useUnlimitedThreads>true</useUnlimitedThreads>
                 </configuration>
                 <executions>
                     <execution>
