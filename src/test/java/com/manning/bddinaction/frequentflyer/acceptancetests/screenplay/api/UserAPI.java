@@ -29,10 +29,18 @@ public class UserAPI extends AuthenticatedAPI {
                 .pathParam("userId", traveller.getUserId())
                 .get(endpointUrlFor("/users/{userId}/reset-points"));
 
-        return withAuthentication()
+        withAuthentication()
                 .pathParam("userId", traveller.getUserId())
                 .queryParam("points", points)
-                .get(endpointUrlFor("/users/{userId}/earn-points"))
+                .get(endpointUrlFor("/users/{userId}/earn-points"));
+
+        return findUserById(traveller.getUserId());
+    }
+
+    public Traveller findUserById(String userId) {
+        return withAuthentication()
+                .queryParam("userId", userId)
+                .get(endpointUrlFor("/users/id"))
                 .andReturn().body().as(Traveller.class);
     }
 }

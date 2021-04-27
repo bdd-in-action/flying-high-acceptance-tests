@@ -104,12 +104,16 @@ public class EarningPointsStepDefinitions {
         assertThat(bookedFlight.pointsEarned()).isEqualTo(expectedPoints);
     }
 
-    @Then("his point balance should be {int} points")
+    @Then("his/her point balance should be {int} points")
     public void shouldEarnPoints(int expectedPoints) {
-        OnStage.theActorInTheSpotlight().attemptsTo(
-                Navigate.toMyAccount(),
-                Ensure.thatTheAnswerTo(MyAccount.pointBalance()).isEqualTo(expectedPoints)
-        );
+        Traveller traveller = theActorInTheSpotlight().recall("CURRENT_USER");
+        int pointBalance = userAPI.findUserById(traveller.getUserId()).getPoints();
+        assertThat(pointBalance).isEqualTo(expectedPoints);
+//
+//        theActorInTheSpotlight().attemptsTo(
+//                Navigate.toMyAccount(),
+//                Ensure.thatTheAnswerTo(MyAccount.pointBalance()).isEqualTo(expectedPoints)
+//        );
     }
 
     @When("{actor} books the following flights:")

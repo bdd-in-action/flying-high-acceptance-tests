@@ -12,6 +12,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.serenitybdd.screenplay.Actor;
+import net.serenitybdd.screenplay.RememberThat;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -72,13 +73,14 @@ public class AuthenticationStepDefinitions {
     }
 
     @Given("{actor} has logged onto the Frequent Flyer application as a new member")
-    public void shouldBeAbleToLoginAsANewMember(Actor member) {
+    public void loginAsANewMember(Actor member) {
+        Traveller traveller = TravellerPersona.withName(member.getName()).withAUniqueEmailAddress();
         member.attemptsTo(
-                RegisterAsAFrequentFlyer.viaTheAPI().withMemberDetailsFrom(
-                        TravellerPersona.withName(member.getName()).withAUniqueEmailAddress()
-                ),
-                Login.asTheCurrentUser()
+                RegisterAsAFrequentFlyer.viaTheAPI().withMemberDetailsFrom(traveller),
+                Login.as(traveller),
+                RememberThat.theValueOf("CURRENT_USER").is(traveller)
         );
+        System.out.println("CURRENT USER: " + traveller.getEmail());
     }
 
     @When("{actor} has logged onto the Frequent Flyer application")

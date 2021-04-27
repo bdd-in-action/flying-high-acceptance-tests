@@ -3,8 +3,6 @@ package com.manning.bddinaction.frequentflyer.acceptancetests.stepdefinitions;
 import com.manning.bddinaction.frequentflyer.acceptancetests.domain.persona.Traveller;
 import com.manning.bddinaction.frequentflyer.acceptancetests.domain.persona.TravellerPersona;
 import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.login.Login;
-import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.myaccount.MyAccount;
-import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.myaccount.StatusPanel;
 import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.navigation.Navigate;
 import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.registration.RegisterAsAFrequentFlyer;
 import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.registration.RegistrationForm;
@@ -19,19 +17,15 @@ import net.serenitybdd.screenplay.Iterate;
 import net.serenitybdd.screenplay.actions.Clear;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.type.Type;
-import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.ensure.Ensure;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
 import java.util.List;
 import java.util.Map;
 
-import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
-import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isNotVisible;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
-import static org.hamcrest.Matchers.hasItem;
 
 public class RegistrationStepDefinitions {
 
@@ -59,11 +53,6 @@ public class RegistrationStepDefinitions {
         );
     }
 
-    @Given("{traveller} is a Frequent Flyer member with the following details:")
-    public void existingFrequentFlyer(Traveller traveller, Map<String, String> frequentFlyerDetails) {
-
-    }
-
     @Then("{actor} should be able to log on to the Frequent Flyer application")
     public void shouldBeAbleToLoginAs(Actor member) {
         member.attemptsTo(
@@ -71,7 +60,6 @@ public class RegistrationStepDefinitions {
                 Acknowledge.successMessageOf("Logged in as " + newMember.getEmail())
         );
     }
-
 
     @Then("{actor} logs on to the Frequent Flyer application")
     public void loginAs(Actor actor) {

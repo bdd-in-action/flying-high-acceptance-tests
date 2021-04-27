@@ -7,6 +7,6 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
         features = "classpath:features",
-        tags="@journey-scenarios"
+        tags="@journey-scenario"
 )
 public class JourneyScenarios {}
