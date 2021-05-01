@@ -19,7 +19,6 @@ public class RegistrationForm {
     public static final Target TERMS_AND_CONDITIONS = Target.the("Terms and conditions").locatedBy("#terms");
     public static final Target REGISTER = Target.the("Register button").locatedBy("//button[.='Register']");
     public static final Target FORM_ERROR_MESSAGES = Target.the("Error messages").locatedBy("css:mat-error");
-
     public static final Target ERROR_NOTIFICATION_MESSAGE = Target.the("Error message").locatedBy(".toast-error");
 
 }

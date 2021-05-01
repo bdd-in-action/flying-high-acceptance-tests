@@ -23,7 +23,6 @@ Feature: Earning Points
       | 1125          | BRONZE       |
 
   Rule: Members achieve new status levels when they earn sufficient points
-    @current
     Scenario Outline: Earning status levels from points earned for status level <Status Level>
       Given Stan is a new Frequent Flyer Member
       When he earns between <Min Points> and <Max Points> points

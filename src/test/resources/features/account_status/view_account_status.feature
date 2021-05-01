@@ -1,4 +1,3 @@
-@current
 Business Need: View account status
 
   Frequent Flyer members can view the points they have earned and their current status level

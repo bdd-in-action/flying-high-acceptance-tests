@@ -1,54 +1,54 @@
-<input formcontrolname="email" id="email"
-       data-testid="email" class="mat-input-element">
+<app-booking _nghost-dhb-c125="" class="ng-star-inserted">
+    <div class="container">
+        <div class="card ng-star-inserted"><p>Order number: wF6T8cdB</p>
+            <small>2021-04-27, 7:30 PM</small>
+            <p>Departure: Sydney</p><small>2021-04-28, 5:46 PM</small>
+            <p>Arrival: London </p>
+            <p>Class: Economy</p></div>
+        <div class="card ng-star-inserted"><p>Order number: KFCNKSkw</p>
+            <small>2021-04-27, 11:42 PM</small>
+            <p>Departure: London</p><small>2021-04-28, 11:40 AM</small>
+            <p>Arrival: Los Angeles </p>
+            <p>Class: Business</p></div>
+        <div class="card ng-star-inserted"><p>Order number: n8XQeDT5</p>
+            <small>2021-04-30, 12:43 PM</small>
+            <p>Departure: Los Angeles</p><small>2021-05-01, 12:41
+                AM</small>
+            <p>Arrival: London </p>
+            <p>Class: Business</p></div>
+    </div>
+</app-booking>
 
-<input type="password" formcontrolname="password" id="password"
-       data-testid="password" class="mat-input-element">
-
-<div class="mat-select-panel-wrap">
-    <mat-option role="option" value="Mr" class="mat-option">
-        <span class="mat-option-text">Mr</span>
-    </mat-option>
-    ...
-</div>
-
-<input formcontrolname="firstName" id="firstName"
-       data-testid="firstName" class="mat-input-element">
-
-<input formcontrolname="lastName" id="lastName"
-       data-testid="lastName" class="mat-input-element">
-
-<input formcontrolname="address" id="address"
-       data-testid="address" class="mat-input-element">
-
-<input formcontrolname="country" type="text" placeholder="Country"
-       id="country" data-testid="country" role="combobox">
-
-
-<input type="radio" id="seat-aisle" formcontrolname="seatPreference"
-       value="aisle" data-testid="seat-aisle">
-<label for="aisle">Aisle</label>
-<input type="radio" id="seat-window" formcontrolname="seatPreference"
-       value="window" data-testid="seat-window">
-<label for="window">Window</label>
-
-<input type="checkbox" formcontrolname="newsletterSub"
-       id="newsletter" data-testid="newsletter">
-<mat-label>Newsletter subscription</mat-label>
-
-<mat-select role="listbox" formcontrolname="title" id="title" data-testid="title">
-    ...
-</mat-select>
-<div class="mat-select-panel-wrap">
-    <div class="mat-select-panel mat-primary" id="title-panel">
-        <mat-option role="option" value="Mr" class="mat-option">
-            <span class="mat-option-text">Mr</span>
-        </mat-option>
-        <mat-option role="option" value="Ms" class="mat-option">
-            <span class="mat-option-text">Ms</span>
-        </mat-option>
-        <mat-option role="option" value="Mrs" class="mat-option">
-            <span class="mat-option-text">Mrs</span>
-        </mat-option>
+<div role="menu">
+    <div class="mat-menu-content">
+        <button>
+            Earned Points: <span class="points-earned">0</span>
+        </button>
+        <button>View User Profile</button>
     </div>
 </div>
+
+<div class="operation-section">
+    <button id="search">Book Flights</button>
+    <button id="my-bookings">My Bookings</button>
+    <button id="my-account">My Account</button>
+    <button id="logout">Logout</button>
+</div>
+
+<form>
+    <mat-form-field>
+        <div class="mat-form-field-infix">
+            <input id="email" data-testid="email">
+            <label>Email</label>
+        </div>
+    </mat-form-field>
+    <mat-form-field>
+        <div class="mat-form-field-infix">
+            <input id="password" data-testid="password">
+            <label>Password</label>
+        </div>
+    </mat-form-field>
+    <button id="login-button" type="button">Login</button>
+    <button id="register-button" type="button">Or Register</button>
+</form>
 

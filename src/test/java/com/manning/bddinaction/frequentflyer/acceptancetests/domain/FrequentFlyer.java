@@ -1,7 +1,7 @@
 package com.manning.bddinaction.frequentflyer.acceptancetests.domain;
 
 public enum FrequentFlyer {
-    Tracy("tracy@flyinghigh.com", "trac3");
+    Amy("admin@flyinghigh.com", "admin");
 
     public final String email;
     public final String password;
