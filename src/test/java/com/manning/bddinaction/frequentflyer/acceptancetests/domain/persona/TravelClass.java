@@ -3,7 +3,7 @@ package com.manning.bddinaction.frequentflyer.acceptancetests.domain.persona;
 import java.util.Arrays;
 
 public enum TravelClass {
-    ECONOMY("Economy"), PREMIUM_ECONOMY("Premium Economy"), BUSINESS("Business");
+    ECONOMY("Economy"), PREMIUM_ECONOMY("Premium Economy"), BUSINESS("Business"), NOT_SPECIFIED("");
 
     private final String label;
 
@@ -17,7 +17,7 @@ public enum TravelClass {
 
     public static TravelClass withLabel(String label) {
         return Arrays.stream(values())
-                .filter( entry -> entry.label.equals(label))
+                .filter( entry -> label.equals(entry.label) )
                 .findFirst()
                 .orElseThrow(() -> new IllegalArgumentException("Unknown travel class " + label));
     }

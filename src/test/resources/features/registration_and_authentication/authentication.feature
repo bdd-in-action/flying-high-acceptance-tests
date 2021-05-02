@@ -2,7 +2,6 @@ Business Need: Authentication
 
   Registered Frequent Flyer members can access their account using their email and password
 
-  @current
   @webtest
   Example: Amy successfully logs on to the Frequent Flyer app
     Given Amy is a registered Frequency Flyer member
