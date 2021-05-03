@@ -1,5 +1,6 @@
 package com.manning.bddinaction.frequentflyer.acceptancetests.pageobjects;
 
+import com.manning.bddinaction.frequentflyer.acceptancetests.domain.FrequentFlyer;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 

@@ -8,7 +8,6 @@ Business Need: Searching for flights
     And she has logged on with a valid username and password
 
   Rule: Travellers can search by departure, destination and travel class
-    @current
     Scenario Outline: Searching for flights by travel class
       When she searches for flights with the following criteria
         | From   | To   | Travel Class   |
@@ -23,7 +22,7 @@ Business Need: Searching for flights
   Rule: Travellers must provide at least departure, destination and travel class
     Scenario Template: Missing mandatory fields should be highlighted
       When she tries to search for flights with the following criteria
-        | From   | Tp   | Travel Class   |
+        | From   | To   | Travel Class   |
         | <From> | <To> | <Travel Class> |
       Then the search should not be allowed
       And the <Missing Field> field should be highlighted as missing
