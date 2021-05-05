@@ -1,4 +1,3 @@
-@current
 Business Need: Registering as a new Frequent Flyer
 
   New Frequent Flyer members need to register to book a flight.

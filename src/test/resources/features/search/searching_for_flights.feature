@@ -1,4 +1,4 @@
-@webtest
+@current
 Business Need: Searching for flights
 
   Frequent Flyer members can look for flights to different destinations to help plan their journeys
@@ -20,7 +20,6 @@ Business Need: Searching for flights
         | Seoul  | Hong Kong | Business        |
 
   Rule: Travellers must provide at least departure, destination and travel class
-    @current
     Scenario Template: Missing mandatory fields should be highlighted
       When she tries to search for flights with the following criteria
         | From   | To   | Travel Class   |

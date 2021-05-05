@@ -1,24 +1,19 @@
 package com.manning.bddinaction.frequentflyer.acceptancetests.pageobjects;
 
 import com.manning.bddinaction.frequentflyer.acceptancetests.domain.persona.TravelClass;
+import net.serenitybdd.core.pages.PageObject;
+import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
 
-import java.time.Duration;
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
-import static org.openqa.selenium.support.ui.ExpectedConditions.invisibilityOfElementLocated;
 
-public class SearchForm {
+public class SearchForm extends PageObject {
 
     @FindBy(id = "departure")
     WebElement departureField;
@@ -32,26 +27,16 @@ public class SearchForm {
     @FindBy(id = "search-button")
     WebElement searchButton;
 
-    private WebDriver driver;
-
     private static final By SEARCH_BUTTON = By.id("search-button");
     private static final By SEARCH_SPINNER = By.cssSelector(".block-ui-spinner");
 
     public void submitSearch() {
-        driver.findElement(SEARCH_BUTTON).click();
-        Wait<WebDriver> wait = new FluentWait<>(driver)
-                .withTimeout(Duration.ofSeconds(10))
-                .pollingEvery(Duration.ofMillis(100));
-        wait.until(invisibilityOfElementLocated(SEARCH_SPINNER));
-    }
-
-    public SearchForm(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+        searchButton.click();
+        waitFor(ExpectedConditions.invisibilityOfElementLocated(SEARCH_SPINNER));
     }
 
     private WebElement travelClassOf(String label) {
-        return driver.findElement(By.xpath("//mat-option[normalize-space(.)='" + label + "']"));
+        return $("//mat-option[normalize-space(.)='{0}']", label);
     }
 
     public SearchForm enterSearchCriteria(String departure, String destination, TravelClass travelClass) {
@@ -73,7 +58,7 @@ public class SearchForm {
     }
 
     @FindBy(css = ".mat-form-field-invalid")
-    List<WebElement> missingFieldLabels;
+    List<WebElementFacade> missingFieldLabels;
 
     public List<String> missingFields() {
         return missingFieldLabels.stream()

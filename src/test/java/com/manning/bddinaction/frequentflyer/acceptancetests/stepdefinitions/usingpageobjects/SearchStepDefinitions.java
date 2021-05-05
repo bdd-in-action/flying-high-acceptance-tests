@@ -12,6 +12,7 @@ import io.cucumber.java.ParameterType;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.thucydides.core.annotations.Steps;
+import org.junit.Assert;
 
 import java.util.Map;
 
@@ -19,13 +20,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class SearchStepDefinitions {
 
-    MenuBar menuBar;
     SearchForm searchForm;
-
-    public SearchStepDefinitions() {
-        menuBar = new MenuBar(WebTestSupport.currentDriver());
-        searchForm = new SearchForm(WebTestSupport.currentDriver());
-    }
 
     @DataTableType
     public FlightSearch searchCriteria(Map<String, String> searchCriteria) {
@@ -99,6 +94,7 @@ public class SearchStepDefinitions {
     }
 
     private void searchShouldBeAllowed(Boolean isAllowed) {
+
         assertThat(searchForm.searchIsEnabled())
                 .withFailMessage("Expecting the search button to be " + enabledOrDisabled(isAllowed))
                 .isEqualTo(isAllowed);
