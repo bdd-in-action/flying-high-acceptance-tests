@@ -1,22 +1,25 @@
 package com.manning.bddinaction.frequentflyer.acceptancetests.pageobjects;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import net.serenitybdd.core.pages.PageObject;
+import net.serenitybdd.core.pages.WebElementFacade;
+import net.thucydides.core.annotations.DefaultUrl;
+import org.openqa.selenium.support.FindBy;
 
-public class LoginForm {
-    private final WebDriver driver;
+@DefaultUrl("/login")
+public class LoginForm extends PageObject {
 
-    public LoginForm(WebDriver driver) {
-        this.driver = driver;
-    }
+    @FindBy(id="email")
+    WebElementFacade email;
 
-    public void open() {
-        driver.get("http://localhost:3000/login");
-    }
+    @FindBy(id="password")
+    WebElementFacade password;
 
-    public void signinWithCredentials(String email, String password) {
-        driver.findElement(By.id("email")).sendKeys(email);
-        driver.findElement(By.id("password")).sendKeys(password);
-        driver.findElement(By.id("login-button")).click();
+    @FindBy(id="login-button")
+    WebElementFacade loginButton;
+
+    public void signinWithCredentials(String emailValue, String passwordValue) {
+        email.type(emailValue);
+        password.type(passwordValue);
+        loginButton.click();
     }
 }

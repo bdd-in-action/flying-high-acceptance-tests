@@ -9,4 +9,7 @@ class MenuBar {
     static final Target MY_ACCOUNT = BUTTON.of("My Account");
     static final Target REGISTER = BUTTON.of("Register");
     static final Target BOOK_FLIGHTS = BUTTON.of("Book Flights");
+
+    static final Target CURRENT_USER = Target.the("Current user").locatedBy("#current-user");
+
 }

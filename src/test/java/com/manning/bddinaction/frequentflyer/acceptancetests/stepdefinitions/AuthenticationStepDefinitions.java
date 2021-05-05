@@ -13,6 +13,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.RememberThat;
+import net.serenitybdd.screenplay.actors.OnStage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -21,35 +22,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class AuthenticationStepDefinitions {
-
-    FrequentFlyer frequentFlyer;
-
-    @Given("{} is a registered Frequency Flyer member")
-    public void frequentFlyerMember(FrequentFlyer frequentFlyer) {
-        this.frequentFlyer = frequentFlyer;
-    }
-
-    @When("he/she logs on with a valid username and password")
-    public void logsOnWithAValidUsernameAndPassword() {
-        WebDriver driver = WebTestSupport.currentDriver();
-        LoginForm loginForm = new LoginForm(driver);
-        loginForm.open();
-        loginForm.signinWithCredentials(frequentFlyer.email, frequentFlyer.password);
-    }
-
-    @Then("he/she should be given access to his/her account")
-    public void heShouldBeGivenAccessToHisAccount() {
-        WebDriver driver = WebTestSupport.currentDriver();
-
-        WebDriverWait wait = new WebDriverWait(driver, 3);
-        String currentUserEmail =
-                wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("current-user"))).getText();
-        assertThat(currentUserEmail).isEqualTo(frequentFlyer.email);
-    }
-
-    //
-    // SCREENPLAY STEP DEFINITIONS
-    //
 
     @Given("{actor} is a new Frequent Flyer Member")
     public void aNewFrequentFlyerMember(Actor traveller) {

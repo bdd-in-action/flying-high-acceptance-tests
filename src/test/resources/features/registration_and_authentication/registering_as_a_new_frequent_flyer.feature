@@ -34,13 +34,14 @@ Business Need: Registering as a new Frequent Flyer
       When Candy wants to register a new Frequent Flyer account
       Then the following emails should not be considered valid:
         | Email        | Message                  | Reason Rejected    |
+        |              | Please enter your email  | Cannot be empty    |
         | not-an-email | Not a valid email format | Missing @ section  |
         | wrong.com    | Not a valid email format | Missing @          |
         | wrong@       | Not a valid email format | Missing domain     |
         | wrong@#.com  | Not a valid email format | Invalid characters |
-        |              | Please enter your email  | Cannot be empty    |
 
   Rule: New members need to complete all the mandatory fields and approve the terms & conditions
+    @current
     Scenario: Candy fails to enter to enter a mandatory field
       Given Candy does not have a Frequent Flyer account
       When Candy wants to register a new Frequent Flyer account
