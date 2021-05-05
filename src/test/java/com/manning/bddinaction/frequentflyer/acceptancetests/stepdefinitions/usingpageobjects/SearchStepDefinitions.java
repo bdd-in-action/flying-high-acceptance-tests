@@ -1,5 +1,7 @@
 package com.manning.bddinaction.frequentflyer.acceptancetests.stepdefinitions.usingpageobjects;
 
+import com.manning.bddinaction.frequentflyer.acceptancetests.actions.search.FieldsWithErrors;
+import com.manning.bddinaction.frequentflyer.acceptancetests.actions.search.SearchFlights;
 import com.manning.bddinaction.frequentflyer.acceptancetests.domain.FlightSearch;
 import com.manning.bddinaction.frequentflyer.acceptancetests.domain.persona.TravelClass;
 import com.manning.bddinaction.frequentflyer.acceptancetests.pageobjects.MatchingFlightsList;
@@ -9,6 +11,7 @@ import io.cucumber.java.DataTableType;
 import io.cucumber.java.ParameterType;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import net.thucydides.core.annotations.Steps;
 
 import java.util.Map;
 
@@ -18,12 +21,10 @@ public class SearchStepDefinitions {
 
     MenuBar menuBar;
     SearchForm searchForm;
-    MatchingFlightsList matchingFlightsList;
 
     public SearchStepDefinitions() {
         menuBar = new MenuBar(WebTestSupport.currentDriver());
         searchForm = new SearchForm(WebTestSupport.currentDriver());
-        matchingFlightsList = new MatchingFlightsList(WebTestSupport.currentDriver());
     }
 
     @DataTableType
@@ -46,16 +47,23 @@ public class SearchStepDefinitions {
 
     @When("she/he tries to search for flights with the following criteria")
     public void searchBy(FlightSearch search) {
-        menuBar.navigateToBookFlights();
-        searchForm.enterSearchCriteria(search.from(), search.to(), search.travelClass());
+        searchFlights.from(search.from())
+                     .to(search.to())
+                     .inTravelClass(search.travelClass());
     }
 
+    @Steps
+    SearchFlights searchFlights;
+
+    @Steps
+    MatchingFlightsList matchingFlightsList;
 
     @When("she/he searches for flights with the following criteria")
     public void performSearch(FlightSearch search) {
-        menuBar.navigateToBookFlights();
-        searchForm.enterSearchCriteria(search.from(), search.to(), search.travelClass());
-        searchForm.submitSearch();
+        searchFlights.from(search.from())
+                .to(search.to())
+                .inTravelClass(search.travelClass())
+                .andViewResults();
     }
 
     @Then("the returned flights should match the travel class {travelClass}")
@@ -82,9 +90,12 @@ public class SearchStepDefinitions {
         assertThat(searchForm.searchIsEnabled()).isFalse();
     }
 
+    @Steps
+    FieldsWithErrors fieldsWithErrors;
+
     @Then("the {} field should be highlighted as missing")
     public void missingField(String missingField) {
-        assertThat(searchForm.missingFields()).containsExactly(missingField);
+        assertThat(fieldsWithErrors.currentlyVisible()).containsExactly(missingField);
     }
 
     private void searchShouldBeAllowed(Boolean isAllowed) {

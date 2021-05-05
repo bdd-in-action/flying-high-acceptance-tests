@@ -12,4 +12,15 @@ public class Navigate extends UIInteractionSteps {
     public void toTheLoginPage() {
         openPageNamed("login");
     }
+
+    @Step("Open the Book Flights page")
+    public void toTheBookFlightsPage() {
+        openPageNamed("book.flights");
+    }
+
+    @Step("Open the Book Flights page")
+    public void toTheRegisitrationPage() {
+        openPageNamed("registration");
+    }
+
 }
