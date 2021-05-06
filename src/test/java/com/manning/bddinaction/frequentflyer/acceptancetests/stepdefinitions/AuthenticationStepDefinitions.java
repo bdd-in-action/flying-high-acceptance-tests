@@ -52,7 +52,6 @@ public class AuthenticationStepDefinitions {
                 Login.as(traveller),
                 RememberThat.theValueOf("CURRENT_USER").is(traveller)
         );
-        System.out.println("CURRENT USER: " + traveller.getEmail());
     }
 
     @When("{actor} has logged onto the Frequent Flyer application")

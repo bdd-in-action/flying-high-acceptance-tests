@@ -1,3 +1,4 @@
+@earning-points
 Feature: Earning Points
 
   Frequent Flyers earn status points each time they fly.

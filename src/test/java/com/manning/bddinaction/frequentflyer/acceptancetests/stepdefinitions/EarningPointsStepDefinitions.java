@@ -135,7 +135,7 @@ public class EarningPointsStepDefinitions {
         theActorInTheSpotlight().attemptsTo(
             Navigate.toMyAccount(),
             Ensure.thatTheListOf(MyAccount.flightHistory())
-                  .containsExactlyElementsFrom(flightHistory)
+                  .containsExactlyInAnyOrderElementsFrom(flightHistory)
         );
     }
 

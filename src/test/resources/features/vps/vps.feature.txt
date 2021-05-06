@@ -1,0 +1,61 @@
+Feature: Integration of 3rd Party VPS at Brand using the Service API
+
+#- VPS packages (machines)
+#    - RULE: Customers can purchase a package online from FOS
+#          - Choose package
+#          - Choose memory options
+#          - Monthly/Yearly
+#                -> 2 months discount for yearly
+#          - Login or create account
+#          - Confirm payment details
+#          - Check T&C
+#          - Add some extras
+#                -> add some extra options
+#          - Checkout
+#                -> Provide a discount code
+#          - Confirmation
+#          - Receipt in an email
+#
+  Rule: Customers can purchase a package online from FOS
+    @journey-scenario
+    Example: The one where Rusty purchases a basic package online
+      Given Rusty is not an existing customer
+      When Rusty selects the following package:
+        | Package Type | Memory Option | Monthly/Yearly |
+        | Basic        | SSD           | Yearly         |
+      And Rusty completes the order process by creating a new account
+      Then Rusty should be informed that his product is being prepared
+      And Rusty should receive an email receipt
+
+#
+#
+#    - RULE: Customer can purchase a package from their control panel
+#    - RULE: Customers can renew their package online from their control panel
+#    - RULE: Customers can configure auto renewal
+#    - RULE: The contract period should only start after the package is provisioned
+#    - RULE: Suspending a product
+#    - RULE: Restoring a suspended product
+#- VPS contracts
+#
+#VPS packages must be created in Brand billing system (package names and prices TBD by brand)
+#VPS packages are viewable and purchasable on FOS
+#VPS packages must be purchasable & renewable as per normal brand process / flows
+#VPS products get provisioned via Service API
+#VPS contracts/ product can be billed as per the normal brand process
+#VPS contracts/ product can be canceled as per normal brand process
+#VPS products can be suspended by brand via Service API (e.g. bad debt / abuse)
+#VPS products get decommissioned via Service API
+#Customer can upgrade their VPS packages to a higher plan which will be fulfilled via Service API
+#Customer can access the 3rdParty VPS User Interface via SSO from the Brand's Control Panel
+#Connection of a customer domain to the VPS package is possible (Domain Attach is a requirement for this) (TBC)
+#Implement, validate and get real-time finance data get signed off by tech and accounting team
+#Terms & Conditions need to be adjusted to the new product
+#Customer Care and sales teams need to be trained in product specifics
+#MYH and VPS frontend are whitelabeled and using Correct branding. No 3rd Party reference recognisable
+#VPS help articles are using Correct branding. No 3rd Party reference recognisable.
+#All product SGEs are using Brnad's branding with corresponding content
+#Brand Backoffice requirements are fullfilled
+#Care have the appropriate tooling and knowledge to support VPS customers
+#Ensure standard sales metrics (new units, churned units etc.) is available in Tableau and accurately reflects the sales transactions
+#remove existing product from FOS for new customers
+#Existing product should be still available to purchase for existing customers.
