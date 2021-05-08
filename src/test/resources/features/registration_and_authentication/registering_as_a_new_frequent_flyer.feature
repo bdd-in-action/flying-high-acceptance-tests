@@ -1,4 +1,3 @@
-@current
 Business Need: Registering as a new Frequent Flyer
 
   New Frequent Flyer members need to register to book a flight.
@@ -41,7 +40,6 @@ Business Need: Registering as a new Frequent Flyer
         | wrong@#.com  | Not a valid email format | Invalid characters |
 
   Rule: New members need to complete all the mandatory fields and approve the terms & conditions
-    @current
     Scenario: Candy fails to enter to enter a mandatory field
       Given Candy does not have a Frequent Flyer account
       When Candy wants to register a new Frequent Flyer account

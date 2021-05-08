@@ -1,6 +1,12 @@
 package com.manning.bddinaction.frequentflyer.acceptancetests.domain;
 
-/**
- * The flight booking record shown in the My Account page
- */
-public record FlightBooking(String departure, String destination, Integer pointsEarned) {}
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public record FlightBooking (
+        @JsonProperty("departure")  City departure,
+        @JsonProperty("destination") City destination,
+        @JsonProperty("departureDate") String departureDate,
+        @JsonProperty("arrivalDate") String arrivalDate,
+        @JsonProperty("class") String travelClass,
+        @JsonProperty("email") String email) {
+}

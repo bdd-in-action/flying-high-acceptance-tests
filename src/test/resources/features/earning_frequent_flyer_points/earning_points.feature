@@ -7,7 +7,7 @@ Feature: Earning Points
   @journey-scenario
   Example: Tracy goes from Standard to Bronze after she makes several trips
     Given Tracy has logged onto the Frequent Flyer application as a new member
-    When she books the following flights:
+    When she books the following flights
       | From   | To          | Travel Class | Trip Type | Notes           |
       | London | New York    | Business     | Return    |                 |
       | London | Los Angeles | Business     | Return    | Gets to BRONZE  |
@@ -24,7 +24,6 @@ Feature: Earning Points
       | 1125          | BRONZE       |
 
   Rule: Members achieve new status levels when they earn sufficient points
-    @current
     Scenario Outline: Earning status levels from points earned for status level <Status Level>
       Given Stan is a new Frequent Flyer Member
       When he earns between <Min Points> and <Max Points> points

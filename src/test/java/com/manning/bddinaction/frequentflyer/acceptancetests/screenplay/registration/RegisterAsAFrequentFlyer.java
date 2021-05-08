@@ -18,19 +18,19 @@ import static com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.r
  */
 public class RegisterAsAFrequentFlyer {
     public static Performable withMemberDetailsFrom(Traveller memberDetails) {
-        return Task.where("{0} registers for a new Frequent Flyer account with email " + memberDetails.getEmail(),
+        return Task.where("{0} registers for a new Frequent Flyer account with email " + memberDetails.email(),
                 // Open the registraton page
                 OpenTheApplicationOn.theRegistrationPage(),
 
                 // Complete the registration form
-                Enter.theValue(memberDetails.getEmail()).into(EMAIL),
-                Enter.theValue(memberDetails.getPassword()).into(PASSWORD),
-                Enter.theValue(memberDetails.getFirstName()).into(FIRSTNAME),
-                Enter.theValue(memberDetails.getLastName()).into(LASTNAME),
-                Enter.theValue(memberDetails.getAddress()).into(ADDRESS),
-                Enter.theValue(memberDetails.getCountry()).into(COUNTRY).thenHit(Keys.TAB),
-                SelectFromDropdown.locatedBy(TITLE).selectingOption(memberDetails.getTitle()),
-                Click.on(SEAT_PREFERENCE.of(memberDetails.getSeatPreference())),
+                Enter.theValue(memberDetails.email()).into(EMAIL),
+                Enter.theValue(memberDetails.password()).into(PASSWORD),
+                Enter.theValue(memberDetails.firstName()).into(FIRSTNAME),
+                Enter.theValue(memberDetails.lastName()).into(LASTNAME),
+                Enter.theValue(memberDetails.address()).into(ADDRESS),
+                Enter.theValue(memberDetails.country()).into(COUNTRY).thenHit(Keys.TAB),
+                SelectFromDropdown.locatedBy(TITLE).selectingOption(memberDetails.title()),
+                Click.on(SEAT_PREFERENCE.of(memberDetails.seatPreference())),
                 UpdateTermsAndConditions.basedOn(memberDetails.agreesToTermsAndConditions()),
 
                 // Submit the registration

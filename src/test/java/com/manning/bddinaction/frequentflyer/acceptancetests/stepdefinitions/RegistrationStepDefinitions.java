@@ -43,7 +43,7 @@ public class RegistrationStepDefinitions {
     public void notAFrequentFlyerMember(Traveller traveller) {
         // This new member account has an email address that has never been used before
         newMember = traveller.withAUniqueEmailAddress();
-        theActorCalled(traveller.getFirstName()).describedAs("A new Frequent Flyer");
+        theActorCalled(traveller.firstName()).describedAs("A new Frequent Flyer");
     }
 
     @When("{actor} registers as a Frequent Flyer member")
@@ -57,7 +57,7 @@ public class RegistrationStepDefinitions {
     public void shouldBeAbleToLoginAs(Actor member) {
         member.attemptsTo(
                 Login.as(newMember),
-                Acknowledge.successMessageOf("Logged in as " + newMember.getEmail())
+                Acknowledge.successMessageOf("Logged in as " + newMember.email())
         );
     }
 
@@ -124,7 +124,7 @@ public class RegistrationStepDefinitions {
 
     @When("{actor} tries to register with the same email")
     public void triesToRegisterWithTheSameEmail(Actor actor) {
-        String existingEmail = newMember.getEmail();
+        String existingEmail = newMember.email();
         Traveller travellerWithADuplicatedEmail = TravellerPersona.withName(actor.getName()).withEmail(existingEmail);
         actor.attemptsTo(
                 RegisterAsAFrequentFlyer.withMemberDetailsFrom(travellerWithADuplicatedEmail)

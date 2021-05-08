@@ -1,25 +1,15 @@
 package com.manning.bddinaction.frequentflyer.acceptancetests.stepdefinitions;
 
-import com.manning.bddinaction.frequentflyer.acceptancetests.domain.FrequentFlyer;
 import com.manning.bddinaction.frequentflyer.acceptancetests.domain.UserLevel;
 import com.manning.bddinaction.frequentflyer.acceptancetests.domain.persona.Traveller;
 import com.manning.bddinaction.frequentflyer.acceptancetests.domain.persona.TravellerPersona;
-import com.manning.bddinaction.frequentflyer.acceptancetests.pageobjects.LoginForm;
 import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.login.Login;
 import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.registration.RegisterAsAFrequentFlyer;
 import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.ux.Acknowledge;
 import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.RememberThat;
-import net.serenitybdd.screenplay.actors.OnStage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 public class AuthenticationStepDefinitions {
 
@@ -28,7 +18,7 @@ public class AuthenticationStepDefinitions {
         traveller.attemptsTo(
                 RegisterAsAFrequentFlyer.viaTheAPI().withMemberDetailsFrom(
                         TravellerPersona.withName(traveller.getName())
-                                        .withAUniqueEmailAddress()
+                                .withAUniqueEmailAddress()
                 )
         );
     }
@@ -49,8 +39,7 @@ public class AuthenticationStepDefinitions {
         Traveller traveller = TravellerPersona.withName(member.getName()).withAUniqueEmailAddress();
         member.attemptsTo(
                 RegisterAsAFrequentFlyer.viaTheAPI().withMemberDetailsFrom(traveller),
-                Login.as(traveller),
-                RememberThat.theValueOf("CURRENT_USER").is(traveller)
+                Login.as(traveller)
         );
     }
 
@@ -59,7 +48,7 @@ public class AuthenticationStepDefinitions {
         Traveller currentUser = member.recall("CURRENT_USER");
         member.attemptsTo(
                 Login.as(currentUser),
-                Acknowledge.successMessageOf("Logged in as " + currentUser.getEmail())
+                Acknowledge.successMessageOf("Logged in as " + currentUser.email())
         );
     }
 

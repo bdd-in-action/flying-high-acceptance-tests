@@ -23,24 +23,24 @@ public class UserAPI extends AuthenticatedAPI {
      */
     public Traveller assignPoints(Traveller traveller, int points) {
 
-        Preconditions.checkNotNull(traveller.getUserId(),"We need a user ID to assign points");
+        Preconditions.checkNotNull(traveller.userId(),"We need a user ID to assign points");
 
         withAuthentication()
-                .pathParam("userId", traveller.getUserId())
+                .pathParam("userId", traveller.userId())
                 .get(endpointUrlFor("/users/{userId}/reset-points"));
 
         withAuthentication()
-                .pathParam("userId", traveller.getUserId())
+                .pathParam("userId", traveller.userId())
                 .queryParam("points", points)
                 .get(endpointUrlFor("/users/{userId}/earn-points"));
 
-        return findUserById(traveller.getUserId());
+        return findUserById(traveller.userId());
     }
 
     public Traveller findUserById(String userId) {
         return withAuthentication()
                 .queryParam("userId", userId)
                 .get(endpointUrlFor("/users/id"))
-                .andReturn().body().as(Traveller.class);
+                .as(Traveller.class);
     }
 }

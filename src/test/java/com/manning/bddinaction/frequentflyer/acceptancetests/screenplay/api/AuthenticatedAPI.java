@@ -3,6 +3,7 @@ package com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.api;
 import io.restassured.RestAssured;
 import io.restassured.specification.RequestSpecification;
 import net.serenitybdd.core.environment.EnvironmentSpecificConfiguration;
+import net.serenitybdd.rest.SerenityRest;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.util.EnvironmentVariables;
 

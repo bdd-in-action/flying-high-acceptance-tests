@@ -11,10 +11,10 @@ import net.serenitybdd.screenplay.actions.SendKeys;
 
 public class Login {
     public static Performable as(Traveller traveller) {
-        return Task.where("{0} logs in as " + traveller.getEmail(),
+        return Task.where("{0} logs in as " + traveller.email(),
                 Navigate.toTheLoginPage(),
-                SendKeys.of(traveller.getEmail()).into(LoginForm.EMAIL),
-                SendKeys.of(traveller.getPassword()).into(LoginForm.PASSWORD),
+                SendKeys.of(traveller.email()).into(LoginForm.EMAIL),
+                SendKeys.of(traveller.password()).into(LoginForm.PASSWORD),
                 Click.on(LoginForm.LOGIN_BUTTON)
         );
     }

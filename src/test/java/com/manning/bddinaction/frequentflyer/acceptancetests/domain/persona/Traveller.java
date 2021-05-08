@@ -1,132 +1,67 @@
 package com.manning.bddinaction.frequentflyer.acceptancetests.domain.persona;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.manning.bddinaction.frequentflyer.acceptancetests.domain.UserLevel;
 
-import java.lang.reflect.Field;
 import java.util.Random;
 
-public class Traveller {
-    private String userId;
-    private String email;
-    private String password;
-    private String title;
-    private String firstName;
-    private String lastName;
-    private String address;
-    private String country;
-    private String seatPreference;
-    private Boolean newsletterSub;
-    private Boolean agreesToTermsAndConditions;
-    private Integer points;
-    private String userLevel;
-
-    public Traveller(String email, String password, String title, String firstName, String lastName, String address, String country, String seatPreference, Boolean newsletterSub, Boolean agreesToTermsAndConditions) {
-        this.email = email;
-        this.password = password;
-        this.title = title;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.address = address;
-        this.country = country;
-        this.seatPreference = seatPreference;
-        this.newsletterSub = newsletterSub;
-        this.agreesToTermsAndConditions = agreesToTermsAndConditions;
-    }
+public record Traveller(
+        @JsonProperty("userId") String userId,
+        @JsonProperty("email") String email,
+        @JsonProperty("password") String password,
+        @JsonProperty("title") String title,
+        @JsonProperty("firstName") String firstName,
+        @JsonProperty("lastName") String lastName,
+        @JsonProperty("address") String address,
+        @JsonProperty("country") String country,
+        @JsonProperty("seatPreference") String seatPreference,
+        @JsonProperty("newsletterSub") Boolean newsletterSub,
+        @JsonProperty("agreesToTermsAndConditions") Boolean agreesToTermsAndConditions,
+        @JsonProperty("points") Integer points,
+        @JsonProperty("userLevel") UserLevel userLevel) {
 
     public Traveller withAUniqueEmailAddress() {
         return new Traveller(
+                userId,
                 this.email.replace("@", "" + new Random().nextInt() + "@"),
-                password, title, firstName, lastName, address, country, seatPreference, newsletterSub, agreesToTermsAndConditions
+                password, title, firstName, lastName, address, country, seatPreference, newsletterSub, agreesToTermsAndConditions, points, userLevel
         );
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public String getSeatPreference() {
-        return seatPreference;
-    }
-
-    public Boolean getNewsletterSub() {
-        return newsletterSub;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public Integer getPoints() {
-        return points;
-    }
-
-    public UserLevel getUserLevel() {
-        return UserLevel.valueOf(userLevel.toUpperCase());
-    }
-
     public Traveller withEmail(String email) {
-        return new Traveller(email, password, title, firstName, lastName, address, country, seatPreference, newsletterSub, agreesToTermsAndConditions);
+        return new Traveller(
+                userId,
+                email,
+                password, title, firstName, lastName, address, country, seatPreference, newsletterSub, agreesToTermsAndConditions, points, userLevel
+        );
     }
 
     public Traveller whoDoesNotApproveTheTermsAndConditions() {
-        return new Traveller(email, password, title, firstName, lastName, address, country, seatPreference, newsletterSub, false);
+        return new Traveller(userId, email, password, title, firstName, lastName, address, country, seatPreference, newsletterSub, false, points, userLevel);
     }
 
     public Traveller withEmptyValueFor(String fieldName) {
-        Traveller travellerWithMissingField = new Traveller(email, password, title, firstName, lastName, address, country, seatPreference, newsletterSub, agreesToTermsAndConditions);
-
-        try {
-            Field emptyField = Traveller.class.getDeclaredField(fieldName);
-            emptyField.set(travellerWithMissingField, "");
-        } catch (NoSuchFieldException | IllegalAccessException e) {
-            e.printStackTrace();
+        switch (fieldName) {
+            case "email": return new Traveller(userId, "", password, title, firstName, lastName, address, country, seatPreference, newsletterSub, agreesToTermsAndConditions, points, userLevel);
+            case "password": return new Traveller(userId, email, "", title, firstName, lastName, address, country, seatPreference, newsletterSub, agreesToTermsAndConditions, points, userLevel);
+            case "title": return new Traveller(userId, email, password, "", firstName, lastName, address, country, seatPreference, newsletterSub, agreesToTermsAndConditions, points, userLevel);
+            case "firstName": return new Traveller(userId, email, password, title, "", lastName, address, country, seatPreference, newsletterSub, agreesToTermsAndConditions, points, userLevel);
+            case "lastName": return new Traveller(userId, email, password, title, firstName, "", address, country, seatPreference, newsletterSub, agreesToTermsAndConditions, points, userLevel);
+            case "address": return new Traveller(userId, email, password, title, firstName, lastName, "", country, seatPreference, newsletterSub, agreesToTermsAndConditions, points, userLevel);
+            case "country": return new Traveller(userId, email, password, title, firstName, lastName, address, "", seatPreference, newsletterSub, agreesToTermsAndConditions, points, userLevel);
         }
-        return travellerWithMissingField;
+        return this;
     }
 
     public Traveller withId(String userId) {
-        this.userId = userId;
-        return this;
+        return new Traveller(userId, email, password, title, firstName, lastName, address, country, seatPreference, newsletterSub, false, points, userLevel);
     }
 
     public Traveller withPoints(int points) {
-        this.points = points;
-        return this;
+        return new Traveller(userId, email, password, title, firstName, lastName, address, country, seatPreference, newsletterSub, false, points, userLevel);
     }
 
     public Traveller withLevel(UserLevel userLevel) {
-        this.userLevel = userLevel.name();
-        return this;
+        return new Traveller(userId, email, password, title, firstName, lastName, address, country, seatPreference, newsletterSub, false, points, userLevel);
     }
-
-
-
-    public boolean agreesToTermsAndConditions() {
-        return agreesToTermsAndConditions;
-    }
-
 }
