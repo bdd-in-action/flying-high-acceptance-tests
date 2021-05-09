@@ -1,0 +1,7 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"Registering as a new Frequent Flyer","Trevor registers as a Frequent Flyer member","SUCCESS","2021-05-09T23:03:23.691116+01:00[Europe/London]","0.0","8.03"
+"Registering as a new Frequent Flyer","Someone tries to register with an email that is already used","SUCCESS","2021-05-09T23:03:31.8078+01:00[Europe/London]","0.0","7.9"
+"Registering as a new Frequent Flyer","Only correctly structured emails should be accepted","SUCCESS","2021-05-09T23:03:39.785189+01:00[Europe/London]","0.0","19.97"
+"Registering as a new Frequent Flyer","Email addresses need to be well formed","SUCCESS","2021-05-09T23:03:59.75541+01:00[Europe/London]","0.0","7.57"
+"Registering as a new Frequent Flyer","Candy fails to enter to enter a mandatory field","SUCCESS","2021-05-09T23:04:07.411298+01:00[Europe/London]","0.0","33.09"
+"Registering as a new Frequent Flyer","Candy forgets to agree to the Terms and Conditions","SUCCESS","2021-05-09T23:04:40.578593+01:00[Europe/London]","0.0","7.61"
