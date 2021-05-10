@@ -1,0 +1,304 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Screenshots</title>
+
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<!--[if IE 7]>
+<!--<link rel="stylesheet" href="font-awesome/css/font-awesome-ie7.min.css">-->
+
+<link rel="stylesheet" type="text/css" href="fontawesome-free-5.7.2-web/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="fontawesome-free-5.7.2-web/css/v4-shims.min.css">
+
+<!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script><link rel="stylesheet" type="text/css" href="chartist/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.min.css">
+<link rel="stylesheet" type="text/css" href="chartist/dist/chartist.min.css">
+<script src="chartist/dist/chartist.min.js"></script>
+<script src="chartist/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.min.js"></script>
+<!-- Required Stylesheets -->
+<link href="bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
+
+<!-- Required Javascript -->
+<script src="bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.10.20/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.10.20/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.10.20/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="datatables/1.10.20/datatables.bootstrap4.min.js"></script>
+<link type="text/css" href="datatables/1.10.20/datatables.bootstrap4.min.css" rel="stylesheet" />
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+<link rel="stylesheet" href="css/core.css"/>
+<link rel="stylesheet" href="css/link.css"/>
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/><!-- Nivo Slider -->
+<link rel="stylesheet" href="nivo-slider/3.2/nivo-slider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="nivo-slider/3.2/themes/default/default.css" type="text/css" media="screen" />
+<script src="nivo-slider/3.2/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        function getUrlVars() {
+            var vars = {};
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+                vars[key] = value;
+            });
+            return vars;
+        }
+
+        var screenshotIndex = getUrlVars()["screenshot"];
+
+        $(window).load(function () {
+            $('#slider').nivoSlider({
+                startSlide: screenshotIndex,
+                effect: 'fade',
+                animSpeed: 200,
+                manualAdvance: true
+            });
+        });
+
+        $(window).keydown(function(e) {
+            switch(e.which) {
+                case 37:
+                    $('a.nivo-prevNav').click();
+                    break;
+                case 39:
+                    $('a.nivo-nextNav').click();
+                    break;
+            }
+        });
+    </script>
+
+</head>
+
+<body>
+<div id="topheader">
+    <div id="topbanner">
+        <div id="logo"><a href="index.html"><img src="images/serenity-logo.png" border="0"/></a></div>
+        <div id="projectname-banner" style="float:right">
+            <span class="projectname">
+                <span class="projecttitle"></span>
+                <span class="projectsubtitle"></span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="middlecontent">
+    <div id="contenttop">
+        <div class="middlebg">
+            <span class="breadcrumbs">
+                <a href="index.html">Home</a>
+                > <span class="truncate-40"><a
+                    href="f02fcadf5ead71a12506016f9f62d83b605a7380b72ad2d1a85b06c316108318.html">View Account Status</a></span>
+                > <span class="truncate-60"><a
+                    href="d7ea7891103416a3f2a4f6dfec2911957710da9fdc58077bb4f4b89b99d74faa.html">Trevor views his flight history for a return flight </a></span>
+                > Screenshots
+            </span>
+        </div>
+        <div class="rightbg"></div>
+    </div>
+
+    <div class="clr"></div>
+
+    <!--/* starts second table*/-->
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#"><i class="fa fa-check-square-o"></i> Overall Test Results</a>
+        </li>
+        <li >
+            <a href="capabilities.html"><i class="fa fa-book"></i> Requirements</a>
+        </li>
+        <li >
+            <a href="7ea0a5e2d679b9deeda9910ae4a9bcd3a281e0d908303a9e16e486103e98880c.html"><i class="fa fa-comments-o"></i> Capabilities</a>
+        </li>
+        <li >
+            <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="fa fa-comments-o"></i> Features</a>
+        </li>
+    </ul>
+    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 10-05-2021 08:11</span>
+    <br style="clear:left"/>
+</div>
+
+    <div class="clr"></div>
+
+
+    <div id="contentbody">
+        <div class="titlebar">
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td>
+                            <div>
+                                <h3 class="discreet-story-header">
+                                    <i class="fa fa-2x fa-comments-o"></i>
+                                    <span class="story-header-title">View Account Status </span>
+                                    <span class="badge tag-badge" style="">Feature</span>
+                                </h3>
+
+                                <div class="discreet-requirement-narrative-title">
+                                Frequent Flyer members can view the points they have earned and their current status level<br />
+in the My Accounts section of the site
+                                </div>
+                            </div>
+
+                        </td>
+                        <td valign="top" align="right">
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="fa fa-tag"></i>&nbsp;<a class="tagLink" style="background:default;" href="38e6d02e5e393aa24cdf5821afc6dd92111b4261fa02877fca4632298c86e549.html">Chrome
+                                    (browser)</a>
+                                </span>
+                            </p>
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="fa fa-tag"></i>&nbsp;<a class="tagLink" style="background:default;" href="6fe0671aeea9e76b6998ee682216d11c7748a4152740df0586f3c256ecb3f5da.html">Chrome
+                                    (context)</a>
+                                </span>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td colspan="2" class="test-title-bar">
+                            <span class="outcome-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon fa-2x' title='SUCCESS'></i></a></span>
+                            <span class="test-case-title">
+                                <span class="success-color">Trevor views his flight history for a return flight
+                                    <span class="related-issue-title"></span>
+                                </span>
+                            </span>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="clr"></div>
+
+
+    <div id="beforetable"></div>
+    <div id="contenttilttle">
+        <div class="slider-wrapper theme-default">
+            <div id="slider">
+                <img src="c31df0b4ec3912825831418d13401c856b9c8fb4b20174fe1475e074d3e4e3dd.png" title=" Given Trevor has logged onto the Frequent Flyer application as a new member" width="800"/>
+                <img src="c31df0b4ec3912825831418d13401c856b9c8fb4b20174fe1475e074d3e4e3dd.png" title=" Trevor logs in as trevor-2007984205@traveller.com" width="800"/>
+                <img src="c31df0b4ec3912825831418d13401c856b9c8fb4b20174fe1475e074d3e4e3dd.png" title=" Trevor goes to the login page" width="800"/>
+                <img src="c31df0b4ec3912825831418d13401c856b9c8fb4b20174fe1475e074d3e4e3dd.png" title=" Trevor opens the pages.home page" width="800"/>
+                <img src="c31df0b4ec3912825831418d13401c856b9c8fb4b20174fe1475e074d3e4e3dd.png" title=" Trevor clicks on Login button" width="800"/>
+                <img src="ad1d270340938504c1c10cb5bca262c3135f81464d985d172b88a8f054b9cbf9.png" title=" Trevor clicks on Login button (completed)" width="800"/>
+                <img src="ad1d270340938504c1c10cb5bca262c3135f81464d985d172b88a8f054b9cbf9.png" title=" Trevor goes to the login page (completed)" width="800"/>
+                <img src="ad1d270340938504c1c10cb5bca262c3135f81464d985d172b88a8f054b9cbf9.png" title=" Trevor enters 'trevor-2007984205@traveller.com' into Email field" width="800"/>
+                <img src="dd90807c054d4e9739d318204e16e39a8ece316c1ab8c571f15d410f7c1e7bd9.png" title=" Trevor enters 'trevor-2007984205@traveller.com' into Email field (completed)" width="800"/>
+                <img src="dd90807c054d4e9739d318204e16e39a8ece316c1ab8c571f15d410f7c1e7bd9.png" title=" Trevor enters 'tr3vor' into Password field" width="800"/>
+                <img src="cb9319e6f512156915f2cbac25124a8199122261d1b855eb9362f5d9f6fea57d.png" title=" Trevor enters 'tr3vor' into Password field (completed)" width="800"/>
+                <img src="cb9319e6f512156915f2cbac25124a8199122261d1b855eb9362f5d9f6fea57d.png" title=" Trevor clicks on Login button" width="800"/>
+                <img src="413927c233d8cdf0ed2d7d02172c0b3d5d796c614633e104a5c7e848c17c1773.png" title=" Trevor clicks on Login button (completed)" width="800"/>
+                <img src="413927c233d8cdf0ed2d7d02172c0b3d5d796c614633e104a5c7e848c17c1773.png" title=" Trevor logs in as trevor-2007984205@traveller.com (completed)" width="800"/>
+                <img src="413927c233d8cdf0ed2d7d02172c0b3d5d796c614633e104a5c7e848c17c1773.png" title=" Given Trevor has logged onto the Frequent Flyer application as a new member (completed)" width="800"/>
+                <img src="bcd10424a22a2b607858e664eb287b0861c669c9ce8501d023ddad54a51ee5c3.png" title=" When Trevor books the following flights
+| From | To | Travel Class | Trip Type |
+| London | New York | Business | Return |" width="800"/>
+                <img src="bcd10424a22a2b607858e664eb287b0861c669c9ce8501d023ddad54a51ee5c3.png" title=" Trevor search flights" width="800"/>
+                <img src="bcd10424a22a2b607858e664eb287b0861c669c9ce8501d023ddad54a51ee5c3.png" title=" Trevor goes to the Book FLights page" width="800"/>
+                <img src="bcd10424a22a2b607858e664eb287b0861c669c9ce8501d023ddad54a51ee5c3.png" title=" Trevor opens the pages.home page" width="800"/>
+                <img src="b12636c366863f3818fc8f0267b98e7bcacdbcd43745f422f8d2b38453d39ff1.png" title=" Trevor opens the pages.home page (completed)" width="800"/>
+                <img src="b12636c366863f3818fc8f0267b98e7bcacdbcd43745f422f8d2b38453d39ff1.png" title=" Trevor clicks on Book Flights button" width="800"/>
+                <img src="7f122f0c6de2ae5a63890db2d19d30f705d23d15599a9d59d11878cf4242dba1.png" title=" Trevor clicks on Book Flights button (completed)" width="800"/>
+                <img src="7f122f0c6de2ae5a63890db2d19d30f705d23d15599a9d59d11878cf4242dba1.png" title=" Trevor goes to the Book FLights page (completed)" width="800"/>
+                <img src="7f122f0c6de2ae5a63890db2d19d30f705d23d15599a9d59d11878cf4242dba1.png" title=" Trevor enters 'London',TAB into From field" width="800"/>
+                <img src="e1dc818cf827cc761e27b0321c43a667c9d385ab7a87853d40b8eeb413603a14.png" title=" Trevor enters 'London',TAB into From field (completed)" width="800"/>
+                <img src="e1dc818cf827cc761e27b0321c43a667c9d385ab7a87853d40b8eeb413603a14.png" title=" Trevor enters 'New York',TAB into To field" width="800"/>
+                <img src="cff7556fdcd394384348f23b785a94b7596b9272763cd7d10f9c4bfd75579623.png" title=" Trevor enters 'New York',TAB into To field (completed)" width="800"/>
+                <img src="cff7556fdcd394384348f23b785a94b7596b9272763cd7d10f9c4bfd75579623.png" title=" Trevor selects  'Business' from Travel Class dropdown" width="800"/>
+                <img src="cff7556fdcd394384348f23b785a94b7596b9272763cd7d10f9c4bfd75579623.png" title=" Trevor clicks on Travel Class dropdown" width="800"/>
+                <img src="1e129d46a69fb21ad86aeb416da5545f7cf68827edeae6c61d6367d97e9730cc.png" title=" Trevor clicks on Travel Class dropdown (completed)" width="800"/>
+                <img src="333d394de842ef9d0e68bd3fdd452c8a8b2d7cf2f0c78df722811288ad300300.png" title=" Trevor clicks on option" width="800"/>
+                <img src="31f153fc9e4a90c7ac02ed56fac051c4220670a9f78e0ebc040f97777b8df907.png" title=" Trevor clicks on option (completed)" width="800"/>
+                <img src="31f153fc9e4a90c7ac02ed56fac051c4220670a9f78e0ebc040f97777b8df907.png" title=" Trevor selects  'Business' from Travel Class dropdown (completed)" width="800"/>
+                <img src="31f153fc9e4a90c7ac02ed56fac051c4220670a9f78e0ebc040f97777b8df907.png" title=" Trevor enters '05/17/2021' into Return date" width="800"/>
+                <img src="4b98d2c7ce141bfb55975442b4e88f0ed1b269634b45e60700e2981caaa7cc5a.png" title=" Trevor enters '05/17/2021' into Return date (completed)" width="800"/>
+                <img src="4b98d2c7ce141bfb55975442b4e88f0ed1b269634b45e60700e2981caaa7cc5a.png" title=" Trevor clicks on Search button" width="800"/>
+                <img src="fdb379fe4c5d971eb3f2a171e954646f1384a9f740bbc420307746a629aa576b.png" title=" Trevor clicks on Search button (completed)" width="800"/>
+                <img src="94cbe6de18133c9ee100ee581c9599b8c866915063503433ef20643d342826ba.png" title=" Trevor search flights (completed)" width="800"/>
+                <img src="94cbe6de18133c9ee100ee581c9599b8c866915063503433ef20643d342826ba.png" title=" Trevor books the first available flight" width="800"/>
+                <img src="94cbe6de18133c9ee100ee581c9599b8c866915063503433ef20643d342826ba.png" title=" Trevor clicks on From field" width="800"/>
+                <img src="502fbcbb2f840a89defffe77e69341e5f26f5b13d9b04bca7e058bb727c9f06f.png" title=" Trevor clicks on From field (completed)" width="800"/>
+                <img src="502fbcbb2f840a89defffe77e69341e5f26f5b13d9b04bca7e058bb727c9f06f.png" title=" Trevor books the first available flight (completed)" width="800"/>
+                <img src="502fbcbb2f840a89defffe77e69341e5f26f5b13d9b04bca7e058bb727c9f06f.png" title=" Trevor acknowledges the success notification message" width="800"/>
+                <img src="5a911f537ce8f4e3e5482c7b0b98e40896e7197cf5205da4d32db0b603b2edb3.png" title=" Trevor clicks on Success message" width="800"/>
+                <img src="41cf94963b607d78ab5c1673f7c4da3f812449cfee6d4393d039b64c8b77294c.png" title=" Trevor clicks on Success message (completed)" width="800"/>
+                <img src="502fbcbb2f840a89defffe77e69341e5f26f5b13d9b04bca7e058bb727c9f06f.png" title=" Trevor acknowledges the success notification message (completed)" width="800"/>
+                <img src="502fbcbb2f840a89defffe77e69341e5f26f5b13d9b04bca7e058bb727c9f06f.png" title=" When Trevor books the following flights
+| From | To | Travel Class | Trip Type |
+| London | New York | Business | Return | (completed)" width="800"/>
+                <img src="8ec9ac2152b4e5c8255c14e53ab89611ec8c1d64ef98efdbad73f3221177fa64.png" title=" Then his booking history should contain:
+| Departure | Destination | Points Earned |
+| London | New York | 250 |
+| New York | London | 250 |" width="800"/>
+                <img src="8ec9ac2152b4e5c8255c14e53ab89611ec8c1d64ef98efdbad73f3221177fa64.png" title=" Trevor goes to the My Accounts page" width="800"/>
+                <img src="8ec9ac2152b4e5c8255c14e53ab89611ec8c1d64ef98efdbad73f3221177fa64.png" title=" Trevor clicks on My Account button" width="800"/>
+                <img src="143fa5544b898d1547906f7b0a62e782c40838bf659ec19e3c4a8328308c2cfb.png" title=" Trevor goes to the My Accounts page (completed)" width="800"/>
+                <img src="143fa5544b898d1547906f7b0a62e782c40838bf659ec19e3c4a8328308c2cfb.png" title=" Trevor should see a value that contains exactly in any order: &lt;[CompletedFlight[departure=London, destination=New York, pointsEarned=250], CompletedFlight[departure=New York, destination=London, pointsEarned=250]]&gt;" width="800"/>
+                <img src="40a6a57dc12bfed3b41aab3c794fee79f9179dd07b30063c67b562de6f7672d3.png" title=" Trevor should see a value that contains exactly in any order: &lt;[CompletedFlight[departure=London, destination=New York, pointsEarned=250], CompletedFlight[departure=New York, destination=London, pointsEarned=250]]&gt; (completed)" width="800"/>
+                <img src="40a6a57dc12bfed3b41aab3c794fee79f9179dd07b30063c67b562de6f7672d3.png" title=" Then his booking history should contain:
+| Departure | Destination | Points Earned |
+| London | New York | 250 |
+| New York | London | 250 | (completed): <span class='success-color'>SUCCESS</span>" width="800"/>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<div id="beforefooter"></div>
+<div id="bottomfooter">
+    <span class="version">Serenity BDD version 2.4.24</span>
+</div>
+</body>
+</html>

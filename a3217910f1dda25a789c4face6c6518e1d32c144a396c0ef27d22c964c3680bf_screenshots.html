@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Screenshots</title>
+
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<!--[if IE 7]>
+<!--<link rel="stylesheet" href="font-awesome/css/font-awesome-ie7.min.css">-->
+
+<link rel="stylesheet" type="text/css" href="fontawesome-free-5.7.2-web/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="fontawesome-free-5.7.2-web/css/v4-shims.min.css">
+
+<!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script><link rel="stylesheet" type="text/css" href="chartist/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.min.css">
+<link rel="stylesheet" type="text/css" href="chartist/dist/chartist.min.css">
+<script src="chartist/dist/chartist.min.js"></script>
+<script src="chartist/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.min.js"></script>
+<!-- Required Stylesheets -->
+<link href="bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
+
+<!-- Required Javascript -->
+<script src="bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.10.20/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.10.20/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.10.20/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="datatables/1.10.20/datatables.bootstrap4.min.js"></script>
+<link type="text/css" href="datatables/1.10.20/datatables.bootstrap4.min.css" rel="stylesheet" />
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+<link rel="stylesheet" href="css/core.css"/>
+<link rel="stylesheet" href="css/link.css"/>
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/><!-- Nivo Slider -->
+<link rel="stylesheet" href="nivo-slider/3.2/nivo-slider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="nivo-slider/3.2/themes/default/default.css" type="text/css" media="screen" />
+<script src="nivo-slider/3.2/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        function getUrlVars() {
+            var vars = {};
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+                vars[key] = value;
+            });
+            return vars;
+        }
+
+        var screenshotIndex = getUrlVars()["screenshot"];
+
+        $(window).load(function () {
+            $('#slider').nivoSlider({
+                startSlide: screenshotIndex,
+                effect: 'fade',
+                animSpeed: 200,
+                manualAdvance: true
+            });
+        });
+
+        $(window).keydown(function(e) {
+            switch(e.which) {
+                case 37:
+                    $('a.nivo-prevNav').click();
+                    break;
+                case 39:
+                    $('a.nivo-nextNav').click();
+                    break;
+            }
+        });
+    </script>
+
+</head>
+
+<body>
+<div id="topheader">
+    <div id="topbanner">
+        <div id="logo"><a href="index.html"><img src="images/serenity-logo.png" border="0"/></a></div>
+        <div id="projectname-banner" style="float:right">
+            <span class="projectname">
+                <span class="projecttitle"></span>
+                <span class="projectsubtitle"></span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="middlecontent">
+    <div id="contenttop">
+        <div class="middlebg">
+            <span class="breadcrumbs">
+                <a href="index.html">Home</a>
+                > <span class="truncate-40"><a
+                    href="a9c93c26ad3855ef55d44cdc76e4b7ec461cd757da6f95deed3741e26922f11e.html">Earning Points</a></span>
+                > <span class="truncate-60"><a
+                    href="a3217910f1dda25a789c4face6c6518e1d32c144a396c0ef27d22c964c3680bf.html">Stan books a return economy flight from London to Sydney </a></span>
+                > Screenshots
+            </span>
+        </div>
+        <div class="rightbg"></div>
+    </div>
+
+    <div class="clr"></div>
+
+    <!--/* starts second table*/-->
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#"><i class="fa fa-check-square-o"></i> Overall Test Results</a>
+        </li>
+        <li >
+            <a href="capabilities.html"><i class="fa fa-book"></i> Requirements</a>
+        </li>
+        <li >
+            <a href="7ea0a5e2d679b9deeda9910ae4a9bcd3a281e0d908303a9e16e486103e98880c.html"><i class="fa fa-comments-o"></i> Capabilities</a>
+        </li>
+        <li >
+            <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="fa fa-comments-o"></i> Features</a>
+        </li>
+    </ul>
+    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 10-05-2021 08:16</span>
+    <br style="clear:left"/>
+</div>
+
+    <div class="clr"></div>
+
+
+    <div id="contentbody">
+        <div class="titlebar">
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td>
+                            <div>
+                                <h3 class="discreet-story-header">
+                                    <i class="fa fa-2x fa-comments-o"></i>
+                                    <span class="story-header-title">Earning Points </span>
+                                    <span class="badge tag-badge" style="">Feature</span>
+                                </h3>
+
+                                <div class="discreet-requirement-narrative-title">
+                                Frequent Flyers earn status points each time they fly.<br />
+As they earn more points, their status level increases and they get more benefits.
+                                </div>
+                            </div>
+
+                        </td>
+                        <td valign="top" align="right">
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="fa fa-tag"></i>&nbsp;<a class="tagLink" style="background:default;" href="f7364c6c3583eebcc7aa555df4c0eeeafb8097fd1fd2ca138c87fb00bb3ed04e.html">Firefox
+                                    (browser)</a>
+                                </span>
+                            </p>
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="fa fa-tag"></i>&nbsp;<a class="tagLink" style="background:default;" href="6aad9844177ecad2e13ab62d727eadc1a2b8f3ad6a12dd57a167d5193ca4b43f.html">Earning-Points
+                                    (tag)</a>
+                                </span>
+                            </p>
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="fa fa-tag"></i>&nbsp;<a class="tagLink" style="background:default;" href="478dede7257abe7991ff96e77edb3e3b45a1faf9c45fb039f3b47a9c2390c012.html">Firefox
+                                    (context)</a>
+                                </span>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td colspan="2" class="test-title-bar">
+                            <span class="outcome-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon fa-2x' title='SUCCESS'></i></a></span>
+                            <span class="test-case-title">
+                                <span class="success-color">Stan books a return economy flight from London to Sydney
+                                    <span class="related-issue-title"></span>
+                                </span>
+                            </span>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="clr"></div>
+
+
+    <div id="beforetable"></div>
+    <div id="contenttilttle">
+        <div class="slider-wrapper theme-default">
+            <div id="slider">
+                <img src="5e6c6fe116f7dbc6222e6991efb3ce925f993a23cc6cc0738806158c1bdaad47.png" title=" Given Stan has logged onto the Frequent Flyer application as a new member" width="1366"/>
+                <img src="5e6c6fe116f7dbc6222e6991efb3ce925f993a23cc6cc0738806158c1bdaad47.png" title=" Stan logs in as stan-1422971006@traveller.com" width="1366"/>
+                <img src="5e6c6fe116f7dbc6222e6991efb3ce925f993a23cc6cc0738806158c1bdaad47.png" title=" Stan goes to the login page" width="1366"/>
+                <img src="5e6c6fe116f7dbc6222e6991efb3ce925f993a23cc6cc0738806158c1bdaad47.png" title=" Stan opens the pages.home page" width="1366"/>
+                <img src="5e6c6fe116f7dbc6222e6991efb3ce925f993a23cc6cc0738806158c1bdaad47.png" title=" Stan clicks on Login button" width="1366"/>
+                <img src="3c8adb5a1f37a126caa1b29cd77925c2864f6e686ede630465cfa0916b8ecd66.png" title=" Stan clicks on Login button (completed)" width="1366"/>
+                <img src="3c8adb5a1f37a126caa1b29cd77925c2864f6e686ede630465cfa0916b8ecd66.png" title=" Stan goes to the login page (completed)" width="1366"/>
+                <img src="3c8adb5a1f37a126caa1b29cd77925c2864f6e686ede630465cfa0916b8ecd66.png" title=" Stan enters 'stan-1422971006@traveller.com' into Email field" width="1366"/>
+                <img src="c5b256d5dd6ce72f32c609928d723f38affae6747c204a14be2496cfa58fff67.png" title=" Stan enters 'stan-1422971006@traveller.com' into Email field (completed)" width="1366"/>
+                <img src="c5b256d5dd6ce72f32c609928d723f38affae6747c204a14be2496cfa58fff67.png" title=" Stan enters 'stan123' into Password field" width="1366"/>
+                <img src="c5b256d5dd6ce72f32c609928d723f38affae6747c204a14be2496cfa58fff67.png" title=" Stan enters 'stan123' into Password field (completed)" width="1366"/>
+                <img src="c5b256d5dd6ce72f32c609928d723f38affae6747c204a14be2496cfa58fff67.png" title=" Stan clicks on Login button" width="1366"/>
+                <img src="14e46c112cea5eaca118ba5e064e94002663f91bb412f8b2fa0a2e525fefeb6b.png" title=" Stan clicks on Login button (completed)" width="1366"/>
+                <img src="14e46c112cea5eaca118ba5e064e94002663f91bb412f8b2fa0a2e525fefeb6b.png" title=" Stan logs in as stan-1422971006@traveller.com (completed)" width="1366"/>
+                <img src="14e46c112cea5eaca118ba5e064e94002663f91bb412f8b2fa0a2e525fefeb6b.png" title=" Given Stan has logged onto the Frequent Flyer application as a new member (completed)" width="1366"/>
+                <img src="7a08add492967a672be4ce73bcd95162fdbb1008380978376dc20ebbb15c2452.png" title=" When Stan books a return Economy flight from London to Sydney" width="1366"/>
+                <img src="7a08add492967a672be4ce73bcd95162fdbb1008380978376dc20ebbb15c2452.png" title=" Stan search flights" width="1366"/>
+                <img src="7a08add492967a672be4ce73bcd95162fdbb1008380978376dc20ebbb15c2452.png" title=" Stan goes to the Book FLights page" width="1366"/>
+                <img src="7a08add492967a672be4ce73bcd95162fdbb1008380978376dc20ebbb15c2452.png" title=" Stan opens the pages.home page" width="1366"/>
+                <img src="7a08add492967a672be4ce73bcd95162fdbb1008380978376dc20ebbb15c2452.png" title=" Stan clicks on Book Flights button" width="1366"/>
+                <img src="045c061d04daea640bff77075b7f67a0e5657021e9a84d7713cc07998d707e0d.png" title=" Stan clicks on Book Flights button (completed)" width="1366"/>
+                <img src="045c061d04daea640bff77075b7f67a0e5657021e9a84d7713cc07998d707e0d.png" title=" Stan goes to the Book FLights page (completed)" width="1366"/>
+                <img src="045c061d04daea640bff77075b7f67a0e5657021e9a84d7713cc07998d707e0d.png" title=" Stan enters 'London',TAB into From field" width="1366"/>
+                <img src="2664fbd22d3794145eeb948ea5fa811b82791396a0737c5afc47084cadce4afb.png" title=" Stan enters 'London',TAB into From field (completed)" width="1366"/>
+                <img src="2664fbd22d3794145eeb948ea5fa811b82791396a0737c5afc47084cadce4afb.png" title=" Stan enters 'Sydney',TAB into To field" width="1366"/>
+                <img src="442d4e7cfded81cd855ca17884730aeaf19c77fe88fa428387490d958ed321a4.png" title=" Stan enters 'Sydney',TAB into To field (completed)" width="1366"/>
+                <img src="442d4e7cfded81cd855ca17884730aeaf19c77fe88fa428387490d958ed321a4.png" title=" Stan selects  'Economy' from Travel Class dropdown" width="1366"/>
+                <img src="442d4e7cfded81cd855ca17884730aeaf19c77fe88fa428387490d958ed321a4.png" title=" Stan clicks on Travel Class dropdown" width="1366"/>
+                <img src="5b8d05b1bdf52d2a3dfa70ac523616fa34af3e1d0b0324f7cb9805ff83840399.png" title=" Stan clicks on Travel Class dropdown (completed)" width="1366"/>
+                <img src="119a0be8ea1f1c0a2dc03bfdd142d91c69eb9d2d0d545500c56db2478250f164.png" title=" Stan clicks on option" width="1366"/>
+                <img src="79151a7c8c548d29ed70bd3518e5f74af3958bb4b8c3bb5a7e864dabfd3c133a.png" title=" Stan clicks on option (completed)" width="1366"/>
+                <img src="79151a7c8c548d29ed70bd3518e5f74af3958bb4b8c3bb5a7e864dabfd3c133a.png" title=" Stan selects  'Economy' from Travel Class dropdown (completed)" width="1366"/>
+                <img src="79151a7c8c548d29ed70bd3518e5f74af3958bb4b8c3bb5a7e864dabfd3c133a.png" title=" Stan enters '05/17/2021' into Return date" width="1366"/>
+                <img src="1955e56875570d29b84a47ba5878718bd93b59a7d0f85c82361573ae2b340204.png" title=" Stan enters '05/17/2021' into Return date (completed)" width="1366"/>
+                <img src="1955e56875570d29b84a47ba5878718bd93b59a7d0f85c82361573ae2b340204.png" title=" Stan clicks on Search button" width="1366"/>
+                <img src="496d65b907f54dd19b22a299e1e7389bba0029e25c51f0f7070c22dba67ccc45.png" title=" Stan clicks on Search button (completed)" width="1366"/>
+                <img src="36511383fc7ae5d92b53883551e5ab257d0fe439ab5915577a77cb5a8eabaf28.png" title=" Stan search flights (completed)" width="1366"/>
+                <img src="36511383fc7ae5d92b53883551e5ab257d0fe439ab5915577a77cb5a8eabaf28.png" title=" Stan books the first available flight" width="1366"/>
+                <img src="36511383fc7ae5d92b53883551e5ab257d0fe439ab5915577a77cb5a8eabaf28.png" title=" Stan clicks on From field" width="1366"/>
+                <img src="8447efbeb8f011f54f1ae2c94aa57559a0b10fa176067f055529d7e62b32f95e.png" title=" Stan clicks on From field (completed)" width="1366"/>
+                <img src="8447efbeb8f011f54f1ae2c94aa57559a0b10fa176067f055529d7e62b32f95e.png" title=" Stan books the first available flight (completed)" width="1366"/>
+                <img src="8447efbeb8f011f54f1ae2c94aa57559a0b10fa176067f055529d7e62b32f95e.png" title=" Stan acknowledges the success notification message" width="1366"/>
+                <img src="ab6d019031ca47a63e9a8e01b0050506acf886caceff0b975355e9b2e0bf2ae8.png" title=" Stan clicks on Success message" width="1366"/>
+                <img src="f100683887ab6f9e41ca59eeeee6579afb88db8106779a796de305e538f7e255.png" title=" Stan clicks on Success message (completed)" width="1366"/>
+                <img src="e00035cfdec6d1f4e8cc91b1d98163a049dfa9f5599e4bb499f466223a71f6e5.png" title=" Stan acknowledges the success notification message (completed)" width="1366"/>
+                <img src="e00035cfdec6d1f4e8cc91b1d98163a049dfa9f5599e4bb499f466223a71f6e5.png" title=" When Stan books a return Economy flight from London to Sydney (completed)" width="1366"/>
+                <img src="e00035cfdec6d1f4e8cc91b1d98163a049dfa9f5599e4bb499f466223a71f6e5.png" title=" Then his point balance should be 500 points: <span class='success-color'>SUCCESS</span>" width="1366"/>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<div id="beforefooter"></div>
+<div id="bottomfooter">
+    <span class="version">Serenity BDD version 2.4.24</span>
+</div>
+</body>
+</html>

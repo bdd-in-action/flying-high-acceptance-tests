@@ -1,0 +1,8 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"Authentication","Trevor successfully logs on to the Frequent Flyer app","SUCCESS","2021-05-10T08:14:41.749099432Z[Etc/UTC]","0.0","22.02"
+"Registering as a new Frequent Flyer","Trevor registers as a Frequent Flyer member","SUCCESS","2021-05-10T08:14:41.763181438Z[Etc/UTC]","0.0","29.59"
+"Registering as a new Frequent Flyer","Someone tries to register with an email that is already used","SUCCESS","2021-05-10T08:15:12.264157688Z[Etc/UTC]","0.0","11.15"
+"Registering as a new Frequent Flyer","Only correctly structured emails should be accepted","SUCCESS","2021-05-10T08:15:24.132615889Z[Etc/UTC]","0.0","35.14"
+"Registering as a new Frequent Flyer","Email addresses need to be well formed","SUCCESS","2021-05-10T08:15:59.283485019Z[Etc/UTC]","0.0","13.17"
+"Registering as a new Frequent Flyer","Candy fails to enter to enter a mandatory field","SUCCESS","2021-05-10T08:16:13.089557537Z[Etc/UTC]","0.0","39.07"
+"Registering as a new Frequent Flyer","Candy forgets to agree to the Terms and Conditions","SUCCESS","2021-05-10T08:16:53.186100169Z[Etc/UTC]","0.0","7.46"

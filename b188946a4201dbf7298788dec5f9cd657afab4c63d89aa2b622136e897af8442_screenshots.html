@@ -1,0 +1,486 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Screenshots</title>
+
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<!--[if IE 7]>
+<!--<link rel="stylesheet" href="font-awesome/css/font-awesome-ie7.min.css">-->
+
+<link rel="stylesheet" type="text/css" href="fontawesome-free-5.7.2-web/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="fontawesome-free-5.7.2-web/css/v4-shims.min.css">
+
+<!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script><link rel="stylesheet" type="text/css" href="chartist/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.min.css">
+<link rel="stylesheet" type="text/css" href="chartist/dist/chartist.min.css">
+<script src="chartist/dist/chartist.min.js"></script>
+<script src="chartist/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.min.js"></script>
+<!-- Required Stylesheets -->
+<link href="bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
+
+<!-- Required Javascript -->
+<script src="bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.10.20/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.10.20/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.10.20/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="datatables/1.10.20/datatables.bootstrap4.min.js"></script>
+<link type="text/css" href="datatables/1.10.20/datatables.bootstrap4.min.css" rel="stylesheet" />
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+<link rel="stylesheet" href="css/core.css"/>
+<link rel="stylesheet" href="css/link.css"/>
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/><!-- Nivo Slider -->
+<link rel="stylesheet" href="nivo-slider/3.2/nivo-slider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="nivo-slider/3.2/themes/default/default.css" type="text/css" media="screen" />
+<script src="nivo-slider/3.2/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        function getUrlVars() {
+            var vars = {};
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+                vars[key] = value;
+            });
+            return vars;
+        }
+
+        var screenshotIndex = getUrlVars()["screenshot"];
+
+        $(window).load(function () {
+            $('#slider').nivoSlider({
+                startSlide: screenshotIndex,
+                effect: 'fade',
+                animSpeed: 200,
+                manualAdvance: true
+            });
+        });
+
+        $(window).keydown(function(e) {
+            switch(e.which) {
+                case 37:
+                    $('a.nivo-prevNav').click();
+                    break;
+                case 39:
+                    $('a.nivo-nextNav').click();
+                    break;
+            }
+        });
+    </script>
+
+</head>
+
+<body>
+<div id="topheader">
+    <div id="topbanner">
+        <div id="logo"><a href="index.html"><img src="images/serenity-logo.png" border="0"/></a></div>
+        <div id="projectname-banner" style="float:right">
+            <span class="projectname">
+                <span class="projecttitle"></span>
+                <span class="projectsubtitle"></span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="middlecontent">
+    <div id="contenttop">
+        <div class="middlebg">
+            <span class="breadcrumbs">
+                <a href="index.html">Home</a>
+                > <span class="truncate-40"><a
+                    href="a9c93c26ad3855ef55d44cdc76e4b7ec461cd757da6f95deed3741e26922f11e.html">Earning Points</a></span>
+                > <span class="truncate-60"><a
+                    href="b188946a4201dbf7298788dec5f9cd657afab4c63d89aa2b622136e897af8442.html">Travellers with <Status> level should earn <Bonus> bonus points </a></span>
+                > Screenshots
+            </span>
+        </div>
+        <div class="rightbg"></div>
+    </div>
+
+    <div class="clr"></div>
+
+    <!--/* starts second table*/-->
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#"><i class="fa fa-check-square-o"></i> Overall Test Results</a>
+        </li>
+        <li >
+            <a href="capabilities.html"><i class="fa fa-book"></i> Requirements</a>
+        </li>
+        <li >
+            <a href="7ea0a5e2d679b9deeda9910ae4a9bcd3a281e0d908303a9e16e486103e98880c.html"><i class="fa fa-comments-o"></i> Capabilities</a>
+        </li>
+        <li >
+            <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="fa fa-comments-o"></i> Features</a>
+        </li>
+    </ul>
+    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 10-05-2021 08:12</span>
+    <br style="clear:left"/>
+</div>
+
+    <div class="clr"></div>
+
+
+    <div id="contentbody">
+        <div class="titlebar">
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td>
+                            <div>
+                                <h3 class="discreet-story-header">
+                                    <i class="fa fa-2x fa-comments-o"></i>
+                                    <span class="story-header-title">Earning Points </span>
+                                    <span class="badge tag-badge" style="">Feature</span>
+                                </h3>
+
+                                <div class="discreet-requirement-narrative-title">
+                                Frequent Flyers earn status points each time they fly.<br />
+As they earn more points, their status level increases and they get more benefits.
+                                </div>
+                            </div>
+
+                        </td>
+                        <td valign="top" align="right">
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="fa fa-tag"></i>&nbsp;<a class="tagLink" style="background:default;" href="6aad9844177ecad2e13ab62d727eadc1a2b8f3ad6a12dd57a167d5193ca4b43f.html">Earning-Points
+                                    (tag)</a>
+                                </span>
+                            </p>
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="fa fa-tag"></i>&nbsp;<a class="tagLink" style="background:default;" href="38e6d02e5e393aa24cdf5821afc6dd92111b4261fa02877fca4632298c86e549.html">Chrome
+                                    (browser)</a>
+                                </span>
+                            </p>
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="fa fa-tag"></i>&nbsp;<a class="tagLink" style="background:default;" href="6fe0671aeea9e76b6998ee682216d11c7748a4152740df0586f3c256ecb3f5da.html">Chrome
+                                    (context)</a>
+                                </span>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td colspan="2" class="test-title-bar">
+                            <span class="outcome-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon fa-2x' title='SUCCESS'></i></a></span>
+                            <span class="test-case-title">
+                                <span class="success-color">Travellers with <Status> level should earn <Bonus> bonus points
+                                    <span class="related-issue-title"></span>
+                                </span>
+                            </span>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="clr"></div>
+
+    <div class="story-title">
+        <h3>Scenario:</h3>
+        <div class="scenario">Given Trevor is a Frequent Flyer Member with status &lt;Status&gt;<br>And he has logged onto the Frequent Flyer application<br>When he books an Economy flight from Sydney to Hong Kong<br>Then he should earn &lt;Points Earned&gt; points</div>
+    </div>
+
+    <div id="beforetable"></div>
+    <div id="contenttilttle">
+        <div class="slider-wrapper theme-default">
+            <div id="slider">
+                <img src="c31df0b4ec3912825831418d13401c856b9c8fb4b20174fe1475e074d3e4e3dd.png" title=" 1: Travellers with STANDARD level should earn 0 bonus points ({Status=STANDARD, Points Earned=100, Bonus=0})" width="800"/>
+                <img src="c31df0b4ec3912825831418d13401c856b9c8fb4b20174fe1475e074d3e4e3dd.png" title=" And he has logged onto the Frequent Flyer application" width="800"/>
+                <img src="c31df0b4ec3912825831418d13401c856b9c8fb4b20174fe1475e074d3e4e3dd.png" title=" he logs in as trevor-1623057718@traveller.com" width="800"/>
+                <img src="c31df0b4ec3912825831418d13401c856b9c8fb4b20174fe1475e074d3e4e3dd.png" title=" he goes to the login page" width="800"/>
+                <img src="c31df0b4ec3912825831418d13401c856b9c8fb4b20174fe1475e074d3e4e3dd.png" title=" he opens the pages.home page" width="800"/>
+                <img src="c31df0b4ec3912825831418d13401c856b9c8fb4b20174fe1475e074d3e4e3dd.png" title=" he clicks on Login button" width="800"/>
+                <img src="ad1d270340938504c1c10cb5bca262c3135f81464d985d172b88a8f054b9cbf9.png" title=" he clicks on Login button (completed)" width="800"/>
+                <img src="ad1d270340938504c1c10cb5bca262c3135f81464d985d172b88a8f054b9cbf9.png" title=" he goes to the login page (completed)" width="800"/>
+                <img src="ad1d270340938504c1c10cb5bca262c3135f81464d985d172b88a8f054b9cbf9.png" title=" he enters 'trevor-1623057718@traveller.com' into Email field" width="800"/>
+                <img src="78f6b9d85d298d6634e6fa58dc64b252389f12280bc3260e2977d720db35f452.png" title=" he enters 'trevor-1623057718@traveller.com' into Email field (completed)" width="800"/>
+                <img src="78f6b9d85d298d6634e6fa58dc64b252389f12280bc3260e2977d720db35f452.png" title=" he enters 'tr3vor' into Password field" width="800"/>
+                <img src="33136d071ae1b132655c6aefffbfc885058eb96e4e86c1f1f46785d807064dc3.png" title=" he enters 'tr3vor' into Password field (completed)" width="800"/>
+                <img src="33136d071ae1b132655c6aefffbfc885058eb96e4e86c1f1f46785d807064dc3.png" title=" he clicks on Login button" width="800"/>
+                <img src="a6a4638f2f4a78d7c85e3129d43088af03e207980610118ba730492106f27187.png" title=" he clicks on Login button (completed)" width="800"/>
+                <img src="a6a4638f2f4a78d7c85e3129d43088af03e207980610118ba730492106f27187.png" title=" he logs in as trevor-1623057718@traveller.com (completed)" width="800"/>
+                <img src="a6a4638f2f4a78d7c85e3129d43088af03e207980610118ba730492106f27187.png" title=" he expects to see a message of 'Logged in as trevor-1623057718@traveller.com'" width="800"/>
+                <img src="6099e68d7ddff9cd43882496b62118db17b472e0479e080db4a1b36675479357.png" title=" he should see Success message with text content that is equal to: &lt;&quot;Logged in as trevor-1623057718@traveller.com&quot;&gt;" width="800"/>
+                <img src="6099e68d7ddff9cd43882496b62118db17b472e0479e080db4a1b36675479357.png" title=" he should see Success message with text content that is equal to: &lt;&quot;Logged in as trevor-1623057718@traveller.com&quot;&gt; (completed)" width="800"/>
+                <img src="6099e68d7ddff9cd43882496b62118db17b472e0479e080db4a1b36675479357.png" title=" he clicks on Success message" width="800"/>
+                <img src="4600b5d0e7ea249c28dd6d547d01c45b0f6c68e258cb05798d8f5e345aef4ad9.png" title=" he clicks on Success message (completed)" width="800"/>
+                <img src="4600b5d0e7ea249c28dd6d547d01c45b0f6c68e258cb05798d8f5e345aef4ad9.png" title=" he expects to see a message of 'Logged in as trevor-1623057718@traveller.com' (completed)" width="800"/>
+                <img src="4600b5d0e7ea249c28dd6d547d01c45b0f6c68e258cb05798d8f5e345aef4ad9.png" title=" And he has logged onto the Frequent Flyer application (completed)" width="800"/>
+                <img src="4600b5d0e7ea249c28dd6d547d01c45b0f6c68e258cb05798d8f5e345aef4ad9.png" title=" When he books an Economy flight from Sydney to Hong Kong" width="800"/>
+                <img src="4600b5d0e7ea249c28dd6d547d01c45b0f6c68e258cb05798d8f5e345aef4ad9.png" title=" He search flights" width="800"/>
+                <img src="4600b5d0e7ea249c28dd6d547d01c45b0f6c68e258cb05798d8f5e345aef4ad9.png" title=" he goes to the Book FLights page" width="800"/>
+                <img src="4600b5d0e7ea249c28dd6d547d01c45b0f6c68e258cb05798d8f5e345aef4ad9.png" title=" he opens the pages.home page" width="800"/>
+                <img src="7208a3f132f61699685aaf06a34d6600ccbbe228312e48a7ad98c555db034afe.png" title=" he opens the pages.home page (completed)" width="800"/>
+                <img src="7208a3f132f61699685aaf06a34d6600ccbbe228312e48a7ad98c555db034afe.png" title=" he clicks on Book Flights button" width="800"/>
+                <img src="c18e2d3c05742015c8b5e579931754e79b6f33f8729f25312df37b1544295b53.png" title=" he clicks on Book Flights button (completed)" width="800"/>
+                <img src="c18e2d3c05742015c8b5e579931754e79b6f33f8729f25312df37b1544295b53.png" title=" he goes to the Book FLights page (completed)" width="800"/>
+                <img src="c18e2d3c05742015c8b5e579931754e79b6f33f8729f25312df37b1544295b53.png" title=" he enters 'Sydney',TAB into From field" width="800"/>
+                <img src="d25694ffde8ae96bcd9aa2e7112e381df6d87b5443a21fa99fad8c7b68aa97f0.png" title=" he enters 'Sydney',TAB into From field (completed)" width="800"/>
+                <img src="d25694ffde8ae96bcd9aa2e7112e381df6d87b5443a21fa99fad8c7b68aa97f0.png" title=" he enters 'Hong Kong',TAB into To field" width="800"/>
+                <img src="586666dd0a753e7e713091a5d2bf639d0b8bf6f224493f2c282020d18b8a5b63.png" title=" he enters 'Hong Kong',TAB into To field (completed)" width="800"/>
+                <img src="586666dd0a753e7e713091a5d2bf639d0b8bf6f224493f2c282020d18b8a5b63.png" title=" he selects  'Economy' from Travel Class dropdown" width="800"/>
+                <img src="586666dd0a753e7e713091a5d2bf639d0b8bf6f224493f2c282020d18b8a5b63.png" title=" he clicks on Travel Class dropdown" width="800"/>
+                <img src="789ac3e9fbae1adba2a0fabf812e89d87f56d74e5dfc9519b7a77266415a42ff.png" title=" he clicks on Travel Class dropdown (completed)" width="800"/>
+                <img src="44ce78de9831fc086d6fc68fb657653cc31f14187cccf89351520ccb1a081ccc.png" title=" he clicks on option" width="800"/>
+                <img src="69afe2df89ae04977ae35c4545642b3910d01064571db3f36e7020a5769cf90e.png" title=" he clicks on option (completed)" width="800"/>
+                <img src="69afe2df89ae04977ae35c4545642b3910d01064571db3f36e7020a5769cf90e.png" title=" he selects  'Economy' from Travel Class dropdown (completed)" width="800"/>
+                <img src="69afe2df89ae04977ae35c4545642b3910d01064571db3f36e7020a5769cf90e.png" title=" he clicks on Search button" width="800"/>
+                <img src="598c1091235a761c09339e44d8cf6553a6a29631806762285d993963489ff03e.png" title=" he clicks on Search button (completed)" width="800"/>
+                <img src="0371e771ff6b9c94386590590647559c80ddf0fff7d4cc7c642c07f48458dc6d.png" title=" He search flights (completed)" width="800"/>
+                <img src="0371e771ff6b9c94386590590647559c80ddf0fff7d4cc7c642c07f48458dc6d.png" title=" he books the first available flight" width="800"/>
+                <img src="0371e771ff6b9c94386590590647559c80ddf0fff7d4cc7c642c07f48458dc6d.png" title=" he clicks on From field" width="800"/>
+                <img src="6523e9eebfdd7bc61c4896693f7cf8c35bc4e80007ee14263bb3252144f323dd.png" title=" he clicks on From field (completed)" width="800"/>
+                <img src="6523e9eebfdd7bc61c4896693f7cf8c35bc4e80007ee14263bb3252144f323dd.png" title=" he books the first available flight (completed)" width="800"/>
+                <img src="6523e9eebfdd7bc61c4896693f7cf8c35bc4e80007ee14263bb3252144f323dd.png" title=" he acknowledges the success notification message" width="800"/>
+                <img src="75f3b1c30bd81da6d2a905154eb3362a8ff7b0452568de19098afcb25399882c.png" title=" he clicks on Success message" width="800"/>
+                <img src="d19268c0d07a49d09d6476133064bfefc0523b4e79d5f9c73c98542055fe5808.png" title=" he clicks on Success message (completed)" width="800"/>
+                <img src="f5e1a6418295000bdd560418976f66eff4e81d95cbe118db47712e8d61612135.png" title=" he acknowledges the success notification message (completed)" width="800"/>
+                <img src="f5e1a6418295000bdd560418976f66eff4e81d95cbe118db47712e8d61612135.png" title=" When he books an Economy flight from Sydney to Hong Kong (completed)" width="800"/>
+                <img src="f5e1a6418295000bdd560418976f66eff4e81d95cbe118db47712e8d61612135.png" title=" Then he should earn 100 points" width="800"/>
+                <img src="f5e1a6418295000bdd560418976f66eff4e81d95cbe118db47712e8d61612135.png" title=" he goes to the My Accounts page" width="800"/>
+                <img src="f5e1a6418295000bdd560418976f66eff4e81d95cbe118db47712e8d61612135.png" title=" he clicks on My Account button" width="800"/>
+                <img src="e4bd4b9862b87bea2f617791038debe1f80ba32aabfe733d8e501df0e24a3aa6.png" title=" he clicks on My Account button (completed)" width="800"/>
+                <img src="50e882211e1feb204edaa950144fbb6584c2287e82b9cbe4e95d23b557bcf4b3.png" title=" he goes to the My Accounts page (completed)" width="800"/>
+                <img src="5307861417774b9edbd679409483b9bc3a964220670d4fd9b38e74959744a0c7.png" title=" Then he should earn 100 points (completed)" width="800"/>
+                <img src="5307861417774b9edbd679409483b9bc3a964220670d4fd9b38e74959744a0c7.png" title=" 1: Travellers with STANDARD level should earn 0 bonus points ({Status=STANDARD, Points Earned=100, Bonus=0}) (completed)" width="800"/>
+                <img src="c31df0b4ec3912825831418d13401c856b9c8fb4b20174fe1475e074d3e4e3dd.png" title=" 2: Travellers with BRONZE level should earn 25% bonus points ({Status=BRONZE, Points Earned=125, Bonus=25%})" width="800"/>
+                <img src="c31df0b4ec3912825831418d13401c856b9c8fb4b20174fe1475e074d3e4e3dd.png" title=" And he has logged onto the Frequent Flyer application" width="800"/>
+                <img src="c31df0b4ec3912825831418d13401c856b9c8fb4b20174fe1475e074d3e4e3dd.png" title=" he logs in as trevor2026402201@traveller.com" width="800"/>
+                <img src="c31df0b4ec3912825831418d13401c856b9c8fb4b20174fe1475e074d3e4e3dd.png" title=" he goes to the login page" width="800"/>
+                <img src="c31df0b4ec3912825831418d13401c856b9c8fb4b20174fe1475e074d3e4e3dd.png" title=" he opens the pages.home page" width="800"/>
+                <img src="c31df0b4ec3912825831418d13401c856b9c8fb4b20174fe1475e074d3e4e3dd.png" title=" he clicks on Login button" width="800"/>
+                <img src="915e83f779735cc31be7740ceccc2b24c0aa0415a4521ac56c53beda984919a2.png" title=" he clicks on Login button (completed)" width="800"/>
+                <img src="915e83f779735cc31be7740ceccc2b24c0aa0415a4521ac56c53beda984919a2.png" title=" he goes to the login page (completed)" width="800"/>
+                <img src="915e83f779735cc31be7740ceccc2b24c0aa0415a4521ac56c53beda984919a2.png" title=" he enters 'trevor2026402201@traveller.com' into Email field" width="800"/>
+                <img src="1943cc7cb9225c2d4692d4d5802c201e27efb5dc6e8ae3515a5900cabd2de165.png" title=" he enters 'trevor2026402201@traveller.com' into Email field (completed)" width="800"/>
+                <img src="1943cc7cb9225c2d4692d4d5802c201e27efb5dc6e8ae3515a5900cabd2de165.png" title=" he enters 'tr3vor' into Password field" width="800"/>
+                <img src="d08f86ada4615324703bfabf67cb7765745a843a7baaa08c14c3d706fa3aad0f.png" title=" he enters 'tr3vor' into Password field (completed)" width="800"/>
+                <img src="d08f86ada4615324703bfabf67cb7765745a843a7baaa08c14c3d706fa3aad0f.png" title=" he clicks on Login button" width="800"/>
+                <img src="2b3c134e48814249bea7ef69b8f747acf5f77d31ba3bbdf9d6a162248d703398.png" title=" he clicks on Login button (completed)" width="800"/>
+                <img src="2b3c134e48814249bea7ef69b8f747acf5f77d31ba3bbdf9d6a162248d703398.png" title=" he logs in as trevor2026402201@traveller.com (completed)" width="800"/>
+                <img src="2b3c134e48814249bea7ef69b8f747acf5f77d31ba3bbdf9d6a162248d703398.png" title=" he expects to see a message of 'Logged in as trevor2026402201@traveller.com'" width="800"/>
+                <img src="2bdd165c8156fca40a5da3654c9c60d949207cedb3f4313f1f2f6ebc26b32880.png" title=" he should see Success message with text content that is equal to: &lt;&quot;Logged in as trevor2026402201@traveller.com&quot;&gt;" width="800"/>
+                <img src="2bdd165c8156fca40a5da3654c9c60d949207cedb3f4313f1f2f6ebc26b32880.png" title=" he should see Success message with text content that is equal to: &lt;&quot;Logged in as trevor2026402201@traveller.com&quot;&gt; (completed)" width="800"/>
+                <img src="2bdd165c8156fca40a5da3654c9c60d949207cedb3f4313f1f2f6ebc26b32880.png" title=" he clicks on Success message" width="800"/>
+                <img src="fc6a78fc59ec78fe4bb719f59340362abefa574d388842c39460d70f49fdb80d.png" title=" he clicks on Success message (completed)" width="800"/>
+                <img src="fc6a78fc59ec78fe4bb719f59340362abefa574d388842c39460d70f49fdb80d.png" title=" he expects to see a message of 'Logged in as trevor2026402201@traveller.com' (completed)" width="800"/>
+                <img src="fc6a78fc59ec78fe4bb719f59340362abefa574d388842c39460d70f49fdb80d.png" title=" And he has logged onto the Frequent Flyer application (completed)" width="800"/>
+                <img src="fc6a78fc59ec78fe4bb719f59340362abefa574d388842c39460d70f49fdb80d.png" title=" When he books an Economy flight from Sydney to Hong Kong" width="800"/>
+                <img src="fc6a78fc59ec78fe4bb719f59340362abefa574d388842c39460d70f49fdb80d.png" title=" He search flights" width="800"/>
+                <img src="fc6a78fc59ec78fe4bb719f59340362abefa574d388842c39460d70f49fdb80d.png" title=" he goes to the Book FLights page" width="800"/>
+                <img src="fc6a78fc59ec78fe4bb719f59340362abefa574d388842c39460d70f49fdb80d.png" title=" he opens the pages.home page" width="800"/>
+                <img src="10aa984489db96f8379c25802b937e6bfcae3371e8f83ae1af0bc795791932ff.png" title=" he opens the pages.home page (completed)" width="800"/>
+                <img src="10aa984489db96f8379c25802b937e6bfcae3371e8f83ae1af0bc795791932ff.png" title=" he clicks on Book Flights button" width="800"/>
+                <img src="a34715bb91746e988fd30886cf2cee96d716ce71d658744c9bd3762db02a71bf.png" title=" he clicks on Book Flights button (completed)" width="800"/>
+                <img src="a34715bb91746e988fd30886cf2cee96d716ce71d658744c9bd3762db02a71bf.png" title=" he goes to the Book FLights page (completed)" width="800"/>
+                <img src="a34715bb91746e988fd30886cf2cee96d716ce71d658744c9bd3762db02a71bf.png" title=" he enters 'Sydney',TAB into From field" width="800"/>
+                <img src="7a3088aa997369540a888489819b4ba9c82428a49e4062d41c5b74a587457a09.png" title=" he enters 'Sydney',TAB into From field (completed)" width="800"/>
+                <img src="7a3088aa997369540a888489819b4ba9c82428a49e4062d41c5b74a587457a09.png" title=" he enters 'Hong Kong',TAB into To field" width="800"/>
+                <img src="2656799f1e805b496a0894f7f8b0481780bd7f8b604854381704ccebb3148292.png" title=" he enters 'Hong Kong',TAB into To field (completed)" width="800"/>
+                <img src="2656799f1e805b496a0894f7f8b0481780bd7f8b604854381704ccebb3148292.png" title=" he selects  'Economy' from Travel Class dropdown" width="800"/>
+                <img src="2656799f1e805b496a0894f7f8b0481780bd7f8b604854381704ccebb3148292.png" title=" he clicks on Travel Class dropdown" width="800"/>
+                <img src="f66e2b20493ffa428a6b13fa58525a75e1ac862c6f4ddade72ebc82fee7e244d.png" title=" he clicks on Travel Class dropdown (completed)" width="800"/>
+                <img src="b327b754d7501508ac185974bf166fc592e08e0f2b355b1044f5a491730db9d4.png" title=" he clicks on option" width="800"/>
+                <img src="80f460ef2da30aab24f970d2064867e5b59d9c6e0d0460d850ded4a4bfe10eae.png" title=" he clicks on option (completed)" width="800"/>
+                <img src="80f460ef2da30aab24f970d2064867e5b59d9c6e0d0460d850ded4a4bfe10eae.png" title=" he selects  'Economy' from Travel Class dropdown (completed)" width="800"/>
+                <img src="80f460ef2da30aab24f970d2064867e5b59d9c6e0d0460d850ded4a4bfe10eae.png" title=" he clicks on Search button" width="800"/>
+                <img src="601eafef7ee374dc0c7a176f2deee2e26344c9986ad070c11f986dc19b514f52.png" title=" he clicks on Search button (completed)" width="800"/>
+                <img src="f211d656792a39bd455473f01b877a96e1ad25823353e8788ee8f8436b70b142.png" title=" He search flights (completed)" width="800"/>
+                <img src="f211d656792a39bd455473f01b877a96e1ad25823353e8788ee8f8436b70b142.png" title=" he books the first available flight" width="800"/>
+                <img src="f211d656792a39bd455473f01b877a96e1ad25823353e8788ee8f8436b70b142.png" title=" he clicks on From field" width="800"/>
+                <img src="9ed434905a236ea37fc1ea244bf9880faa01f62fc22ee5d0693ce8fc0ce4a075.png" title=" he clicks on From field (completed)" width="800"/>
+                <img src="9ed434905a236ea37fc1ea244bf9880faa01f62fc22ee5d0693ce8fc0ce4a075.png" title=" he books the first available flight (completed)" width="800"/>
+                <img src="9ed434905a236ea37fc1ea244bf9880faa01f62fc22ee5d0693ce8fc0ce4a075.png" title=" he acknowledges the success notification message" width="800"/>
+                <img src="44e1746da3c73ac7c20dc4203be2149973837eef67cec08d6d49c089149f888b.png" title=" he clicks on Success message" width="800"/>
+                <img src="1ba73aac79300919e3e6ee8ac2201426c3e073258d54d4b4d37a8ca3fa3cea20.png" title=" he clicks on Success message (completed)" width="800"/>
+                <img src="067af4219554ba6d71bcd0a7df99d8b5435faf26648555b935f89853f397fcae.png" title=" he acknowledges the success notification message (completed)" width="800"/>
+                <img src="067af4219554ba6d71bcd0a7df99d8b5435faf26648555b935f89853f397fcae.png" title=" When he books an Economy flight from Sydney to Hong Kong (completed)" width="800"/>
+                <img src="067af4219554ba6d71bcd0a7df99d8b5435faf26648555b935f89853f397fcae.png" title=" Then he should earn 125 points" width="800"/>
+                <img src="067af4219554ba6d71bcd0a7df99d8b5435faf26648555b935f89853f397fcae.png" title=" he goes to the My Accounts page" width="800"/>
+                <img src="067af4219554ba6d71bcd0a7df99d8b5435faf26648555b935f89853f397fcae.png" title=" he clicks on My Account button" width="800"/>
+                <img src="43debe52af1ffc640dd1e4b5bbd5b3c8a82194b1d9b1b94b7c915b5a14bd74bb.png" title=" he clicks on My Account button (completed)" width="800"/>
+                <img src="cd1e56d76b0839683147aebd7ccfda92a818c129f028faafa9318c2227a8caa3.png" title=" he goes to the My Accounts page (completed)" width="800"/>
+                <img src="2bfb631503ccc508045293a9fff5d6ffc72b62c9611408e2665ec9231de71c3c.png" title=" Then he should earn 125 points (completed)" width="800"/>
+                <img src="2bfb631503ccc508045293a9fff5d6ffc72b62c9611408e2665ec9231de71c3c.png" title=" 2: Travellers with BRONZE level should earn 25% bonus points ({Status=BRONZE, Points Earned=125, Bonus=25%}) (completed)" width="800"/>
+                <img src="c31df0b4ec3912825831418d13401c856b9c8fb4b20174fe1475e074d3e4e3dd.png" title=" 3: Travellers with SILVER level should earn 50% bonus points ({Status=SILVER, Points Earned=150, Bonus=50%})" width="800"/>
+                <img src="c31df0b4ec3912825831418d13401c856b9c8fb4b20174fe1475e074d3e4e3dd.png" title=" And he has logged onto the Frequent Flyer application" width="800"/>
+                <img src="c31df0b4ec3912825831418d13401c856b9c8fb4b20174fe1475e074d3e4e3dd.png" title=" he logs in as trevor-691429605@traveller.com" width="800"/>
+                <img src="c31df0b4ec3912825831418d13401c856b9c8fb4b20174fe1475e074d3e4e3dd.png" title=" he goes to the login page" width="800"/>
+                <img src="c31df0b4ec3912825831418d13401c856b9c8fb4b20174fe1475e074d3e4e3dd.png" title=" he opens the pages.home page" width="800"/>
+                <img src="c31df0b4ec3912825831418d13401c856b9c8fb4b20174fe1475e074d3e4e3dd.png" title=" he clicks on Login button" width="800"/>
+                <img src="ad1d270340938504c1c10cb5bca262c3135f81464d985d172b88a8f054b9cbf9.png" title=" he clicks on Login button (completed)" width="800"/>
+                <img src="ad1d270340938504c1c10cb5bca262c3135f81464d985d172b88a8f054b9cbf9.png" title=" he goes to the login page (completed)" width="800"/>
+                <img src="ad1d270340938504c1c10cb5bca262c3135f81464d985d172b88a8f054b9cbf9.png" title=" he enters 'trevor-691429605@traveller.com' into Email field" width="800"/>
+                <img src="89fbd0624223a163c8f52df8bfefb2a820ba863a60ca7e4a7e5d9531d4f49760.png" title=" he enters 'trevor-691429605@traveller.com' into Email field (completed)" width="800"/>
+                <img src="89fbd0624223a163c8f52df8bfefb2a820ba863a60ca7e4a7e5d9531d4f49760.png" title=" he enters 'tr3vor' into Password field" width="800"/>
+                <img src="eada205f23a9312870acc37095bb4ac8f8cce6dccba973683b78638f01a2990e.png" title=" he enters 'tr3vor' into Password field (completed)" width="800"/>
+                <img src="eada205f23a9312870acc37095bb4ac8f8cce6dccba973683b78638f01a2990e.png" title=" he clicks on Login button" width="800"/>
+                <img src="9d3e52006abad4c9fac5e056deade27d5db74a83ab452055c91e724331094830.png" title=" he clicks on Login button (completed)" width="800"/>
+                <img src="9d3e52006abad4c9fac5e056deade27d5db74a83ab452055c91e724331094830.png" title=" he logs in as trevor-691429605@traveller.com (completed)" width="800"/>
+                <img src="9d3e52006abad4c9fac5e056deade27d5db74a83ab452055c91e724331094830.png" title=" he expects to see a message of 'Logged in as trevor-691429605@traveller.com'" width="800"/>
+                <img src="4b2d7c5022f0527e6265c86b5d65f04a12c76a5ee747642aad4b3e1c4acaef0d.png" title=" he should see Success message with text content that is equal to: &lt;&quot;Logged in as trevor-691429605@traveller.com&quot;&gt;" width="800"/>
+                <img src="4b2d7c5022f0527e6265c86b5d65f04a12c76a5ee747642aad4b3e1c4acaef0d.png" title=" he should see Success message with text content that is equal to: &lt;&quot;Logged in as trevor-691429605@traveller.com&quot;&gt; (completed)" width="800"/>
+                <img src="4b2d7c5022f0527e6265c86b5d65f04a12c76a5ee747642aad4b3e1c4acaef0d.png" title=" he clicks on Success message" width="800"/>
+                <img src="cf6018e6d6be5e624c325653f60afee076fd134df52522246dd2afd2a4573e7e.png" title=" he clicks on Success message (completed)" width="800"/>
+                <img src="cf6018e6d6be5e624c325653f60afee076fd134df52522246dd2afd2a4573e7e.png" title=" he expects to see a message of 'Logged in as trevor-691429605@traveller.com' (completed)" width="800"/>
+                <img src="cf6018e6d6be5e624c325653f60afee076fd134df52522246dd2afd2a4573e7e.png" title=" And he has logged onto the Frequent Flyer application (completed)" width="800"/>
+                <img src="cf6018e6d6be5e624c325653f60afee076fd134df52522246dd2afd2a4573e7e.png" title=" When he books an Economy flight from Sydney to Hong Kong" width="800"/>
+                <img src="cf6018e6d6be5e624c325653f60afee076fd134df52522246dd2afd2a4573e7e.png" title=" He search flights" width="800"/>
+                <img src="cf6018e6d6be5e624c325653f60afee076fd134df52522246dd2afd2a4573e7e.png" title=" he goes to the Book FLights page" width="800"/>
+                <img src="cf6018e6d6be5e624c325653f60afee076fd134df52522246dd2afd2a4573e7e.png" title=" he opens the pages.home page" width="800"/>
+                <img src="2dd2c51e497771f792212df730e1ef0a047da1222a01592310a9cad083b50f56.png" title=" he opens the pages.home page (completed)" width="800"/>
+                <img src="2dd2c51e497771f792212df730e1ef0a047da1222a01592310a9cad083b50f56.png" title=" he clicks on Book Flights button" width="800"/>
+                <img src="f5e2606150be5005a85ae42a1b1b61990c39e7d89248b4b5260b473e922e7d5c.png" title=" he clicks on Book Flights button (completed)" width="800"/>
+                <img src="f5e2606150be5005a85ae42a1b1b61990c39e7d89248b4b5260b473e922e7d5c.png" title=" he goes to the Book FLights page (completed)" width="800"/>
+                <img src="f5e2606150be5005a85ae42a1b1b61990c39e7d89248b4b5260b473e922e7d5c.png" title=" he enters 'Sydney',TAB into From field" width="800"/>
+                <img src="6f4b87f673f7eb3729d5e8c1b110136daabb88c49b36a63911c6c7d4eb05b41a.png" title=" he enters 'Sydney',TAB into From field (completed)" width="800"/>
+                <img src="6f4b87f673f7eb3729d5e8c1b110136daabb88c49b36a63911c6c7d4eb05b41a.png" title=" he enters 'Hong Kong',TAB into To field" width="800"/>
+                <img src="6edeb331a4dac7da18f3024c90c4a57a29e746aeddad090c7e5b7526ed8db6e5.png" title=" he enters 'Hong Kong',TAB into To field (completed)" width="800"/>
+                <img src="6edeb331a4dac7da18f3024c90c4a57a29e746aeddad090c7e5b7526ed8db6e5.png" title=" he selects  'Economy' from Travel Class dropdown" width="800"/>
+                <img src="6edeb331a4dac7da18f3024c90c4a57a29e746aeddad090c7e5b7526ed8db6e5.png" title=" he clicks on Travel Class dropdown" width="800"/>
+                <img src="c3ebed7719aed44c876e9ba705563c1f203322c0095b744b0aa7112a3d88c153.png" title=" he clicks on Travel Class dropdown (completed)" width="800"/>
+                <img src="13f2aff6c7164d8c50b1d251e47288990b0fb11e92ba4c09c9f0d24b44a49a07.png" title=" he clicks on option" width="800"/>
+                <img src="26097f61ba821091455ae06d7d6db29249bdc2dab69283239c02b1ab8c7dd28a.png" title=" he clicks on option (completed)" width="800"/>
+                <img src="26097f61ba821091455ae06d7d6db29249bdc2dab69283239c02b1ab8c7dd28a.png" title=" he selects  'Economy' from Travel Class dropdown (completed)" width="800"/>
+                <img src="26097f61ba821091455ae06d7d6db29249bdc2dab69283239c02b1ab8c7dd28a.png" title=" he clicks on Search button" width="800"/>
+                <img src="6198468cd3b2aa7f0bf9098b9718cafca7c3dc20746c83838eec7654449c485d.png" title=" he clicks on Search button (completed)" width="800"/>
+                <img src="c95a80a0af58ffc417c2b2f3f8f04ff5f6069198acfcace6028fc7c925115449.png" title=" He search flights (completed)" width="800"/>
+                <img src="c95a80a0af58ffc417c2b2f3f8f04ff5f6069198acfcace6028fc7c925115449.png" title=" he books the first available flight" width="800"/>
+                <img src="c95a80a0af58ffc417c2b2f3f8f04ff5f6069198acfcace6028fc7c925115449.png" title=" he clicks on From field" width="800"/>
+                <img src="30f97547d1a7a33807466c1f4ad8936f5b199c3c1b6a7ff780b6eab939e454de.png" title=" he clicks on From field (completed)" width="800"/>
+                <img src="30f97547d1a7a33807466c1f4ad8936f5b199c3c1b6a7ff780b6eab939e454de.png" title=" he books the first available flight (completed)" width="800"/>
+                <img src="30f97547d1a7a33807466c1f4ad8936f5b199c3c1b6a7ff780b6eab939e454de.png" title=" he acknowledges the success notification message" width="800"/>
+                <img src="fdfe4beb726dbd5fc09613247af929f9b33260bb8584b8fc6c9a7f6288ad7311.png" title=" he clicks on Success message" width="800"/>
+                <img src="eb3768d46aa38797a4a8dfaa2e7851561921f4c2b1ac7e03f97e7c8b24fb3b2c.png" title=" he clicks on Success message (completed)" width="800"/>
+                <img src="30f97547d1a7a33807466c1f4ad8936f5b199c3c1b6a7ff780b6eab939e454de.png" title=" he acknowledges the success notification message (completed)" width="800"/>
+                <img src="30f97547d1a7a33807466c1f4ad8936f5b199c3c1b6a7ff780b6eab939e454de.png" title=" When he books an Economy flight from Sydney to Hong Kong (completed)" width="800"/>
+                <img src="30f97547d1a7a33807466c1f4ad8936f5b199c3c1b6a7ff780b6eab939e454de.png" title=" Then he should earn 150 points" width="800"/>
+                <img src="30f97547d1a7a33807466c1f4ad8936f5b199c3c1b6a7ff780b6eab939e454de.png" title=" he goes to the My Accounts page" width="800"/>
+                <img src="30f97547d1a7a33807466c1f4ad8936f5b199c3c1b6a7ff780b6eab939e454de.png" title=" he clicks on My Account button" width="800"/>
+                <img src="1fa0828cf52a0bd14075355d0f3f082472dd406bcbf0738940344aa618bb5fcb.png" title=" he clicks on My Account button (completed)" width="800"/>
+                <img src="02a6498ad20966861ead7204ebeadebe31f21d92819624d912dda3d5510eb898.png" title=" he goes to the My Accounts page (completed)" width="800"/>
+                <img src="8364b7e28eea5f6610654b42eb110bbe8790741f36ee0a9d6fb94e8aebf63aef.png" title=" Then he should earn 150 points (completed)" width="800"/>
+                <img src="8364b7e28eea5f6610654b42eb110bbe8790741f36ee0a9d6fb94e8aebf63aef.png" title=" 3: Travellers with SILVER level should earn 50% bonus points ({Status=SILVER, Points Earned=150, Bonus=50%}) (completed)" width="800"/>
+                <img src="c31df0b4ec3912825831418d13401c856b9c8fb4b20174fe1475e074d3e4e3dd.png" title=" 4: Travellers with GOLD level should earn 100% bonus points ({Status=GOLD, Points Earned=200, Bonus=100%})" width="800"/>
+                <img src="c31df0b4ec3912825831418d13401c856b9c8fb4b20174fe1475e074d3e4e3dd.png" title=" And he has logged onto the Frequent Flyer application" width="800"/>
+                <img src="c31df0b4ec3912825831418d13401c856b9c8fb4b20174fe1475e074d3e4e3dd.png" title=" he logs in as trevor136797443@traveller.com" width="800"/>
+                <img src="c31df0b4ec3912825831418d13401c856b9c8fb4b20174fe1475e074d3e4e3dd.png" title=" he goes to the login page" width="800"/>
+                <img src="c31df0b4ec3912825831418d13401c856b9c8fb4b20174fe1475e074d3e4e3dd.png" title=" he opens the pages.home page" width="800"/>
+                <img src="c31df0b4ec3912825831418d13401c856b9c8fb4b20174fe1475e074d3e4e3dd.png" title=" he clicks on Login button" width="800"/>
+                <img src="915e83f779735cc31be7740ceccc2b24c0aa0415a4521ac56c53beda984919a2.png" title=" he clicks on Login button (completed)" width="800"/>
+                <img src="915e83f779735cc31be7740ceccc2b24c0aa0415a4521ac56c53beda984919a2.png" title=" he goes to the login page (completed)" width="800"/>
+                <img src="915e83f779735cc31be7740ceccc2b24c0aa0415a4521ac56c53beda984919a2.png" title=" he enters 'trevor136797443@traveller.com' into Email field" width="800"/>
+                <img src="74c5c5f49ae9e72faa384cd2d6e458a7652c9a14574def685d1d69bae2fb0a96.png" title=" he enters 'trevor136797443@traveller.com' into Email field (completed)" width="800"/>
+                <img src="74c5c5f49ae9e72faa384cd2d6e458a7652c9a14574def685d1d69bae2fb0a96.png" title=" he enters 'tr3vor' into Password field" width="800"/>
+                <img src="39012436e85de90431f73e29b192e4c87dd2a9b92ce8074f027a6091ccd9b66d.png" title=" he enters 'tr3vor' into Password field (completed)" width="800"/>
+                <img src="39012436e85de90431f73e29b192e4c87dd2a9b92ce8074f027a6091ccd9b66d.png" title=" he clicks on Login button" width="800"/>
+                <img src="ca946c5988f48bd4021e7a419a412cc15afd4c9bfc6df911c5d1ef10bee09c1f.png" title=" he clicks on Login button (completed)" width="800"/>
+                <img src="ca946c5988f48bd4021e7a419a412cc15afd4c9bfc6df911c5d1ef10bee09c1f.png" title=" he logs in as trevor136797443@traveller.com (completed)" width="800"/>
+                <img src="ca946c5988f48bd4021e7a419a412cc15afd4c9bfc6df911c5d1ef10bee09c1f.png" title=" he expects to see a message of 'Logged in as trevor136797443@traveller.com'" width="800"/>
+                <img src="7208b1bfee0098b808b54b57b73bc773bba70eaf7cfcdbdda9b93f3bd7ce5551.png" title=" he should see Success message with text content that is equal to: &lt;&quot;Logged in as trevor136797443@traveller.com&quot;&gt;" width="800"/>
+                <img src="7208b1bfee0098b808b54b57b73bc773bba70eaf7cfcdbdda9b93f3bd7ce5551.png" title=" he should see Success message with text content that is equal to: &lt;&quot;Logged in as trevor136797443@traveller.com&quot;&gt; (completed)" width="800"/>
+                <img src="7208b1bfee0098b808b54b57b73bc773bba70eaf7cfcdbdda9b93f3bd7ce5551.png" title=" he clicks on Success message" width="800"/>
+                <img src="8afd74875675af43e6dd52eb8cc25175f9f7b2910f24967ef79f89ba501ac158.png" title=" he clicks on Success message (completed)" width="800"/>
+                <img src="8afd74875675af43e6dd52eb8cc25175f9f7b2910f24967ef79f89ba501ac158.png" title=" he expects to see a message of 'Logged in as trevor136797443@traveller.com' (completed)" width="800"/>
+                <img src="8afd74875675af43e6dd52eb8cc25175f9f7b2910f24967ef79f89ba501ac158.png" title=" And he has logged onto the Frequent Flyer application (completed)" width="800"/>
+                <img src="8afd74875675af43e6dd52eb8cc25175f9f7b2910f24967ef79f89ba501ac158.png" title=" When he books an Economy flight from Sydney to Hong Kong" width="800"/>
+                <img src="8afd74875675af43e6dd52eb8cc25175f9f7b2910f24967ef79f89ba501ac158.png" title=" He search flights" width="800"/>
+                <img src="8afd74875675af43e6dd52eb8cc25175f9f7b2910f24967ef79f89ba501ac158.png" title=" he goes to the Book FLights page" width="800"/>
+                <img src="8afd74875675af43e6dd52eb8cc25175f9f7b2910f24967ef79f89ba501ac158.png" title=" he opens the pages.home page" width="800"/>
+                <img src="67eac78c602059f026e2fd78913f68aee451bab125006105508fab0acfcda240.png" title=" he opens the pages.home page (completed)" width="800"/>
+                <img src="67eac78c602059f026e2fd78913f68aee451bab125006105508fab0acfcda240.png" title=" he clicks on Book Flights button" width="800"/>
+                <img src="2017ce98f71416f5f084b139b163e79068244d4b43f18ca99eb6f33adc5c0c03.png" title=" he clicks on Book Flights button (completed)" width="800"/>
+                <img src="2017ce98f71416f5f084b139b163e79068244d4b43f18ca99eb6f33adc5c0c03.png" title=" he goes to the Book FLights page (completed)" width="800"/>
+                <img src="2017ce98f71416f5f084b139b163e79068244d4b43f18ca99eb6f33adc5c0c03.png" title=" he enters 'Sydney',TAB into From field" width="800"/>
+                <img src="1975d1ce8c5db421436755b8c5b6b81790c7ce332cfb952cc2bf32218b47eef0.png" title=" he enters 'Sydney',TAB into From field (completed)" width="800"/>
+                <img src="1975d1ce8c5db421436755b8c5b6b81790c7ce332cfb952cc2bf32218b47eef0.png" title=" he enters 'Hong Kong',TAB into To field" width="800"/>
+                <img src="844c19ee88b7df29b2cfa92564c7e40307133a7b54565ad21add4df1f9c8da0f.png" title=" he enters 'Hong Kong',TAB into To field (completed)" width="800"/>
+                <img src="844c19ee88b7df29b2cfa92564c7e40307133a7b54565ad21add4df1f9c8da0f.png" title=" he selects  'Economy' from Travel Class dropdown" width="800"/>
+                <img src="844c19ee88b7df29b2cfa92564c7e40307133a7b54565ad21add4df1f9c8da0f.png" title=" he clicks on Travel Class dropdown" width="800"/>
+                <img src="188b52f906bc14abf0e0177fbdfdc3765ef61a0139d4cc66bc98ec571ba68333.png" title=" he clicks on Travel Class dropdown (completed)" width="800"/>
+                <img src="970fde532caa81e4c2b11d08261e3d9ca03e26d00d2e0ceb632fda96f36b693f.png" title=" he clicks on option" width="800"/>
+                <img src="45efbd973967d0fca0cbb7e5d07c3f36aec7b07320f59ae446e2e434a6f33ca5.png" title=" he clicks on option (completed)" width="800"/>
+                <img src="45efbd973967d0fca0cbb7e5d07c3f36aec7b07320f59ae446e2e434a6f33ca5.png" title=" he selects  'Economy' from Travel Class dropdown (completed)" width="800"/>
+                <img src="45efbd973967d0fca0cbb7e5d07c3f36aec7b07320f59ae446e2e434a6f33ca5.png" title=" he clicks on Search button" width="800"/>
+                <img src="ae66b370ceb23c6be73668eac70a0068d9972b270418a585d7c22b563ae85e00.png" title=" he clicks on Search button (completed)" width="800"/>
+                <img src="95aa2d93ea134311ac3004145e2f384f4140c15caaafdc0ebe5fc831c3002559.png" title=" He search flights (completed)" width="800"/>
+                <img src="95aa2d93ea134311ac3004145e2f384f4140c15caaafdc0ebe5fc831c3002559.png" title=" he books the first available flight" width="800"/>
+                <img src="95aa2d93ea134311ac3004145e2f384f4140c15caaafdc0ebe5fc831c3002559.png" title=" he clicks on From field" width="800"/>
+                <img src="6976c638d38d9cfb7dba05ccbacc60edae688db8d99924c6fa502ba3476b8194.png" title=" he clicks on From field (completed)" width="800"/>
+                <img src="6976c638d38d9cfb7dba05ccbacc60edae688db8d99924c6fa502ba3476b8194.png" title=" he books the first available flight (completed)" width="800"/>
+                <img src="6976c638d38d9cfb7dba05ccbacc60edae688db8d99924c6fa502ba3476b8194.png" title=" he acknowledges the success notification message" width="800"/>
+                <img src="681b27341cedb1c8d4da710b6410e027da85d63577b16bb78557dea41cb7d707.png" title=" he clicks on Success message" width="800"/>
+                <img src="9ae19509d1c9ad8f4c34b7b7686a2a06687850234e126d11b700b5dc3d0f0480.png" title=" he clicks on Success message (completed)" width="800"/>
+                <img src="eca76448d9bdfe4f64053cd485ff08cff2f6269f5b6cb409e98767d55fbcc629.png" title=" he acknowledges the success notification message (completed)" width="800"/>
+                <img src="eca76448d9bdfe4f64053cd485ff08cff2f6269f5b6cb409e98767d55fbcc629.png" title=" When he books an Economy flight from Sydney to Hong Kong (completed)" width="800"/>
+                <img src="eca76448d9bdfe4f64053cd485ff08cff2f6269f5b6cb409e98767d55fbcc629.png" title=" Then he should earn 200 points" width="800"/>
+                <img src="eca76448d9bdfe4f64053cd485ff08cff2f6269f5b6cb409e98767d55fbcc629.png" title=" he goes to the My Accounts page" width="800"/>
+                <img src="eca76448d9bdfe4f64053cd485ff08cff2f6269f5b6cb409e98767d55fbcc629.png" title=" he clicks on My Account button" width="800"/>
+                <img src="d6cab2b18e9af3438f54cc845b34b79b24ee725452e48b207610ede8d725247c.png" title=" he clicks on My Account button (completed)" width="800"/>
+                <img src="08c3b9af6ac4305ca168dee2d0b1d838a0aeb276acf58e77cf676ad62a910d36.png" title=" he goes to the My Accounts page (completed)" width="800"/>
+                <img src="3421d6d30c702fa2b1b7fff64c1c80fc002888068e43f3bbeb6054fc52f8bd7c.png" title=" Then he should earn 200 points (completed)" width="800"/>
+                <img src="3421d6d30c702fa2b1b7fff64c1c80fc002888068e43f3bbeb6054fc52f8bd7c.png" title=" 4: Travellers with GOLD level should earn 100% bonus points ({Status=GOLD, Points Earned=200, Bonus=100%}) (completed): <span class='success-color'>SUCCESS</span>" width="800"/>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<div id="beforefooter"></div>
+<div id="bottomfooter">
+    <span class="version">Serenity BDD version 2.4.24</span>
+</div>
+</body>
+</html>

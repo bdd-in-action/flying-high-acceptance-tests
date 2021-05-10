@@ -1,0 +1,5 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"View account status","Trevor has just joined the program","SUCCESS","2021-05-10T08:11:00.918320684Z[Etc/UTC]","0.0","12.91"
+"View account status","Trevor views his flight history for a single flight","SUCCESS","2021-05-10T08:11:13.900835724Z[Etc/UTC]","0.0","13.51"
+"View account status","Trevor views his flight history for a return flight","SUCCESS","2021-05-10T08:11:27.490185697Z[Etc/UTC]","0.0","15.27"
+"View account status","Trevor views his flight history after several flights","SUCCESS","2021-05-10T08:11:42.840261735Z[Etc/UTC]","0.0","8.54"

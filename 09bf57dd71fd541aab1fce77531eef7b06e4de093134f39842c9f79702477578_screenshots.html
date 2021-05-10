@@ -1,0 +1,271 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Screenshots</title>
+
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<!--[if IE 7]>
+<!--<link rel="stylesheet" href="font-awesome/css/font-awesome-ie7.min.css">-->
+
+<link rel="stylesheet" type="text/css" href="fontawesome-free-5.7.2-web/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="fontawesome-free-5.7.2-web/css/v4-shims.min.css">
+
+<!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script><link rel="stylesheet" type="text/css" href="chartist/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.min.css">
+<link rel="stylesheet" type="text/css" href="chartist/dist/chartist.min.css">
+<script src="chartist/dist/chartist.min.js"></script>
+<script src="chartist/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.min.js"></script>
+<!-- Required Stylesheets -->
+<link href="bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
+
+<!-- Required Javascript -->
+<script src="bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.10.20/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.10.20/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.10.20/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="datatables/1.10.20/datatables.bootstrap4.min.js"></script>
+<link type="text/css" href="datatables/1.10.20/datatables.bootstrap4.min.css" rel="stylesheet" />
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+<link rel="stylesheet" href="css/core.css"/>
+<link rel="stylesheet" href="css/link.css"/>
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/><!-- Nivo Slider -->
+<link rel="stylesheet" href="nivo-slider/3.2/nivo-slider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="nivo-slider/3.2/themes/default/default.css" type="text/css" media="screen" />
+<script src="nivo-slider/3.2/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        function getUrlVars() {
+            var vars = {};
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+                vars[key] = value;
+            });
+            return vars;
+        }
+
+        var screenshotIndex = getUrlVars()["screenshot"];
+
+        $(window).load(function () {
+            $('#slider').nivoSlider({
+                startSlide: screenshotIndex,
+                effect: 'fade',
+                animSpeed: 200,
+                manualAdvance: true
+            });
+        });
+
+        $(window).keydown(function(e) {
+            switch(e.which) {
+                case 37:
+                    $('a.nivo-prevNav').click();
+                    break;
+                case 39:
+                    $('a.nivo-nextNav').click();
+                    break;
+            }
+        });
+    </script>
+
+</head>
+
+<body>
+<div id="topheader">
+    <div id="topbanner">
+        <div id="logo"><a href="index.html"><img src="images/serenity-logo.png" border="0"/></a></div>
+        <div id="projectname-banner" style="float:right">
+            <span class="projectname">
+                <span class="projecttitle"></span>
+                <span class="projectsubtitle"></span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="middlecontent">
+    <div id="contenttop">
+        <div class="middlebg">
+            <span class="breadcrumbs">
+                <a href="index.html">Home</a>
+                > <span class="truncate-40"><a
+                    href="3e4ec4b80916c4f6d10b483e56ed497d81083b551a5d8558dad9a6076a0fdb74.html">Registering As A New Frequent Flyer</a></span>
+                > <span class="truncate-60"><a
+                    href="09bf57dd71fd541aab1fce77531eef7b06e4de093134f39842c9f79702477578.html">Candy forgets to agree to the Terms and Conditions </a></span>
+                > Screenshots
+            </span>
+        </div>
+        <div class="rightbg"></div>
+    </div>
+
+    <div class="clr"></div>
+
+    <!--/* starts second table*/-->
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#"><i class="fa fa-check-square-o"></i> Overall Test Results</a>
+        </li>
+        <li >
+            <a href="capabilities.html"><i class="fa fa-book"></i> Requirements</a>
+        </li>
+        <li >
+            <a href="7ea0a5e2d679b9deeda9910ae4a9bcd3a281e0d908303a9e16e486103e98880c.html"><i class="fa fa-comments-o"></i> Capabilities</a>
+        </li>
+        <li >
+            <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="fa fa-comments-o"></i> Features</a>
+        </li>
+    </ul>
+    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 10-05-2021 08:12</span>
+    <br style="clear:left"/>
+</div>
+
+    <div class="clr"></div>
+
+
+    <div id="contentbody">
+        <div class="titlebar">
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td>
+                            <div>
+                                <h3 class="discreet-story-header">
+                                    <i class="fa fa-2x fa-comments-o"></i>
+                                    <span class="story-header-title">Registering As A New Frequent Flyer </span>
+                                    <span class="badge tag-badge" style="">Feature</span>
+                                </h3>
+
+                                <div class="discreet-requirement-narrative-title">
+                                New Frequent Flyer members need to register to book a flight.
+                                </div>
+                            </div>
+
+                        </td>
+                        <td valign="top" align="right">
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="fa fa-tag"></i>&nbsp;<a class="tagLink" style="background:default;" href="38e6d02e5e393aa24cdf5821afc6dd92111b4261fa02877fca4632298c86e549.html">Chrome
+                                    (browser)</a>
+                                </span>
+                            </p>
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="fa fa-tag"></i>&nbsp;<a class="tagLink" style="background:default;" href="6fe0671aeea9e76b6998ee682216d11c7748a4152740df0586f3c256ecb3f5da.html">Chrome
+                                    (context)</a>
+                                </span>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td colspan="2" class="test-title-bar">
+                            <span class="outcome-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon fa-2x' title='SUCCESS'></i></a></span>
+                            <span class="test-case-title">
+                                <span class="success-color">Candy forgets to agree to the Terms and Conditions
+                                    <span class="related-issue-title"></span>
+                                </span>
+                            </span>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="clr"></div>
+
+
+    <div id="beforetable"></div>
+    <div id="contenttilttle">
+        <div class="slider-wrapper theme-default">
+            <div id="slider">
+                <img src="e0bc077986622d6057b65e44001a3f616cb42319391e12fd23b6f81be559c9bb.png" title=" When Candy tries to register without approving the terms and conditions" width="800"/>
+                <img src="e0bc077986622d6057b65e44001a3f616cb42319391e12fd23b6f81be559c9bb.png" title=" Candy registers for a new Frequent Flyer account with email candy535463034@traveller.com" width="800"/>
+                <img src="e0bc077986622d6057b65e44001a3f616cb42319391e12fd23b6f81be559c9bb.png" title=" Candy goes to the registration page" width="800"/>
+                <img src="e0bc077986622d6057b65e44001a3f616cb42319391e12fd23b6f81be559c9bb.png" title=" Candy opens the pages.registration page" width="800"/>
+                <img src="e0bc077986622d6057b65e44001a3f616cb42319391e12fd23b6f81be559c9bb.png" title=" Candy goes to the registration page (completed)" width="800"/>
+                <img src="e0bc077986622d6057b65e44001a3f616cb42319391e12fd23b6f81be559c9bb.png" title=" Candy enters 'candy535463034@traveller.com' into Email field" width="800"/>
+                <img src="969ae961bda445a89f7df8cccebd67e69f91d05ec1b5e5004b6778a009c3e4cd.png" title=" Candy enters 'candy535463034@traveller.com' into Email field (completed)" width="800"/>
+                <img src="969ae961bda445a89f7df8cccebd67e69f91d05ec1b5e5004b6778a009c3e4cd.png" title=" Candy enters 'cand1' into Password field" width="800"/>
+                <img src="d719d44c1db22e5035fc69df8185515f34ac360d9b8fc78bfae451184f8091c5.png" title=" Candy enters 'cand1' into Password field (completed)" width="800"/>
+                <img src="d719d44c1db22e5035fc69df8185515f34ac360d9b8fc78bfae451184f8091c5.png" title=" Candy enters 'Candy' into First name field" width="800"/>
+                <img src="9bc863c88b184f5d00945651d1d520903c97e1b06f8a5d0a0c2d808090280ecc.png" title=" Candy enters 'Candy' into First name field (completed)" width="800"/>
+                <img src="9bc863c88b184f5d00945651d1d520903c97e1b06f8a5d0a0c2d808090280ecc.png" title=" Candy enters 'Traveller' into Last name field" width="800"/>
+                <img src="93d6ab644ae8a92993e79849672abafe19b993bebc4bcb6d073aff383f6bdcb1.png" title=" Candy enters 'Traveller' into Last name field (completed)" width="800"/>
+                <img src="93d6ab644ae8a92993e79849672abafe19b993bebc4bcb6d073aff383f6bdcb1.png" title=" Candy enters '10 Partridge Street, Dandenong' into Address field" width="800"/>
+                <img src="a7d2ad412863d2ba116b23f797b2cbfd9f620096a12dd23fd35e06f84b960111.png" title=" Candy enters '10 Partridge Street, Dandenong' into Address field (completed)" width="800"/>
+                <img src="a7d2ad412863d2ba116b23f797b2cbfd9f620096a12dd23fd35e06f84b960111.png" title=" Candy enters 'Australia' then hits [TAB] into Country field" width="800"/>
+                <img src="157d169c8f7d5889118f0d9d6764b79f7b17cc945fb7489a451b86b7ca36e852.png" title=" Candy enters 'Australia' then hits [TAB] into Country field (completed)" width="800"/>
+                <img src="157d169c8f7d5889118f0d9d6764b79f7b17cc945fb7489a451b86b7ca36e852.png" title=" Candy selects  'Mrs' from Title dropdown" width="800"/>
+                <img src="157d169c8f7d5889118f0d9d6764b79f7b17cc945fb7489a451b86b7ca36e852.png" title=" Candy clicks on Title dropdown" width="800"/>
+                <img src="f8413c20729f0eb02863effb1a2a39da9a91ef49fea840c23ac10c8596857395.png" title=" Candy clicks on Title dropdown (completed)" width="800"/>
+                <img src="cf2e040456fd2abdd76cfaa185556aeedea89a9b553b628164c0e9f4c65c660f.png" title=" Candy clicks on option" width="800"/>
+                <img src="84829ca520f2110b9031070f949f2aaca8d2c8d7f4d93f16ec9a11150b3a8bca.png" title=" Candy clicks on option (completed)" width="800"/>
+                <img src="84829ca520f2110b9031070f949f2aaca8d2c8d7f4d93f16ec9a11150b3a8bca.png" title=" Candy selects  'Mrs' from Title dropdown (completed)" width="800"/>
+                <img src="84829ca520f2110b9031070f949f2aaca8d2c8d7f4d93f16ec9a11150b3a8bca.png" title=" Candy clicks on Seat preference" width="800"/>
+                <img src="2e4837c06e4cd805b91d5c6de8c3a70d11da76738592696917ea14d3f4a71d75.png" title=" Candy clicks on Seat preference (completed)" width="800"/>
+                <img src="2e4837c06e4cd805b91d5c6de8c3a70d11da76738592696917ea14d3f4a71d75.png" title=" Candy clicks on Register button" width="800"/>
+                <img src="6480e917d342f55e351093ab0f10aa567816e6db598bd844c8eb3dbc2ae397c8.png" title=" Candy clicks on Register button (completed)" width="800"/>
+                <img src="6480e917d342f55e351093ab0f10aa567816e6db598bd844c8eb3dbc2ae397c8.png" title=" Candy registers for a new Frequent Flyer account with email candy535463034@traveller.com (completed)" width="800"/>
+                <img src="6480e917d342f55e351093ab0f10aa567816e6db598bd844c8eb3dbc2ae397c8.png" title=" When Candy tries to register without approving the terms and conditions (completed)" width="800"/>
+                <img src="6480e917d342f55e351093ab0f10aa567816e6db598bd844c8eb3dbc2ae397c8.png" title=" Then she should be told &quot;Please confirm the terms and conditions to continue&quot;" width="800"/>
+                <img src="6480e917d342f55e351093ab0f10aa567816e6db598bd844c8eb3dbc2ae397c8.png" title=" she should see Error messages with text values that contains: &lt;[Please confirm the terms and conditions to continue]&gt;" width="800"/>
+                <img src="6480e917d342f55e351093ab0f10aa567816e6db598bd844c8eb3dbc2ae397c8.png" title=" Then she should be told &quot;Please confirm the terms and conditions to continue&quot; (completed): <span class='success-color'>SUCCESS</span>" width="800"/>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<div id="beforefooter"></div>
+<div id="bottomfooter">
+    <span class="version">Serenity BDD version 2.4.24</span>
+</div>
+</body>
+</html>

@@ -1,0 +1,354 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Screenshots</title>
+
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<!--[if IE 7]>
+<!--<link rel="stylesheet" href="font-awesome/css/font-awesome-ie7.min.css">-->
+
+<link rel="stylesheet" type="text/css" href="fontawesome-free-5.7.2-web/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="fontawesome-free-5.7.2-web/css/v4-shims.min.css">
+
+<!-- JQuery -->
+<script type="text/javascript" src="scripts/jquery-1.11.1.min.js"></script><link rel="stylesheet" type="text/css" href="chartist/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.min.css">
+<link rel="stylesheet" type="text/css" href="chartist/dist/chartist.min.css">
+<script src="chartist/dist/chartist.min.js"></script>
+<script src="chartist/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.min.js"></script>
+<!-- Required Stylesheets -->
+<link href="bootstrap-treeview/dist/bootstrap-treeview.min.css" rel="stylesheet">
+
+<!-- Required Javascript -->
+<script src="bootstrap-treeview/dist/bootstrap-treeview.min.js"></script><!-- DataTables -->
+<link type="text/css" href="datatables/1.10.20/datatables.min.css" rel="stylesheet" />
+<script type="text/javascript" src="datatables/1.10.20/datatables.min.js"></script>
+<script type="text/javascript" src="datatables/1.10.20/time-elapsed-dhms.js"></script>
+
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<script src="bootstrap/js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="datatables/1.10.20/datatables.bootstrap4.min.js"></script>
+<link type="text/css" href="datatables/1.10.20/datatables.bootstrap4.min.css" rel="stylesheet" />
+
+<script>
+    jQuery.fn.dataTable.ext.type.order['time-elapsed-dhms-pre'] = function(data) {
+
+        var matches = data.match(/^(\d+(?:\.\d+)?)\s*([a-z]+)/i);
+        var multipliers = {
+            ms: 1,
+            s: 1000,
+            m: 60000,
+            h: 3600000,
+            d: 86400000
+        };
+
+        if (matches) {
+            var multiplier = multipliers[matches[2].toLowerCase()];
+            return parseFloat(matches[1]) * multiplier;
+        } else {
+            return -1;
+        };
+    };
+</script>
+<link rel="stylesheet" href="css/core.css"/>
+<link rel="stylesheet" href="css/link.css"/>
+<link type="text/css" media="screen" href="css/screen.css" rel="Stylesheet"/><!-- Nivo Slider -->
+<link rel="stylesheet" href="nivo-slider/3.2/nivo-slider.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="nivo-slider/3.2/themes/default/default.css" type="text/css" media="screen" />
+<script src="nivo-slider/3.2/jquery.nivo.slider.pack.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+        function getUrlVars() {
+            var vars = {};
+            var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (m, key, value) {
+                vars[key] = value;
+            });
+            return vars;
+        }
+
+        var screenshotIndex = getUrlVars()["screenshot"];
+
+        $(window).load(function () {
+            $('#slider').nivoSlider({
+                startSlide: screenshotIndex,
+                effect: 'fade',
+                animSpeed: 200,
+                manualAdvance: true
+            });
+        });
+
+        $(window).keydown(function(e) {
+            switch(e.which) {
+                case 37:
+                    $('a.nivo-prevNav').click();
+                    break;
+                case 39:
+                    $('a.nivo-nextNav').click();
+                    break;
+            }
+        });
+    </script>
+
+</head>
+
+<body>
+<div id="topheader">
+    <div id="topbanner">
+        <div id="logo"><a href="index.html"><img src="images/serenity-logo.png" border="0"/></a></div>
+        <div id="projectname-banner" style="float:right">
+            <span class="projectname">
+                <span class="projecttitle"></span>
+                <span class="projectsubtitle"></span>
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="middlecontent">
+    <div id="contenttop">
+        <div class="middlebg">
+            <span class="breadcrumbs">
+                <a href="index.html">Home</a>
+                > <span class="truncate-40"><a
+                    href="3e4ec4b80916c4f6d10b483e56ed497d81083b551a5d8558dad9a6076a0fdb74.html">Registering As A New Frequent Flyer</a></span>
+                > <span class="truncate-60"><a
+                    href="151c87e763bc20464db011eaa403cff97f4f4237db008fc86fc4b2e64f977e9b.html">Only correctly structured emails should be accepted </a></span>
+                > Screenshots
+            </span>
+        </div>
+        <div class="rightbg"></div>
+    </div>
+
+    <div class="clr"></div>
+
+    <!--/* starts second table*/-->
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#"><i class="fa fa-check-square-o"></i> Overall Test Results</a>
+        </li>
+        <li >
+            <a href="capabilities.html"><i class="fa fa-book"></i> Requirements</a>
+        </li>
+        <li >
+            <a href="7ea0a5e2d679b9deeda9910ae4a9bcd3a281e0d908303a9e16e486103e98880c.html"><i class="fa fa-comments-o"></i> Capabilities</a>
+        </li>
+        <li >
+            <a href="576946480b52ad056d6f5bddf874399c83582ecf90963cc074a14c70580e7d9f.html"><i class="fa fa-comments-o"></i> Features</a>
+        </li>
+    </ul>
+    <span class="date-and-time"><a href="build-info.html"><i class="fa fa-info-circle"></i></a> Report generated 10-05-2021 08:15</span>
+    <br style="clear:left"/>
+</div>
+
+    <div class="clr"></div>
+
+
+    <div id="contentbody">
+        <div class="titlebar">
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td>
+                            <div>
+                                <h3 class="discreet-story-header">
+                                    <i class="fa fa-2x fa-comments-o"></i>
+                                    <span class="story-header-title">Registering As A New Frequent Flyer </span>
+                                    <span class="badge tag-badge" style="">Feature</span>
+                                </h3>
+
+                                <div class="discreet-requirement-narrative-title">
+                                New Frequent Flyer members need to register to book a flight.
+                                </div>
+                            </div>
+
+                        </td>
+                        <td valign="top" align="right">
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="fa fa-tag"></i>&nbsp;<a class="tagLink" style="background:default;" href="f7364c6c3583eebcc7aa555df4c0eeeafb8097fd1fd2ca138c87fb00bb3ed04e.html">Firefox
+                                    (browser)</a>
+                                </span>
+                            </p>
+                            <p class="tag">
+                                <span class="badge tag-badge" style="background:default;"
+                                    <i class="fa fa-tag"></i>&nbsp;<a class="tagLink" style="background:default;" href="478dede7257abe7991ff96e77edb3e3b45a1faf9c45fb039f3b47a9c2390c012.html">Firefox
+                                    (context)</a>
+                                </span>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="story-title">
+                <table class="outcome-header">
+                    <tr>
+                        <td colspan="2" class="test-title-bar">
+                            <span class="outcome-icon"><a href='##beforetable'><i class='fa fa-check-circle-o success-icon fa-2x' title='SUCCESS'></i></a></span>
+                            <span class="test-case-title">
+                                <span class="success-color">Only correctly structured emails should be accepted
+                                    <span class="related-issue-title"></span>
+                                </span>
+                            </span>
+
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="clr"></div>
+
+    <div class="story-title">
+        <h3>Scenario:</h3>
+        <div class="scenario">Given Candy does not have a Frequent Flyer account<br>When Candy tries to register with an email of "&lt;email&gt;"<br>Then she should be told "Not a valid email format"</div>
+    </div>
+
+    <div id="beforetable"></div>
+    <div id="contenttilttle">
+        <div class="slider-wrapper theme-default">
+            <div id="slider">
+                <img src="f65153f41fa3738440f09c94c155aab437497b2af319d9877525e54d3a5ca3b0.png" title=" 1: Only correctly structured emails should be accepted ({email=not-an-email})" width="1366"/>
+                <img src="f65153f41fa3738440f09c94c155aab437497b2af319d9877525e54d3a5ca3b0.png" title=" When Candy tries to register with an email of &quot;not-an-email&quot;" width="1366"/>
+                <img src="f65153f41fa3738440f09c94c155aab437497b2af319d9877525e54d3a5ca3b0.png" title=" Candy registers for a new Frequent Flyer account with email not-an-email" width="1366"/>
+                <img src="f65153f41fa3738440f09c94c155aab437497b2af319d9877525e54d3a5ca3b0.png" title=" Candy goes to the registration page" width="1366"/>
+                <img src="f65153f41fa3738440f09c94c155aab437497b2af319d9877525e54d3a5ca3b0.png" title=" Candy opens the pages.registration page" width="1366"/>
+                <img src="f65153f41fa3738440f09c94c155aab437497b2af319d9877525e54d3a5ca3b0.png" title=" Candy goes to the registration page (completed)" width="1366"/>
+                <img src="f65153f41fa3738440f09c94c155aab437497b2af319d9877525e54d3a5ca3b0.png" title=" Candy enters 'not-an-email' into Email field" width="1366"/>
+                <img src="f928f2c3ff3ea182a36a1dda7295524cb206a5c527107c06a826c6fc1e5ce261.png" title=" Candy enters 'not-an-email' into Email field (completed)" width="1366"/>
+                <img src="f928f2c3ff3ea182a36a1dda7295524cb206a5c527107c06a826c6fc1e5ce261.png" title=" Candy enters 'cand1' into Password field" width="1366"/>
+                <img src="ecd0471dbb5bd92a4edf1a6d854ace7ecb4436c700fbe67eb44d125eef7b4e16.png" title=" Candy enters 'cand1' into Password field (completed)" width="1366"/>
+                <img src="ecd0471dbb5bd92a4edf1a6d854ace7ecb4436c700fbe67eb44d125eef7b4e16.png" title=" Candy enters 'Candy' into First name field" width="1366"/>
+                <img src="a26f021c4d7fb06d8271bc64d108627e06257d29bcdd9131dedc3d42ff856e5d.png" title=" Candy enters 'Candy' into First name field (completed)" width="1366"/>
+                <img src="a26f021c4d7fb06d8271bc64d108627e06257d29bcdd9131dedc3d42ff856e5d.png" title=" Candy enters 'Traveller' into Last name field" width="1366"/>
+                <img src="ed4ce6d9cc908fe048f5a054a007218f99700a7aa102519202f7eeb6dea4c964.png" title=" Candy enters 'Traveller' into Last name field (completed)" width="1366"/>
+                <img src="ed4ce6d9cc908fe048f5a054a007218f99700a7aa102519202f7eeb6dea4c964.png" title=" Candy enters '10 Partridge Street, Dandenong' into Address field" width="1366"/>
+                <img src="5f359522995548edfb595784845e2fce41ff2b0f874811b31ed1035466944396.png" title=" Candy enters '10 Partridge Street, Dandenong' into Address field (completed)" width="1366"/>
+                <img src="5f359522995548edfb595784845e2fce41ff2b0f874811b31ed1035466944396.png" title=" Candy enters 'Australia' then hits [TAB] into Country field" width="1366"/>
+                <img src="83fa7bc9629fb35647e0ad1d9ea33c4f28d16da56c4df8eeda7f3508426939c4.png" title=" Candy enters 'Australia' then hits [TAB] into Country field (completed)" width="1366"/>
+                <img src="83fa7bc9629fb35647e0ad1d9ea33c4f28d16da56c4df8eeda7f3508426939c4.png" title=" Candy selects  'Mrs' from Title dropdown" width="1366"/>
+                <img src="83fa7bc9629fb35647e0ad1d9ea33c4f28d16da56c4df8eeda7f3508426939c4.png" title=" Candy clicks on Title dropdown" width="1366"/>
+                <img src="9ae4f5e4e97811d2c9f6be9d8782157b18af83a351d45ab12806a1e6e2039c78.png" title=" Candy clicks on Title dropdown (completed)" width="1366"/>
+                <img src="9ae4f5e4e97811d2c9f6be9d8782157b18af83a351d45ab12806a1e6e2039c78.png" title=" Candy clicks on option" width="1366"/>
+                <img src="cf75ccb36b1e713e6a0073ae39e4dc7ebad679190c9e8bdb50c7ae33bd3fa768.png" title=" Candy clicks on option (completed)" width="1366"/>
+                <img src="cf75ccb36b1e713e6a0073ae39e4dc7ebad679190c9e8bdb50c7ae33bd3fa768.png" title=" Candy selects  'Mrs' from Title dropdown (completed)" width="1366"/>
+                <img src="cf75ccb36b1e713e6a0073ae39e4dc7ebad679190c9e8bdb50c7ae33bd3fa768.png" title=" Candy clicks on Seat preference" width="1366"/>
+                <img src="2893c75f8c382ec4637e0d954720df460210a4fef913fe9d800020c22cf9502d.png" title=" Candy clicks on Seat preference (completed)" width="1366"/>
+                <img src="2893c75f8c382ec4637e0d954720df460210a4fef913fe9d800020c22cf9502d.png" title=" Candy clicks on Terms and conditions" width="1366"/>
+                <img src="2893c75f8c382ec4637e0d954720df460210a4fef913fe9d800020c22cf9502d.png" title=" Candy clicks on Terms and conditions (completed)" width="1366"/>
+                <img src="2893c75f8c382ec4637e0d954720df460210a4fef913fe9d800020c22cf9502d.png" title=" Candy clicks on Register button" width="1366"/>
+                <img src="924183a13e7f32772dc99d0633322d51989f7c72262280302bc62a83d0730483.png" title=" Candy clicks on Register button (completed)" width="1366"/>
+                <img src="924183a13e7f32772dc99d0633322d51989f7c72262280302bc62a83d0730483.png" title=" Candy registers for a new Frequent Flyer account with email not-an-email (completed)" width="1366"/>
+                <img src="924183a13e7f32772dc99d0633322d51989f7c72262280302bc62a83d0730483.png" title=" When Candy tries to register with an email of &quot;not-an-email&quot; (completed)" width="1366"/>
+                <img src="924183a13e7f32772dc99d0633322d51989f7c72262280302bc62a83d0730483.png" title=" Then she should be told &quot;Not a valid email format&quot;" width="1366"/>
+                <img src="924183a13e7f32772dc99d0633322d51989f7c72262280302bc62a83d0730483.png" title=" she should see Error messages with text values that contains: &lt;[Not a valid email format]&gt;" width="1366"/>
+                <img src="7fcf0b24a4a8654993037c3e8a7dc5640b3425b5f2c8291acc3b9fe394519c8a.png" title=" she should see Error messages with text values that contains: &lt;[Not a valid email format]&gt; (completed)" width="1366"/>
+                <img src="7fcf0b24a4a8654993037c3e8a7dc5640b3425b5f2c8291acc3b9fe394519c8a.png" title=" Then she should be told &quot;Not a valid email format&quot; (completed)" width="1366"/>
+                <img src="7fcf0b24a4a8654993037c3e8a7dc5640b3425b5f2c8291acc3b9fe394519c8a.png" title=" 1: Only correctly structured emails should be accepted ({email=not-an-email}) (completed)" width="1366"/>
+                <img src="f65153f41fa3738440f09c94c155aab437497b2af319d9877525e54d3a5ca3b0.png" title=" 2: Only correctly structured emails should be accepted ({email=notemail.com})" width="1366"/>
+                <img src="f65153f41fa3738440f09c94c155aab437497b2af319d9877525e54d3a5ca3b0.png" title=" When Candy tries to register with an email of &quot;notemail.com&quot;" width="1366"/>
+                <img src="f65153f41fa3738440f09c94c155aab437497b2af319d9877525e54d3a5ca3b0.png" title=" Candy registers for a new Frequent Flyer account with email notemail.com" width="1366"/>
+                <img src="f65153f41fa3738440f09c94c155aab437497b2af319d9877525e54d3a5ca3b0.png" title=" Candy goes to the registration page" width="1366"/>
+                <img src="f65153f41fa3738440f09c94c155aab437497b2af319d9877525e54d3a5ca3b0.png" title=" Candy opens the pages.registration page" width="1366"/>
+                <img src="f65153f41fa3738440f09c94c155aab437497b2af319d9877525e54d3a5ca3b0.png" title=" Candy goes to the registration page (completed)" width="1366"/>
+                <img src="f65153f41fa3738440f09c94c155aab437497b2af319d9877525e54d3a5ca3b0.png" title=" Candy enters 'notemail.com' into Email field" width="1366"/>
+                <img src="9304c55a5af9954c161eecc90309a73b3db88781b9933398995cc7b19433895d.png" title=" Candy enters 'notemail.com' into Email field (completed)" width="1366"/>
+                <img src="9304c55a5af9954c161eecc90309a73b3db88781b9933398995cc7b19433895d.png" title=" Candy enters 'cand1' into Password field" width="1366"/>
+                <img src="c1906dd1a6979cea611398595849e378cf7ef4d9fa7fa6f341bb5735d8b347e6.png" title=" Candy enters 'cand1' into Password field (completed)" width="1366"/>
+                <img src="c1906dd1a6979cea611398595849e378cf7ef4d9fa7fa6f341bb5735d8b347e6.png" title=" Candy enters 'Candy' into First name field" width="1366"/>
+                <img src="6725f0f5188cfef0d051f9923773f586743e2311416894c6d697e199485a5a01.png" title=" Candy enters 'Candy' into First name field (completed)" width="1366"/>
+                <img src="6725f0f5188cfef0d051f9923773f586743e2311416894c6d697e199485a5a01.png" title=" Candy enters 'Traveller' into Last name field" width="1366"/>
+                <img src="acf6871b97079a9a3874bb4aa3dc6a60d51596c7cb783295732b3b0197b8196f.png" title=" Candy enters 'Traveller' into Last name field (completed)" width="1366"/>
+                <img src="acf6871b97079a9a3874bb4aa3dc6a60d51596c7cb783295732b3b0197b8196f.png" title=" Candy enters '10 Partridge Street, Dandenong' into Address field" width="1366"/>
+                <img src="6bc96c76a44469d7727ef4679bcd47e1aff5b7ba785541bb7d2819bc17ace847.png" title=" Candy enters '10 Partridge Street, Dandenong' into Address field (completed)" width="1366"/>
+                <img src="6bc96c76a44469d7727ef4679bcd47e1aff5b7ba785541bb7d2819bc17ace847.png" title=" Candy enters 'Australia' then hits [TAB] into Country field" width="1366"/>
+                <img src="cdde12e7ffa5b06f5e568c729ea95df7746b83654881997ed23cb4236e72fec3.png" title=" Candy enters 'Australia' then hits [TAB] into Country field (completed)" width="1366"/>
+                <img src="cdde12e7ffa5b06f5e568c729ea95df7746b83654881997ed23cb4236e72fec3.png" title=" Candy selects  'Mrs' from Title dropdown" width="1366"/>
+                <img src="cdde12e7ffa5b06f5e568c729ea95df7746b83654881997ed23cb4236e72fec3.png" title=" Candy clicks on Title dropdown" width="1366"/>
+                <img src="16a7b296c852c1c1cbc1faf6474a6d7f6b920fb895f441830b90877da7bda934.png" title=" Candy clicks on Title dropdown (completed)" width="1366"/>
+                <img src="16a7b296c852c1c1cbc1faf6474a6d7f6b920fb895f441830b90877da7bda934.png" title=" Candy clicks on option" width="1366"/>
+                <img src="7fbe03c1b19e758409d504c6961cf56e854d0285454fbbd3b6d74871a121ed42.png" title=" Candy clicks on option (completed)" width="1366"/>
+                <img src="7fbe03c1b19e758409d504c6961cf56e854d0285454fbbd3b6d74871a121ed42.png" title=" Candy selects  'Mrs' from Title dropdown (completed)" width="1366"/>
+                <img src="7fbe03c1b19e758409d504c6961cf56e854d0285454fbbd3b6d74871a121ed42.png" title=" Candy clicks on Seat preference" width="1366"/>
+                <img src="7df38801dd8a04cee5629bf48f12c8e9b8aa5a8cee0aaac018445bf6867280a0.png" title=" Candy clicks on Seat preference (completed)" width="1366"/>
+                <img src="7df38801dd8a04cee5629bf48f12c8e9b8aa5a8cee0aaac018445bf6867280a0.png" title=" Candy clicks on Terms and conditions" width="1366"/>
+                <img src="7df38801dd8a04cee5629bf48f12c8e9b8aa5a8cee0aaac018445bf6867280a0.png" title=" Candy clicks on Terms and conditions (completed)" width="1366"/>
+                <img src="7df38801dd8a04cee5629bf48f12c8e9b8aa5a8cee0aaac018445bf6867280a0.png" title=" Candy clicks on Register button" width="1366"/>
+                <img src="a032fe4a5b08c154c18b55b8870d94b331a640a04a16c02c8d5a97e0d00581a7.png" title=" Candy clicks on Register button (completed)" width="1366"/>
+                <img src="a032fe4a5b08c154c18b55b8870d94b331a640a04a16c02c8d5a97e0d00581a7.png" title=" Candy registers for a new Frequent Flyer account with email notemail.com (completed)" width="1366"/>
+                <img src="a032fe4a5b08c154c18b55b8870d94b331a640a04a16c02c8d5a97e0d00581a7.png" title=" When Candy tries to register with an email of &quot;notemail.com&quot; (completed)" width="1366"/>
+                <img src="a032fe4a5b08c154c18b55b8870d94b331a640a04a16c02c8d5a97e0d00581a7.png" title=" Then she should be told &quot;Not a valid email format&quot;" width="1366"/>
+                <img src="a032fe4a5b08c154c18b55b8870d94b331a640a04a16c02c8d5a97e0d00581a7.png" title=" she should see Error messages with text values that contains: &lt;[Not a valid email format]&gt;" width="1366"/>
+                <img src="1234a8b092d9fb70210a598a6c8a6361c3e6eb41bef77c002ef1bcfe9fd41e95.png" title=" she should see Error messages with text values that contains: &lt;[Not a valid email format]&gt; (completed)" width="1366"/>
+                <img src="1234a8b092d9fb70210a598a6c8a6361c3e6eb41bef77c002ef1bcfe9fd41e95.png" title=" Then she should be told &quot;Not a valid email format&quot; (completed)" width="1366"/>
+                <img src="1234a8b092d9fb70210a598a6c8a6361c3e6eb41bef77c002ef1bcfe9fd41e95.png" title=" 2: Only correctly structured emails should be accepted ({email=notemail.com}) (completed)" width="1366"/>
+                <img src="f65153f41fa3738440f09c94c155aab437497b2af319d9877525e54d3a5ca3b0.png" title=" 3: Only correctly structured emails should be accepted ({email=candy@#.com})" width="1366"/>
+                <img src="f65153f41fa3738440f09c94c155aab437497b2af319d9877525e54d3a5ca3b0.png" title=" When Candy tries to register with an email of &quot;candy@#.com&quot;" width="1366"/>
+                <img src="f65153f41fa3738440f09c94c155aab437497b2af319d9877525e54d3a5ca3b0.png" title=" Candy registers for a new Frequent Flyer account with email candy@#.com" width="1366"/>
+                <img src="f65153f41fa3738440f09c94c155aab437497b2af319d9877525e54d3a5ca3b0.png" title=" Candy goes to the registration page" width="1366"/>
+                <img src="f65153f41fa3738440f09c94c155aab437497b2af319d9877525e54d3a5ca3b0.png" title=" Candy opens the pages.registration page" width="1366"/>
+                <img src="f65153f41fa3738440f09c94c155aab437497b2af319d9877525e54d3a5ca3b0.png" title=" Candy goes to the registration page (completed)" width="1366"/>
+                <img src="f65153f41fa3738440f09c94c155aab437497b2af319d9877525e54d3a5ca3b0.png" title=" Candy enters 'candy@#.com' into Email field" width="1366"/>
+                <img src="6c8f5f4fc21cd29fffce28c4f79c746226198d732d38753ad67da4585d678ab3.png" title=" Candy enters 'candy@#.com' into Email field (completed)" width="1366"/>
+                <img src="6c8f5f4fc21cd29fffce28c4f79c746226198d732d38753ad67da4585d678ab3.png" title=" Candy enters 'cand1' into Password field" width="1366"/>
+                <img src="0ad5bace0d11fcdb4205c5764c3f2fbfdedc7eb6fcdf14b620ab1515fe3f3dc6.png" title=" Candy enters 'cand1' into Password field (completed)" width="1366"/>
+                <img src="0ad5bace0d11fcdb4205c5764c3f2fbfdedc7eb6fcdf14b620ab1515fe3f3dc6.png" title=" Candy enters 'Candy' into First name field" width="1366"/>
+                <img src="0f066125925a180446d8b7e643ee51c5e07532f5095b1bd5cc32084efb6b6d63.png" title=" Candy enters 'Candy' into First name field (completed)" width="1366"/>
+                <img src="0f066125925a180446d8b7e643ee51c5e07532f5095b1bd5cc32084efb6b6d63.png" title=" Candy enters 'Traveller' into Last name field" width="1366"/>
+                <img src="efae362c76c29e653ee201daaaa8440e63fce15b760dbf51d240b2503845e5f7.png" title=" Candy enters 'Traveller' into Last name field (completed)" width="1366"/>
+                <img src="efae362c76c29e653ee201daaaa8440e63fce15b760dbf51d240b2503845e5f7.png" title=" Candy enters '10 Partridge Street, Dandenong' into Address field" width="1366"/>
+                <img src="576dd66c4616637d826d49901bac750fde9b48db90423b83977b4e12dae8bf02.png" title=" Candy enters '10 Partridge Street, Dandenong' into Address field (completed)" width="1366"/>
+                <img src="576dd66c4616637d826d49901bac750fde9b48db90423b83977b4e12dae8bf02.png" title=" Candy enters 'Australia' then hits [TAB] into Country field" width="1366"/>
+                <img src="64eba46480236d6542698de15bd5424c52ff4f26098cc6a437c25f78a24f5d6d.png" title=" Candy enters 'Australia' then hits [TAB] into Country field (completed)" width="1366"/>
+                <img src="64eba46480236d6542698de15bd5424c52ff4f26098cc6a437c25f78a24f5d6d.png" title=" Candy selects  'Mrs' from Title dropdown" width="1366"/>
+                <img src="64eba46480236d6542698de15bd5424c52ff4f26098cc6a437c25f78a24f5d6d.png" title=" Candy clicks on Title dropdown" width="1366"/>
+                <img src="8a392dd121530ebc916fff630d1cc2f2d3a215eb61f7e08cdeee5b60e16e61bd.png" title=" Candy clicks on Title dropdown (completed)" width="1366"/>
+                <img src="8a392dd121530ebc916fff630d1cc2f2d3a215eb61f7e08cdeee5b60e16e61bd.png" title=" Candy clicks on option" width="1366"/>
+                <img src="4590fca8656f71bb0a13064a1a72200464819a7692855f823ce1991cf68bb20c.png" title=" Candy clicks on option (completed)" width="1366"/>
+                <img src="4590fca8656f71bb0a13064a1a72200464819a7692855f823ce1991cf68bb20c.png" title=" Candy selects  'Mrs' from Title dropdown (completed)" width="1366"/>
+                <img src="4590fca8656f71bb0a13064a1a72200464819a7692855f823ce1991cf68bb20c.png" title=" Candy clicks on Seat preference" width="1366"/>
+                <img src="04173e9696a7b0ba961a3a238d6a8d099f9f7a694f076f8b5fbcfcf8f679976a.png" title=" Candy clicks on Seat preference (completed)" width="1366"/>
+                <img src="04173e9696a7b0ba961a3a238d6a8d099f9f7a694f076f8b5fbcfcf8f679976a.png" title=" Candy clicks on Terms and conditions" width="1366"/>
+                <img src="04173e9696a7b0ba961a3a238d6a8d099f9f7a694f076f8b5fbcfcf8f679976a.png" title=" Candy clicks on Terms and conditions (completed)" width="1366"/>
+                <img src="04173e9696a7b0ba961a3a238d6a8d099f9f7a694f076f8b5fbcfcf8f679976a.png" title=" Candy clicks on Register button" width="1366"/>
+                <img src="9748c590fce1c7a8e00f3076110855891dd85b43208c6f55b793d32d4ad90752.png" title=" Candy clicks on Register button (completed)" width="1366"/>
+                <img src="9748c590fce1c7a8e00f3076110855891dd85b43208c6f55b793d32d4ad90752.png" title=" Candy registers for a new Frequent Flyer account with email candy@#.com (completed)" width="1366"/>
+                <img src="9748c590fce1c7a8e00f3076110855891dd85b43208c6f55b793d32d4ad90752.png" title=" When Candy tries to register with an email of &quot;candy@#.com&quot; (completed)" width="1366"/>
+                <img src="9748c590fce1c7a8e00f3076110855891dd85b43208c6f55b793d32d4ad90752.png" title=" Then she should be told &quot;Not a valid email format&quot;" width="1366"/>
+                <img src="9748c590fce1c7a8e00f3076110855891dd85b43208c6f55b793d32d4ad90752.png" title=" she should see Error messages with text values that contains: &lt;[Not a valid email format]&gt;" width="1366"/>
+                <img src="b2019d0b71c0f15843ace394d19fd0ed235e6f80fd474a25b46de7c5f0451269.png" title=" she should see Error messages with text values that contains: &lt;[Not a valid email format]&gt; (completed)" width="1366"/>
+                <img src="b2019d0b71c0f15843ace394d19fd0ed235e6f80fd474a25b46de7c5f0451269.png" title=" Then she should be told &quot;Not a valid email format&quot; (completed)" width="1366"/>
+                <img src="b2019d0b71c0f15843ace394d19fd0ed235e6f80fd474a25b46de7c5f0451269.png" title=" 3: Only correctly structured emails should be accepted ({email=candy@#.com}) (completed): <span class='success-color'>SUCCESS</span>" width="1366"/>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<div id="beforefooter"></div>
+<div id="bottomfooter">
+    <span class="version">Serenity BDD version 2.4.24</span>
+</div>
+</body>
+</html>
