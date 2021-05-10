@@ -21,7 +21,8 @@ public class Acknowledge {
     public static Performable successMessageOf(String expectedMessage) {
         return Task.where("{0} expects to see a message of '" + expectedMessage + "'",
                 WaitUntil.the(Notification.OF_SUCCESS, isVisible()),
-                Ensure.that(Notification.OF_SUCCESS).hasTextContent(expectedMessage)
+                Ensure.that(Notification.OF_SUCCESS).hasTextContent(expectedMessage),
+                Click.on(Notification.OF_SUCCESS)
         );
     }
 }

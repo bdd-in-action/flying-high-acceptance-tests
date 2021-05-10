@@ -10,6 +10,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.RememberThat;
+import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 
 public class AuthenticationStepDefinitions {
 
