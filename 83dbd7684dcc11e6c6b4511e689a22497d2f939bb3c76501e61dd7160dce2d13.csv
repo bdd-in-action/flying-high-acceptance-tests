@@ -1,2 +1,4 @@
 "Story","Title","Result","Date","Stability","Duration (s)"
-"View account status","Trevor views his flight history after several flights","SUCCESS","2021-05-10T08:15:50.610110752Z[Etc/UTC]","0.0","13.61"
+"Earning Points","Flights within the <Region> region earn <Points Earned> points","SUCCESS","2021-05-10T12:51:47.414739716Z[Etc/UTC]","0.0","4.52"
+"Earning Points","Travellers with <Status> level should earn <Bonus> bonus points","SUCCESS","2021-05-10T12:51:51.938226994Z[Etc/UTC]","0.0","4.48"
+"Earning Points","Travellers travelling in <Travel Class> class should earn <Bonus> bonus points","SUCCESS","2021-05-10T12:51:56.422598794Z[Etc/UTC]","0.0","3.47"
