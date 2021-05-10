@@ -21,11 +21,12 @@ jobs:
       with:
         java-version: '15'
         distribution: 'adopt'
+
     - name: Chrome Tests
-      run: mvn -B verify --file pom.xml -Denvironment=heroku -Dwebdriver.driver=chrome -Dcontext=chrome -Dinjected.tags="browser:chrome"
+      run: mvn -B verify --file pom.xml -Denvironment=heroku -Dwebdriver.driver=chrome -Dcontext=chrome -Dinjected.tags="browser:chrome" -Dsysinfo.build=${GITHUB_RUN_ID}
 
     - name: Firefox Tests
-      run: mvn -B verify --file pom.xml -Denvironment=heroku -Dwebdriver.driver=firefox -Dcontext=firefox -Dinjected.tags="browser:firefox"
+      run: mvn -B verify --file pom.xml -Denvironment=heroku -Dwebdriver.driver=firefox -Dcontext=firefox -Dinjected.tags="browser:firefox" -Dsysinfo.build=${GITHUB_RUN_ID}
 
     - name: Aggregate Reports
       run: mvn serenity:aggregate

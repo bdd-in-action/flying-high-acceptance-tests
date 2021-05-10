@@ -39,7 +39,7 @@ public class SearchFlights implements ToDestination, InTravelClass, Performable 
                 ),
 
                 Click.on(SearchFlightsForm.SEARCH_BUTTON),
-                WaitUntil.the(SearchResultsList.SEARCH_RESULTS, isVisible()).forNoMoreThan(5).seconds()
+                WaitUntil.the(SearchResultsList.SEARCH_RESULTS, isVisible()).forNoMoreThan(10).seconds()
         );
     }
 
