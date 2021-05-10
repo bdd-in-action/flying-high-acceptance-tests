@@ -67,10 +67,16 @@ Feature: Earning Points
       Then his point balance should be 500 points
 
   Rule: Flights within the same region earn a fixed number of points based
+    @current
     Scenario Outline: Flights within the <Region> region earn <Points Earned> points
-      Given Trevor has logged onto the Frequent Flyer application as a new member
-      When he books an Economy flight from <From> to <To>
-      Then he should earn <Points Earned> points
+      Given Trevor is a new Frequent Flyer Member
+#      Given Trevor has logged onto the Frequent Flyer application as a new member
+#      When he books an Economy flight from <From> to <To>
+#      Then he should earn <Points Earned> points
+      When he has completed the following flight
+        | From   | To   | Travel Class | Trip Date  |
+        | <From> | <To> | Economy      | 2021-03-01 |
+      Then his point balance should be <Points Earned> points
 
       Examples:
         | Region  | From        | To         | Points Earned |
@@ -80,13 +86,18 @@ Feature: Earning Points
         | Asia    | Hong Kong   | Seoul      | 50            |
 
   Rule: Travellers with higher status earn more points
+    @current
     Scenario Outline: Travellers with <Status> level should earn <Bonus> bonus points
     A flight from Sydney to Hong Kong normally earns 100 points
 
       Given Trevor is a Frequent Flyer Member with status <Status>
-      And he has logged onto the Frequent Flyer application
-      When he books an Economy flight from Sydney to Hong Kong
-      Then he should earn <Points Earned> points
+#      And he has logged onto the Frequent Flyer application
+#      When he books an Economy flight from Sydney to Hong Kong
+#      Then he should earn <Points Earned> points
+      When he has completed the following flight
+        | From   | To        | Travel Class | Trip Date  |
+        | Sydney | Hong Kong | Economy      | 2021-03-01 |
+      Then he should have earned <Points Earned> points
 
       Examples:
         | Status   | Points Earned | Bonus |
@@ -96,12 +107,18 @@ Feature: Earning Points
         | GOLD     | 200           | 100%  |
 
   Rule: Travellers earn more depending on the cabin class they fly in
+    @current
     Scenario Outline: Travellers travelling in <Travel Class> class should earn <Bonus> bonus points
     A flight from Sydney to Hong Kong normally earns 100 points
 
-      Given Tracy has logged onto the Frequent Flyer application as a new member
-      When he books an <Travel Class> flight from Sydney to Hong Kong
-      Then he should earn <Points Earned> points
+#      Given Tracy has logged onto the Frequent Flyer application as a new member
+#      When she books an <Travel Class> flight from Sydney to Hong Kong
+#      Then she should earn <Points Earned> points
+      Given Tracy is a new Frequent Flyer Member
+      When she has completed the following flight
+        | From   | To        | Travel Class   | Trip Date  |
+        | Sydney | Hong Kong | <Travel Class> | 2021-03-01 |
+      Then her point balance should be <Points Earned> points
 
       Examples:
         | Travel Class    | Points Earned | Bonus |

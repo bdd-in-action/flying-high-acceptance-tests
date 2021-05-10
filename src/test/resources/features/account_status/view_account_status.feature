@@ -31,7 +31,6 @@ Business Need: View account status
         | New York  | London      | 250           |
 
   Rule: Flights should be shown in reverse historical order
-    @current
     Example: Trevor views his flight history after several flights
       Given Trevor has completed the following flights
         | From   | To        | Travel Class | Trip Date  |

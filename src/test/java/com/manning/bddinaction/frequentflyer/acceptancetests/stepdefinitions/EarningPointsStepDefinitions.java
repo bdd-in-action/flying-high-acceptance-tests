@@ -3,6 +3,7 @@ package com.manning.bddinaction.frequentflyer.acceptancetests.stepdefinitions;
 import com.manning.bddinaction.frequentflyer.acceptancetests.domain.*;
 import com.manning.bddinaction.frequentflyer.acceptancetests.domain.persona.TravelClass;
 import com.manning.bddinaction.frequentflyer.acceptancetests.domain.persona.Traveller;
+import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.api.BookingsAPI;
 import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.api.FlightsAPI;
 import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.api.UserAPI;
 import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.bookings.BookedAFlight;
@@ -24,6 +25,7 @@ import org.assertj.core.api.SoftAssertions;
 
 import java.nio.file.WatchKey;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -69,18 +71,22 @@ public class EarningPointsStepDefinitions {
 
     @DataTableType
     public Flight completedFlight(Map<String, String> flight) {
+        String tripDate = Optional.ofNullable(flight.get("Trip Date"))
+                                  .orElse(LocalDate.now().format(DateTimeFormatter.ISO_LOCAL_DATE));
+
         return new Flight(flight.get("From"),
-                flight.get("To"),
-                TravelClass.withLabel(flight.get("Travel Class")),
-                flight.get("Trip Date"));
+                          flight.get("To"),
+                          TravelClass.withLabel(flight.get("Travel Class")),
+                          tripDate);
     }
 
 
     @Steps
     UserAPI userAPI;
-
     @Steps
     FlightsAPI flightsAPI;
+    @Steps
+    BookingsAPI bookingsAPI;
 
     List<Integer> pointsToCheck = new ArrayList<>();
 
@@ -119,9 +125,24 @@ public class EarningPointsStepDefinitions {
         assertThat(bookedFlight.pointsEarned()).isEqualTo(expectedPoints);
     }
 
+    /**
+     * This step uses the API to check the flight history
+     */
+    @Then("{actor} should have earned {int} points")
+    public void shouldHaveEarnedPoints(Actor actor, int expectedPoints) {
+        Traveller traveller = actor.recall("CURRENT_USER");
+
+        CompletedFlight bookedFlight = bookingsAPI.flightsOfTraveller(traveller)
+                .stream().reduce((first, second) -> second)
+                .orElseThrow(() -> new AssertionError("No bookings found"));
+
+        assertThat(bookedFlight.pointsEarned()).isEqualTo(expectedPoints);
+    }
+
     @Then("his/her point balance should be {int} points")
     public void shouldEarnPoints(int expectedPoints) {
         Traveller traveller = theActorInTheSpotlight().recall("CURRENT_USER");
+        System.out.println("TRAVELLER ID: " + traveller.userId());
         int pointBalance = userAPI.findUserById(traveller.userId()).points();
         assertThat(pointBalance).isEqualTo(expectedPoints);
 
