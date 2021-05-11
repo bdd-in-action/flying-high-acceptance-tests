@@ -6,7 +6,6 @@ import com.manning.bddinaction.frequentflyer.acceptancetests.domain.persona.Trav
 import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.api.BookingsAPI;
 import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.api.FlightsAPI;
 import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.api.UserAPI;
-import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.bookings.BookedAFlight;
 import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.myaccount.MyAccount;
 import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.navigation.Navigate;
 import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.search.BookTheFlight;
@@ -142,15 +141,8 @@ public class EarningPointsStepDefinitions {
     @Then("his/her point balance should be {int} points")
     public void shouldEarnPoints(int expectedPoints) {
         Traveller traveller = theActorInTheSpotlight().recall("CURRENT_USER");
-        System.out.println("TRAVELLER ID: " + traveller.userId());
         int pointBalance = userAPI.findUserById(traveller.userId()).points();
         assertThat(pointBalance).isEqualTo(expectedPoints);
-
-//      Implementation via the UI:
-//        theActorInTheSpotlight().attemptsTo(
-//                Navigate.toMyAccount(),
-//                Ensure.thatTheAnswerTo(MyAccount.pointBalance()).isEqualTo(expectedPoints)
-//        );
     }
 
     @Given("{actor} has completed the following flight/flights")
@@ -159,7 +151,6 @@ public class EarningPointsStepDefinitions {
      */
     public void booksTheFollowingFlightsViaTheAPI(Actor actor, List<Flight> flights) {
         Traveller traveller = actor.recall("CURRENT_USER");
-
         flights.forEach(
                 flight -> flightsAPI.bookFlight(traveller, flight)
         );

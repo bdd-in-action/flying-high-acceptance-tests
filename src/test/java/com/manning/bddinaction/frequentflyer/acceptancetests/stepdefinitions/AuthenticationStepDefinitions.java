@@ -18,8 +18,7 @@ public class AuthenticationStepDefinitions {
     public void aNewFrequentFlyerMember(Actor traveller) {
         traveller.attemptsTo(
                 RegisterAsAFrequentFlyer.viaTheAPI().withMemberDetailsFrom(
-                        TravellerPersona.withName(traveller.getName())
-                                .withAUniqueEmailAddress()
+                        TravellerPersona.withName(traveller.getName()).withAUniqueEmailAddress()
                 )
         );
     }
