@@ -1,4 +1,2 @@
 "Story","Title","Result","Date","Stability","Duration (s)"
-"Earning Points","Flights within the <Region> region earn <Points Earned> points","SUCCESS","2021-05-10T12:49:26.79286584Z[Etc/UTC]","0.0","4.63"
-"Earning Points","Travellers with <Status> level should earn <Bonus> bonus points","SUCCESS","2021-05-10T12:49:31.428857689Z[Etc/UTC]","0.0","4.51"
-"Earning Points","Travellers travelling in <Travel Class> class should earn <Bonus> bonus points","SUCCESS","2021-05-10T12:49:35.938930279Z[Etc/UTC]","0.0","3.37"
+"Earning Points","Travellers travelling in <Travel Class> class should earn <Bonus> bonus points","SUCCESS","2021-05-11T12:02:42.625679111Z[Etc/UTC]","0.0","3.05"
