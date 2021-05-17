@@ -10,8 +10,8 @@
 
     <properties>
         <java.version>15</java.version>
-        <serenity.version>2.4.24</serenity.version>
-        <serenity.maven.version>2.4.24</serenity.maven.version>
+        <serenity.version>2.4.25-SNAPSHOT</serenity.version>
+        <serenity.maven.version>2.4.25-SNAPSHOT</serenity.maven.version>
         <serenity.cucumber.version>2.4.24</serenity.cucumber.version>
         <encoding>UTF-8</encoding>
         <maven.compiler.source>15</maven.compiler.source>
