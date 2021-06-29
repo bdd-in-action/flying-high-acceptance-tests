@@ -6,8 +6,8 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        features = "classpath:features",
-        tags = "@current"
+        features = "classpath:features"
+//        tags = "@current"
 //        tags="not @pending"
 )
 //@SerenityOptions("webdriver.driver=chrome")
