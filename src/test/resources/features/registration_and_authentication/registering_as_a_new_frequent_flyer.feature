@@ -1,6 +1,6 @@
 Business Need: Registering as a new Frequent Flyer
 
-  New Frequent Flyer members need to register to book a flight.
+  New Frequent Flyer members need to register in order to book a flight.
 
   Rule: Customers must register to be able to use the Frequent Flyer members area
     Example: Trevor registers as a Frequent Flyer member
@@ -22,7 +22,7 @@ Business Need: Registering as a new Frequent Flyer
       Given Candy does not have a Frequent Flyer account
       When Candy tries to register with an email of "<email>"
       Then she should be told "Not a valid email format"
-      Examples:
+      Scenarios:
         | email        |
         | not-an-email |
         | notemail.com |

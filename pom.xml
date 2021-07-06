@@ -10,15 +10,14 @@
 
     <properties>
         <java.version>16</java.version>
-        <serenity.version>2.4.34</serenity.version>
-        <serenity.maven.version>2.4.34</serenity.maven.version>
-        <serenity.cucumber.version>2.4.34</serenity.cucumber.version>
+        <serenity.version>2.4.47</serenity.version>
+        <serenity.maven.version>2.4.47</serenity.maven.version>
+        <serenity.cucumber.version>2.4.47</serenity.cucumber.version>
         <encoding>UTF-8</encoding>
         <maven.compiler.source>16</maven.compiler.source>
         <maven.compiler.target>16</maven.compiler.target>
-        <slf4j.version>1.7.30</slf4j.version>
+        <slf4j.version>1.7.31</slf4j.version>
     </properties>
-
 
     <dependencies>
         <dependency>

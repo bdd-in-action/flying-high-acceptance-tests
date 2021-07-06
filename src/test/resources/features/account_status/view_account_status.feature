@@ -7,14 +7,12 @@ Business Need: View account status
     Given Trevor has logged onto the Frequent Flyer application as a new member
 
   Rule: Frequent Flyer members can view their status in the My Accounts section
-    @current
     Example: Trevor has just joined the program
       Then his account status should have:
         | Point Balance | Status Level |
         | 0             | STANDARD     |
 
   Rule: Members can see the history of their flights
-    @current
     Example: Trevor views his flight history for a single flight
       When Trevor books the following flights
         | From   | To        | Travel Class | Trip Type |

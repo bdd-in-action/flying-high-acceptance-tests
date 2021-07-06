@@ -1,15 +1,15 @@
 package com.manning.bddinaction.frequentflyer.acceptancetests;
 
+import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import net.serenitybdd.cucumber.CucumberWithSerenity;
 import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        features = "classpath:features"
+        features = "classpath:features",
 //        tags = "@current"
-//        tags="not @pending"
+        tags="not @pending"
 )
-//@SerenityOptions("webdriver.driver=chrome")
 public class AcceptanceTestSuite {
 }

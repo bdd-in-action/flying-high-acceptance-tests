@@ -23,8 +23,27 @@ Feature: Earning Points
       | Point Balance | Status Level |
       | 1125          | BRONZE       |
 
+  @journey-scenario
+  # This scenario demonstrates using Screenplay parallel tasks
+  Example: Tracy asks her assistants to book flights for her
+    Given Tracy has logged onto the Frequent Flyer application as a new member
+    When she asks her staff to book the following flights
+      | From   | To          | Travel Class | Trip Type |
+      | London | New York    | Business     | Return    |
+      | London | Los Angeles | Business     | Return    |
+      | Sydney | Hong Kong   | Economy      | Single    |
+    Then her booking history should contain:
+      | Departure   | Destination |
+      | London      | New York    |
+      | New York    | London      |
+      | London      | Los Angeles |
+      | Los Angeles | London      |
+      | Sydney      | Hong Kong   |
+    And her account status should become:
+      | Status Level |
+      | BRONZE       |
+
   Rule: Members achieve new status levels when they earn sufficient points
-    @current
     Scenario Outline: Earning status levels from points earned for status level <Status Level>
       Given Stan is a new Frequent Flyer Member
       When he earns between <Min Points> and <Max Points> points
@@ -46,7 +65,7 @@ Feature: Earning Points
     Scenario Outline: The region for <City> should be <Region>
       When points are calculated for a flight to or from <City>
       Then the city should be considered to be part of the <Region Code> region
-      Examples:
+      Scenarios:
         | City         | Region                | Region Code |
         | London       | Europe                | EUR         |
         | Sydney       | Australia/New Zealand | ANZ         |
@@ -75,7 +94,7 @@ Feature: Earning Points
         | <From> | <To> | Economy      | 2021-03-01 |
       Then his point balance should be <Points Earned> points
 
-      Examples:
+      Scenarios:
         | Region  | From        | To         | Points Earned |
         | Europe  | London      | Paris      | 20            |
         | ANZ     | Sydney      | Wellington | 25            |
@@ -91,7 +110,7 @@ Feature: Earning Points
         | Sydney | Hong Kong | Economy      | 2021-03-01 |
       Then he should have earned <Points Earned> points
 
-      Examples:
+      Scenarios:
         | Status   | Points Earned | Bonus |
         | STANDARD | 100           | 0     |
         | BRONZE   | 125           | 25%   |
@@ -99,7 +118,6 @@ Feature: Earning Points
         | GOLD     | 200           | 100%  |
 
   Rule: Travellers earn more depending on the cabin class they fly in
-    @current
     Scenario Outline: Travellers travelling in <Travel Class> class should earn <Bonus> bonus points
     A flight from Sydney to Hong Kong normally earns 100 points
 
@@ -109,7 +127,7 @@ Feature: Earning Points
         | Sydney | Hong Kong | <Travel Class> | 2021-03-01 |
       Then her point balance should be <Points Earned> points
 
-      Examples:
+      Scenarios:
         | Travel Class    | Points Earned | Bonus |
         | Economy         | 100           | 0     |
         | Premium Economy | 150           | 50%   |

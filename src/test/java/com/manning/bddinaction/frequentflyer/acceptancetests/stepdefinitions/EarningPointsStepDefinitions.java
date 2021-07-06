@@ -6,6 +6,7 @@ import com.manning.bddinaction.frequentflyer.acceptancetests.domain.persona.Trav
 import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.api.BookingsAPI;
 import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.api.FlightsAPI;
 import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.api.UserAPI;
+import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.login.Login;
 import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.myaccount.MyAccount;
 import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.navigation.Navigate;
 import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.search.BookTheFlight;
@@ -18,11 +19,15 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.serenitybdd.screenplay.Actor;
+import net.serenitybdd.screenplay.InParallel;
+import net.serenitybdd.screenplay.Performable;
+import net.serenitybdd.screenplay.Task;
+import net.serenitybdd.screenplay.conditions.Check;
 import net.serenitybdd.screenplay.ensure.Ensure;
 import net.thucydides.core.annotations.Steps;
 import org.assertj.core.api.SoftAssertions;
+import org.jetbrains.annotations.NotNull;
 
-import java.nio.file.WatchKey;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -30,6 +35,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -47,9 +53,9 @@ public class EarningPointsStepDefinitions {
 
     @DataTableType
     public AccountStatus accountStatus(Map<String, String> statusValues) {
-        return new AccountStatus(
-                UserLevel.valueOf(statusValues.get("Status Level").toUpperCase()),
-                Integer.parseInt(statusValues.get("Point Balance")));
+        Integer points = statusValues.get("Point Balance") != null ? Integer.parseInt(statusValues.get("Point Balance")) : null;
+        UserLevel level = statusValues.get("Status Level") != null ? UserLevel.valueOf(statusValues.get("Status Level")) : null;
+        return new AccountStatus(level, points);
     }
 
     @DataTableType
@@ -62,21 +68,22 @@ public class EarningPointsStepDefinitions {
 
     @DataTableType
     public CompletedFlight flightBooking(Map<String, String> flight) {
+        Integer optionalEarnedPoints = (flight.get("Points Earned") != null) ? Integer.parseInt(flight.get("Points Earned")) : null;
         return new CompletedFlight(flight.get("Departure"),
                 flight.get("Destination"),
-                Integer.parseInt(flight.get("Points Earned")));
+                optionalEarnedPoints);
     }
 
 
     @DataTableType
     public Flight completedFlight(Map<String, String> flight) {
         String tripDate = Optional.ofNullable(flight.get("Trip Date"))
-                                  .orElse(LocalDate.now().format(DateTimeFormatter.ISO_LOCAL_DATE));
+                .orElse(LocalDate.now().format(DateTimeFormatter.ISO_LOCAL_DATE));
 
         return new Flight(flight.get("From"),
-                          flight.get("To"),
-                          TravelClass.withLabel(flight.get("Travel Class")),
-                          tripDate);
+                flight.get("To"),
+                TravelClass.withLabel(flight.get("Travel Class")),
+                tripDate);
     }
 
 
@@ -174,6 +181,53 @@ public class EarningPointsStepDefinitions {
         );
     }
 
+    @When("{actor} asks his/her staff to book the following flight/flights")
+    public void staffBooksTheFollowingFlights(Actor actor, List<FlightSearch> flights) {
+
+        Traveller traveller = actor.recall("CURRENT_TRAVELLER");
+
+        List<Actor> employees = anEmployeeForEachFlightIn(flights);
+        List<Runnable> flightBookings = flightBookingsAssignedToEmployees(employees, flights, traveller);
+        InParallel.theActors(anEmployeeForEachFlightIn(flights)).perform(flightBookings);
+    }
+
+    private List<Runnable> flightBookingsAssignedToEmployees(List<Actor> employees,
+                                                             List<FlightSearch> flights,
+                                                             Traveller traveller) {
+        List<Runnable> flightBookings = new ArrayList<>();
+        int flightNumber = 0;
+        for (Actor employee : employees) {
+            FlightSearch flight = flights.get(flightNumber++);
+            flightBookings.add(() -> employee.attemptsTo(bookFlightFor(flight, traveller)));
+        }
+        return flightBookings;
+    }
+
+    private Performable bookFlightFor(FlightSearch flight, Traveller traveller) {
+        return Task.where("{0} books a flight from " + flight.from() + " to " + flight.to(),
+                actor -> {
+                    System.out.println("RUNNING IN THREAD " + Thread.currentThread());
+                    actor.attemptsTo(
+                            Login.as(traveller),
+                            SearchFlights.from(flight.from())
+                                    .to(flight.to())
+                                    .inTravelClass(flight.travelClass())
+                                    .withAReturnJourney(flight.returnTrip()),
+                            BookTheFlight.thatIsFirstInTheList(),
+                            Acknowledge.success());
+                }
+        );
+    }
+
+    @NotNull
+    private List<Actor> anEmployeeForEachFlightIn(List<FlightSearch> flights) {
+        List<Actor> staffMembers = new ArrayList<>();
+        for (int employeeNumber = 1; employeeNumber <= flights.size(); employeeNumber++) {
+            staffMembers.add(theActorCalled("Assistant " + employeeNumber));
+        }
+        return staffMembers;
+    }
+
     @When("{actor} views his/her account summary")
     public void viewsAccountSummary(Actor actor) {
         actor.attemptsTo(Navigate.toMyAccount());
@@ -193,8 +247,12 @@ public class EarningPointsStepDefinitions {
         Ensure.enableSoftAssertions();
         theActorInTheSpotlight().attemptsTo(
                 Navigate.toMyAccount(),
-                Ensure.thatTheAnswerTo(MyAccount.pointBalance()).isEqualTo(accountStatus.pointBalance()),
-                Ensure.thatTheAnswerTo(MyAccount.statusLevel()).isEqualTo(accountStatus.userLevel())
+                Check.whether(accountStatus.pointBalance() != null).andIfSo(
+                        Ensure.thatTheAnswerTo(MyAccount.pointBalance()).isEqualTo(accountStatus.pointBalance())
+                ),
+                Check.whether(accountStatus.userLevel() != null).andIfSo(
+                        Ensure.thatTheAnswerTo(MyAccount.statusLevel()).isEqualTo(accountStatus.userLevel())
+                )
         );
         Ensure.reportSoftAssertions();
     }

@@ -9,6 +9,7 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.SendKeys;
 import net.serenitybdd.screenplay.conditions.Check;
 import net.serenitybdd.screenplay.waits.WaitUntil;
+import net.thucydides.core.annotations.Step;
 import org.openqa.selenium.Keys;
 
 import java.time.LocalDate;
@@ -27,6 +28,7 @@ public class SearchFlights implements ToDestination, InTravelClass, Performable 
      * This is where the action happens
      */
     @Override
+    @Step("{0} looks for #travelClass flights between #departure and #destination")
     public <T extends Actor> void performAs(T traveller) {
         traveller.attemptsTo(
                 Navigate.toBookFlights(),
