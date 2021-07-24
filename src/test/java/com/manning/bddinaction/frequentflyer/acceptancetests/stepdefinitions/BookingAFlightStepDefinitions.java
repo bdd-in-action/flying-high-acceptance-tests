@@ -25,8 +25,8 @@ public class BookingAFlightStepDefinitions {
     public void bookASingleFlight(Actor actor, TravelClass travelClass, String departure, String destination) {
         actor.attemptsTo(
                 SearchFlights.from(departure).to(destination).inTravelClass(travelClass),
-                BookTheFlight.thatIsFirstInTheList(),
-                Acknowledge.success()
+                BookTheFlight.thatIsFirstInTheList()
+//                Acknowledge.success()
         );
     }
 
@@ -34,8 +34,8 @@ public class BookingAFlightStepDefinitions {
     public void bookAReturnFlight(Actor actor, Boolean returnJourney, TravelClass travelClass, String departure, String destination) {
         actor.attemptsTo(
                 SearchFlights.from(departure).to(destination).inTravelClass(travelClass).withAReturnJourney(returnJourney),
-                BookTheFlight.thatIsFirstInTheList(),
-                Acknowledge.success()
+                BookTheFlight.thatIsFirstInTheList()
+//                Acknowledge.success()
         );
     }
 

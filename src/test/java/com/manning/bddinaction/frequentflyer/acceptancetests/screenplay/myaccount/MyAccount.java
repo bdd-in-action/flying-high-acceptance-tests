@@ -24,9 +24,9 @@ public class MyAccount {
                 actor -> BrowseTheWeb.as(actor).findAll(FlightHistoryPanel.BOOKINGS).stream()
                         .map(
                                 row -> new CompletedFlight(
-                                        row.find(FlightHistoryPanel.DEPARTURE).getText(),
-                                        row.find(FlightHistoryPanel.DESTINATION).getText(),
-                                        Integer.parseInt(row.find(FlightHistoryPanel.POINTS_EARNED).getText())
+                                        row.find(FlightHistoryPanel.DEPARTURE).getText().trim(),
+                                        row.find(FlightHistoryPanel.DESTINATION).getText().trim(),
+                                        Integer.parseInt(row.find(FlightHistoryPanel.POINTS_EARNED).getText().trim())
                                 )
                         ).collect(Collectors.toList())
         );

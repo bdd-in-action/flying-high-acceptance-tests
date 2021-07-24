@@ -56,16 +56,16 @@ public class RegistrationStepDefinitions {
     @Then("{actor} should be able to log on to the Frequent Flyer application")
     public void shouldBeAbleToLoginAs(Actor member) {
         member.attemptsTo(
-                Login.as(newMember),
-                Acknowledge.successMessageOf("Logged in as " + newMember.email())
+                Login.as(newMember)
+//                Acknowledge.successMessageOf("Logged in as " + newMember.email())
         );
     }
 
     @Then("{actor} logs on to the Frequent Flyer application")
     public void loginAs(Actor actor) {
         actor.attemptsTo(
-                Login.as(newMember),
-                Acknowledge.success()
+                Login.as(newMember)
+//                Acknowledge.success()
         );
     }
 

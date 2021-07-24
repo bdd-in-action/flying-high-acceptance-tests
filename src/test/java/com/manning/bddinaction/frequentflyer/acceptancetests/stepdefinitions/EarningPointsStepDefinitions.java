@@ -175,8 +175,7 @@ public class EarningPointsStepDefinitions {
                                 .to(flight.to())
                                 .inTravelClass(flight.travelClass())
                                 .withAReturnJourney(flight.returnTrip()),
-                        BookTheFlight.thatIsFirstInTheList(),
-                        Acknowledge.success()
+                        BookTheFlight.thatIsFirstInTheList()
                 )
         );
     }
@@ -213,8 +212,9 @@ public class EarningPointsStepDefinitions {
                                     .to(flight.to())
                                     .inTravelClass(flight.travelClass())
                                     .withAReturnJourney(flight.returnTrip()),
-                            BookTheFlight.thatIsFirstInTheList(),
-                            Acknowledge.success());
+                            BookTheFlight.thatIsFirstInTheList()
+//                            Acknowledge.success());
+                    );
                 }
         );
     }
