@@ -9,13 +9,13 @@
     <description>Flying High Frequent Flyer</description>
 
     <properties>
-        <java.version>15</java.version>
+        <java.version>16</java.version>
         <serenity.version>2.4.51-SNAPSHOT</serenity.version>
         <serenity.maven.version>2.4.51-SNAPSHOT</serenity.maven.version>
         <serenity.cucumber.version>2.4.47</serenity.cucumber.version>
         <encoding>UTF-8</encoding>
-        <maven.compiler.source>15</maven.compiler.source>
-        <maven.compiler.target>15</maven.compiler.target>
+        <maven.compiler.source>16</maven.compiler.source>
+        <maven.compiler.target>16</maven.compiler.target>
         <slf4j.version>1.7.31</slf4j.version>
     </properties>
 
@@ -120,7 +120,7 @@
                 <artifactId>maven-failsafe-plugin</artifactId>
                 <version>3.0.0-M5</version>
                 <configuration>
-                    <argLine>--enable-preview</argLine>
+<!--                    <argLine>&#45;&#45;enable-preview</argLine>-->
                     <includes>
                         <include>**/acceptancetests/*.java</include>
                     </includes>
@@ -171,11 +171,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <source>15</source>
-                    <target>15</target>
-                    <compilerArgs>
-                        <arg>--enable-preview</arg>
-                    </compilerArgs>
+                    <source>16</source>
+                    <target>16</target>
                 </configuration>
             </plugin>
         </plugins>
