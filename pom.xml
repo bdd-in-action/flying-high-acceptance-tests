@@ -10,9 +10,9 @@
 
     <properties>
         <java.version>16</java.version>
-        <serenity.version>2.5.10</serenity.version>
-        <serenity.maven.version>2.5.10</serenity.maven.version>
-        <serenity.cucumber.version>2.5.8</serenity.cucumber.version>
+        <serenity.version>2.6.1-SNAPSHOT</serenity.version>
+        <serenity.maven.version>2.6.1-SNAPSHOT</serenity.maven.version>
+        <serenity.cucumber.version>2.6.0</serenity.cucumber.version>
         <encoding>UTF-8</encoding>
         <maven.compiler.source>16</maven.compiler.source>
         <maven.compiler.target>16</maven.compiler.target>
@@ -124,8 +124,8 @@
                     <includes>
                         <include>**/acceptancetests/*.java</include>
                     </includes>
-                    <parallel>methods</parallel>
-                    <useUnlimitedThreads>true</useUnlimitedThreads>
+<!--                    <parallel>methods</parallel>-->
+<!--                    <useUnlimitedThreads>true</useUnlimitedThreads>-->
                 </configuration>
                 <executions>
                     <execution>

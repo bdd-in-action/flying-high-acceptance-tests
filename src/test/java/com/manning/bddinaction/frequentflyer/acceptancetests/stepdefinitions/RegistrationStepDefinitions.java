@@ -57,7 +57,6 @@ public class RegistrationStepDefinitions {
     public void shouldBeAbleToLoginAs(Actor member) {
         member.attemptsTo(
                 Login.as(newMember)
-//                Acknowledge.successMessageOf("Logged in as " + newMember.email())
         );
     }
 
@@ -65,7 +64,6 @@ public class RegistrationStepDefinitions {
     public void loginAs(Actor actor) {
         actor.attemptsTo(
                 Login.as(newMember)
-//                Acknowledge.success()
         );
     }
 
@@ -120,6 +118,7 @@ public class RegistrationStepDefinitions {
         actor.attemptsTo(
                 RegisterAsAFrequentFlyer.viaTheAPI().withMemberDetailsFrom(newMember)
         );
+        actor.attemptsTo(RegisterAsAFrequentFlyer.usingTheirUsernameAndEmailAddress());
     }
 
     @When("{actor} tries to register with the same email")
@@ -165,9 +164,9 @@ public class RegistrationStepDefinitions {
         );
     }
 
-    @But("she doesn't provide a value for {word}")
-    public void sheDoesnTProvideAValueForField(String field) {
-        theActorInTheSpotlight().attemptsTo(
+    @But("{actor} doesn't provide a value for {word}")
+    public void sheDoesnTProvideAValueForField(Actor actor, String field) {
+        actor.attemptsTo(
                 RegisterAsAFrequentFlyer.withMemberDetailsFrom(
                         newMember.withEmptyValueFor(field)
                 )
