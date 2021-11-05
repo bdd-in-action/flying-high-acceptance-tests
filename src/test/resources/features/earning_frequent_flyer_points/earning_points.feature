@@ -114,7 +114,7 @@ Feature: Earning Points
         | Status   | Points Earned | Bonus |
         | STANDARD | 100           | 0     |
         | BRONZE   | 125           | 25%   |
-        | SILVER   | 150           | 50%   |
+        | SILVER   | 200           | 50%   |
         | GOLD     | 200           | 100%  |
 
   Rule: Travellers earn more depending on the cabin class they fly in

@@ -18,10 +18,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import net.serenitybdd.screenplay.Actor;
-import net.serenitybdd.screenplay.InParallel;
-import net.serenitybdd.screenplay.Performable;
-import net.serenitybdd.screenplay.Task;
+import net.serenitybdd.screenplay.*;
 import net.serenitybdd.screenplay.conditions.Check;
 import net.serenitybdd.screenplay.ensure.Ensure;
 import net.thucydides.core.annotations.Steps;
@@ -165,17 +162,14 @@ public class EarningPointsStepDefinitions {
 
 
     @When("{actor} books the following flight/flights")
-    /**
-     * When we use the present tense, we book the flights through the UI.
-     */
     public void booksTheFollowingFlights(Actor traveller, List<FlightSearch> flights) {
         flights.forEach(
                 flight -> traveller.attemptsTo(
-                        SearchFlights.from(flight.from())
-                                .to(flight.to())
-                                .inTravelClass(flight.travelClass())
-                                .withAReturnJourney(flight.returnTrip()),
-                        BookTheFlight.thatIsFirstInTheList()
+                            SearchFlights.from(flight.from())
+                                         .to(flight.to())
+                                         .inTravelClass(flight.travelClass())
+                                         .withAReturnJourney(flight.returnTrip()),
+                            BookTheFlight.thatIsFirstInTheList()
                 )
         );
     }

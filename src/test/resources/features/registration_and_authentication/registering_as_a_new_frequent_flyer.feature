@@ -50,7 +50,7 @@ Business Need: Registering as a new Frequent Flyer
         | password  | Please enter your password   |
         | firstName | Please enter your first name |
         | lastName  | Please enter your last name  |
-        | address   | Please enter your address    |
+        | address2   | Please enter your address    |
         | country   | Please enter a valid country |
 
     Example: Candy forgets to agree to the Terms and Conditions

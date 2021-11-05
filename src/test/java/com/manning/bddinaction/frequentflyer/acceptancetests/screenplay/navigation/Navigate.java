@@ -16,14 +16,14 @@ import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isNotE
  */
 public class Navigate {
     public static Performable toTheRegistrationPage() {
-        return Task.where(
+        return Task.where("{0} navigates to the registration page",
                 Open.browserOn().thePageNamed("pages.home"),
                 Click.on(MenuBar.REGISTER)
         );
     }
 
     public static Performable toTheLoginPage() {
-        return Task.where(
+        return Task.where("{0} navigates to the login page",
                 Open.browserOn().thePageNamed("pages.home"),
                 Click.on(MenuBar.LOGIN_BUTTON)
         );
@@ -31,14 +31,14 @@ public class Navigate {
 
 
     public static Performable toBookFlights() {
-        return Task.where(
+        return Task.where("{0} navigates to the booking page",
                 Open.browserOn().thePageNamed("pages.home"),
                 Click.on(MenuBar.BOOK_FLIGHTS)
         );
     }
 
     public static Performable toMyAccount() {
-        return Task.where(
+        return Task.where("{0} navigates to my accounts",
                 Click.on(MenuBar.MY_ACCOUNT),
                 WaitUntil.the(StatusPanel.STATUS_LEVEL, isNotEmpty()),
                 WaitUntil.the(StatusPanel.POINT_BALANCE, isNotEmpty())

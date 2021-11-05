@@ -4,9 +4,9 @@ import com.manning.bddinaction.frequentflyer.acceptancetests.domain.persona.Trav
 import com.manning.bddinaction.frequentflyer.acceptancetests.domain.persona.TravellerPersona;
 import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.login.Login;
 import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.navigation.Navigate;
+import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.navigation.OpenTheApplicationOn;
 import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.registration.RegisterAsAFrequentFlyer;
 import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.registration.RegistrationForm;
-import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.ux.Acknowledge;
 import io.cucumber.java.ParameterType;
 import io.cucumber.java.en.But;
 import io.cucumber.java.en.Given;
@@ -16,6 +16,7 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Iterate;
 import net.serenitybdd.screenplay.actions.Clear;
 import net.serenitybdd.screenplay.actions.Click;
+import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.type.Type;
 import net.serenitybdd.screenplay.ensure.Ensure;
 import net.serenitybdd.screenplay.waits.WaitUntil;
@@ -23,6 +24,8 @@ import net.serenitybdd.screenplay.waits.WaitUntil;
 import java.util.List;
 import java.util.Map;
 
+import static com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.registration.RegistrationForm.EMAIL;
+import static com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.registration.RegistrationForm.REGISTER;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
@@ -137,6 +140,17 @@ public class RegistrationStepDefinitions {
                 RegisterAsAFrequentFlyer.withMemberDetailsFrom(
                         newMember.withEmail(email)
                 )
+        );
+    }
+
+    @When("{actor} provides an email of {string}")
+    public void providesEmail(Actor actor, String email) {
+        actor.attemptsTo(
+                // Override the default traveller properties with a different email
+                OpenTheApplicationOn.theRegistrationPage(),
+                Enter.theValue(email).into(EMAIL),
+                // Submit the registration
+                Click.on(REGISTER)
         );
     }
 

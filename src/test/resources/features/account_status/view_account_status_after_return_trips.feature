@@ -6,15 +6,16 @@ Business Need: View account status after several return trips
   Background:
     Given Trevor has logged onto the Frequent Flyer application as a new member
 
-    @current
-    Example: Trevor views his flight history for a return flight
-      When Trevor books the following flights
-        | From   | To       | Travel Class | Trip Type |
-        | London | New York | Business     | Return    |
-      Then his booking history should contain:
-        | Departure | Destination | Points Earned |
-        | London    | New York    | 250           |
-        | New York  | London      | 250           |
+  Example: Trevor views his flight history for a return flight
+    Return trips are recorded in the flight history as two separate flights
+
+    When Trevor books the following flights
+      | From   | To       | Travel Class | Trip Type |
+      | London | New York | Business     | Return    |
+    Then his booking history should contain:
+      | Departure | Destination | Points Earned |
+      | London    | New York    | 250           |
+      | New York  | London      | 250           |
 
   Rule: Flights should be shown in reverse historical order
     Example: Trevor views his flight history after several flights
