@@ -13,7 +13,6 @@ Business Need: View account status
         | 0             | STANDARD     |
 
   Rule: Members can see the history of their flights
-    @current
     Example: Trevor views his flight history for a single flight
       When Trevor books the following flights
         | From   | To        | Travel Class | Trip Type |

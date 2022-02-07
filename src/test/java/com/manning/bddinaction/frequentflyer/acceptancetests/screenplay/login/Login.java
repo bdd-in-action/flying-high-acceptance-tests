@@ -9,7 +9,7 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.SendKeys;
 
 public class Login {
-    public static Performable as(Traveller traveller) {
+    public static Performable  as(Traveller traveller) {
         return Task.where("{0} logs in as " + traveller.email(),
                 actor -> {
                     actor.attemptsTo(

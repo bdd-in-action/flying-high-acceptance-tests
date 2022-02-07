@@ -2,6 +2,7 @@ package com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.api;
 
 import com.google.common.base.Preconditions;
 import com.manning.bddinaction.frequentflyer.acceptancetests.domain.persona.Traveller;
+import io.restassured.response.Response;
 
 public class UserAPI extends AuthenticatedAPI {
 
@@ -10,11 +11,9 @@ public class UserAPI extends AuthenticatedAPI {
      */
     public String createNewUser(Traveller traveller) {
 
-        String userId = withAuthentication()
-                .body(traveller)
-                .post(endpointUrlFor("/users"))
-                .body().jsonPath().getString("userId");
+        Response response = withAuthentication().body(traveller).post(endpointUrlFor("/users"));
 
+        String userId = response.body().jsonPath().getString("userId");
         return userId;
     }
 

@@ -19,8 +19,11 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.type.Type;
 import net.serenitybdd.screenplay.ensure.Ensure;
+import net.serenitybdd.screenplay.questions.Text;
+import net.serenitybdd.screenplay.ui.PageElement;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 

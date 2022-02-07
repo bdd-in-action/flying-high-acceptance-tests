@@ -7,6 +7,8 @@ import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.thucydides.core.annotations.Steps;
 
+import java.time.Duration;
+
 /**
  * Create a new user via the API.
  * We wrap a simple Rest Assured call in a Performable, as we are using the API to setup test data, not testing the API itself.

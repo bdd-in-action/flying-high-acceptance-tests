@@ -26,7 +26,6 @@ public class BookingAFlightStepDefinitions {
         actor.attemptsTo(
                 SearchFlights.from(departure).to(destination).inTravelClass(travelClass),
                 BookTheFlight.thatIsFirstInTheList()
-//                Acknowledge.success()
         );
     }
 
@@ -35,7 +34,6 @@ public class BookingAFlightStepDefinitions {
         actor.attemptsTo(
                 SearchFlights.from(departure).to(destination).inTravelClass(travelClass).withAReturnJourney(returnJourney),
                 BookTheFlight.thatIsFirstInTheList()
-//                Acknowledge.success()
         );
     }
 

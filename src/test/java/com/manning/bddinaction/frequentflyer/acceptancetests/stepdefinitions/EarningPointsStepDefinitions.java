@@ -207,7 +207,6 @@ public class EarningPointsStepDefinitions {
                                     .inTravelClass(flight.travelClass())
                                     .withAReturnJourney(flight.returnTrip()),
                             BookTheFlight.thatIsFirstInTheList()
-//                            Acknowledge.success());
                     );
                 }
         );

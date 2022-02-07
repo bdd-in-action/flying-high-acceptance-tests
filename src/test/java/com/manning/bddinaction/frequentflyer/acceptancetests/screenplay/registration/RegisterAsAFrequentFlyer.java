@@ -19,7 +19,7 @@ import static com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.r
  * The registration page is defined in the serenity.conf file, in the `pages.registration` property.
  */
 public class RegisterAsAFrequentFlyer {
-    public static Performable withMemberDetailsFrom(Traveller memberDetails) {
+    public static Performable  withMemberDetailsFrom(Traveller memberDetails) {
         return Task.where("{0} registers for a new Frequent Flyer account with email " + memberDetails.email(),
                 // Open the registraton page
                 OpenTheApplicationOn.theRegistrationPage(),
