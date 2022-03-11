@@ -9,6 +9,7 @@ Business Need: Registering as a new Frequent Flyer
       Then he should be able to log on to the Frequent Flyer application
 
   Rule: Duplicate usernames are not allowed
+    Rule: Duplicate accounts with the same email address are not allowed
 
     Example: Someone tries to register with an email that is already used
     Trevor is an existing Frequent Flyer member.
@@ -35,11 +36,11 @@ Business Need: Registering as a new Frequent Flyer
       Given Candy does not have a Frequent Flyer account
       When Candy wants to register a new Frequent Flyer account
       Then the following emails should not be considered valid:
-        | Email        | Message                  | Reason Rejected    |
-        |              | Please enter your email  | Cannot be empty    |
-        | not-an-email | Not a valid email format | Missing @ section  |
-        | wrong.com    | Not a valid email format | Missing @          |
-        | wrong@       | Not a valid email format | Missing domain     |
+        | Email        | Message                  | Reason Rejected   |
+        |              | Please enter your email  | Cannot be empty   |
+        | not-an-email | Not a valid email format | Missing @ section |
+        | wrong.com    | Not a valid email format | Missing @         |
+        | wrong@       | Not a valid email format | Missing domain    |
 #        | wrong@#.com  | Not a valid email format | Invalid characters |
 
   Rule: New members need to complete all the mandatory fields and approve the terms & conditions
@@ -54,6 +55,24 @@ Business Need: Registering as a new Frequent Flyer
         | lastName  | Please enter your last name  |
         | address   | Please enter your address    |
         | country   | Please enter a valid country |
+
+    Example: Candy forgets to agree to the Terms and Conditions
+      Given Candy does not have a Frequent Flyer account
+      When Candy tries to register without approving the terms and conditions
+      Then she should be told "Please confirm the terms and conditions to continue"
+
+
+  Rule: New members need to complete all the mandatory fields and approve the terms & conditions
+    Scenario: Candy fails to enter to enter a mandatory field
+      Given Candy does not have a Frequent Flyer account
+      When Candy wants to register a new Frequent Flyer account
+      Then the following information should be mandatory to register:
+        | email     |
+        | password  |
+        | firstName |
+        | lastName  |
+        | address   |
+        | country   |
 
     Example: Candy forgets to agree to the Terms and Conditions
       Given Candy does not have a Frequent Flyer account

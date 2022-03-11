@@ -46,7 +46,6 @@ public class AuthenticationStepDefinitions {
 
     @Given("{actor} has logged onto the Frequent Flyer application as a new member")
     public void loginAsANewMember(Actor member) {
-        System.out.println("THREAD " + Thread.currentThread());
         Traveller traveller = TravellerPersona.withName(member.getName()).withAUniqueEmailAddress();
         member.attemptsTo(
                 RegisterAsAFrequentFlyer.viaTheAPI().withMemberDetailsFrom(traveller),

@@ -23,6 +23,7 @@ import net.serenitybdd.screenplay.questions.Text;
 import net.serenitybdd.screenplay.ui.PageElement;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -32,6 +33,7 @@ import static com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.r
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class RegistrationStepDefinitions {
 
@@ -189,5 +191,4 @@ public class RegistrationStepDefinitions {
                 )
         );
     }
-
 }
