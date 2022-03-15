@@ -41,6 +41,8 @@ public record Traveller(
     }
 
     public Traveller withEmptyValueFor(String fieldName) {
+        if (fieldName == null) { return this; }
+
         switch (fieldName) {
             case "email": return new Traveller(userId, "", password, title, firstName, lastName, address, country, seatPreference, newsletterSub, agreesToTermsAndConditions, points, userLevel);
             case "password": return new Traveller(userId, email, "", title, firstName, lastName, address, country, seatPreference, newsletterSub, agreesToTermsAndConditions, points, userLevel);
@@ -49,8 +51,8 @@ public record Traveller(
             case "lastName": return new Traveller(userId, email, password, title, firstName, "", address, country, seatPreference, newsletterSub, agreesToTermsAndConditions, points, userLevel);
             case "address": return new Traveller(userId, email, password, title, firstName, lastName, "", country, seatPreference, newsletterSub, agreesToTermsAndConditions, points, userLevel);
             case "country": return new Traveller(userId, email, password, title, firstName, lastName, address, "", seatPreference, newsletterSub, agreesToTermsAndConditions, points, userLevel);
+            default: return this;
         }
-        return this;
     }
 
     public Traveller withId(String userId) {

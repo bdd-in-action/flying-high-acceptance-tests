@@ -249,4 +249,5 @@ public class EarningPointsStepDefinitions {
         );
         Ensure.reportSoftAssertions();
     }
+
 }

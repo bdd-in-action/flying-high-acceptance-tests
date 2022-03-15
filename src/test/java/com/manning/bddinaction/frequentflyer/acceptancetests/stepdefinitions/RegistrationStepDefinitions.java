@@ -19,12 +19,8 @@ import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
 import net.serenitybdd.screenplay.actions.type.Type;
 import net.serenitybdd.screenplay.ensure.Ensure;
-import net.serenitybdd.screenplay.questions.Text;
-import net.serenitybdd.screenplay.ui.PageElement;
 import net.serenitybdd.screenplay.waits.WaitUntil;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -33,7 +29,6 @@ import static com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.r
 import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
 import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
-import static org.assertj.core.api.Assertions.assertThat;
 
 public class RegistrationStepDefinitions {
 
@@ -104,20 +99,31 @@ public class RegistrationStepDefinitions {
     @Then("the following information should be mandatory to register:")
     public void mandatoryFields(List<Map<String, String>> mandatoryFields) {
 
-        Ensure.enableSoftAssertions();
-        theActorInTheSpotlight().attemptsTo(
-                Iterate.over(mandatoryFields).forEach(
-                        (actor, row) -> actor.attemptsTo(
-                                RegisterAsAFrequentFlyer.withMemberDetailsFrom(
-                                        newMember.withEmptyValueFor(row.get("Field"))
-                                ),
-                                WaitUntil.the(RegistrationForm.FORM_ERROR_MESSAGES, isVisible()),
-                                Ensure.that(RegistrationForm.FORM_ERROR_MESSAGES).textValues()
-                                        .contains(row.get("Error Message If Missing"))
-                        )
-                )
-        );
-        Ensure.reportSoftAssertions();
+        for (Map<String, String> mandatoryField : mandatoryFields) {
+            theActorInTheSpotlight().attemptsTo(
+                    RegisterAsAFrequentFlyer.withMemberDetailsFrom(
+                            newMember.withEmptyValueFor(mandatoryField.get("Field"))
+                    ));
+            theActorInTheSpotlight().attemptsTo(
+                    WaitUntil.the(RegistrationForm.FORM_ERROR_MESSAGES, isVisible()),
+                    Ensure.that(RegistrationForm.FORM_ERROR_MESSAGES).textValues()
+                            .contains(mandatoryField.get("Error Message If Missing"))
+            );
+        }
+//        Ensure.enableSoftAssertions();
+//        theActorInTheSpotlight().attemptsTo(
+//                Iterate.over(mandatoryFields).forEach(
+//                        (actor, row) -> actor.attemptsTo(
+//                                RegisterAsAFrequentFlyer.withMemberDetailsFrom(
+//                                        newMember.withEmptyValueFor(row.get("Field"))
+//                                ),
+//                                WaitUntil.the(RegistrationForm.FORM_ERROR_MESSAGES, isVisible()),
+//                                Ensure.that(RegistrationForm.FORM_ERROR_MESSAGES).textValues()
+//                                        .contains(row.get("Error Message If Missing"))
+//                        )
+//                )
+//        );
+//        Ensure.reportSoftAssertions();
     }
 
     @Given("{actor} has registered as a Frequent Flyer member")

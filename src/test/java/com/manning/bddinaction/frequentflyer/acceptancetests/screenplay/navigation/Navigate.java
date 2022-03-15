@@ -1,6 +1,7 @@
 package com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.navigation;
 
 import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.myaccount.StatusPanel;
+import com.manning.bddinaction.frequentflyer.acceptancetests.screenplay.search.SearchFlightsForm;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Performable;
 import net.serenitybdd.screenplay.Task;
@@ -10,6 +11,7 @@ import net.serenitybdd.screenplay.waits.WaitUntil;
 import net.thucydides.core.annotations.Title;
 
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isNotEmpty;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 /**
  * Navigate to different parts of the application via the main navigation bar
@@ -33,7 +35,8 @@ public class Navigate {
     public static Performable toBookFlights() {
         return Task.where("{0} navigates to the booking page",
                 Open.browserOn().thePageNamed("pages.home"),
-                Click.on(MenuBar.BOOK_FLIGHTS)
+                Click.on(MenuBar.BOOK_FLIGHTS),
+                WaitUntil.the(SearchFlightsForm.FROM, isVisible()).forNoMoreThan(10).seconds()
         );
     }
 
